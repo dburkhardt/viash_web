@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://viash.io/">
-    <img alt="viash" src="https://viash.io/viash.svg" width="60">
+    <img alt="viash" src="https://viash.io/viash.svg" width="300">
   </a>
 </p>
 
@@ -23,7 +23,7 @@
     <img src="https://img.shields.io/github/workflow/status/viash-io/viash/Scala%20CI/master?style=flat-square" alt="CI Status">
   </a>
   <a href="https://github.com/viash-io/viash_web/actions?query=workflow%3A%22GitHub+Pages%22">
-    <img src="https://img.shields.io/github/workflow/status/viash-io/viash_web/GitHub%20Pages/master?style=flat-square" alt="GitHub Pages Status">
+    <img src="https://img.shields.io/github/workflow/status/viash-io/viash_web/GitHub%20Pages?style=flat-square" alt="GitHub Pages Status">
   </a>
 </p>
 
