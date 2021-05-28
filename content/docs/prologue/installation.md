@@ -3,7 +3,7 @@ title: "Installation"
 description: "Installation requirements and instructions."
 lead: "Installation requirements and instructions."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-28T13:29:58+00:00"
+lastmod: "2021-05-28T19:07:44+00:00"
 draft: false
 images: []
 menu:
@@ -29,7 +29,7 @@ You can run viash on the following operating systems:
 -   viash is developed in [Scala 2.12](https://www.scala-lang.org/), so
     you’ll need an [Oracle Java SE Runtime Environment 8
     installation](https://www.oracle.com/java/technologies/javase-jre8-downloads.html)
-    in order to use it.
+    or OpenJDK in order to use it.
 
 ## Installing viash
 
@@ -86,56 +86,6 @@ following command:
 
 ``` bash
 sudo wget "https://github.com/data-intuitive/viash/releases/latest/download/viash" -O /usr/bin/viash
-```
-
-To verify your installation, run the following command:
-
-``` bash
-viash --help
-```
-
-### Build from source
-
-The following needs to be installed on your system in order to install
-viash:
-
--   GNU
-    [Autotools](https://www.gnu.org/software/automake/manual/html_node/Autotools-Introduction.html#Autotools-Introduction)
--   [Oracle Java SE Runtime Environment 8
-    installation](https://www.oracle.com/java/technologies/javase-jre8-downloads.html)
--   [sbt](https://www.scala-sbt.org/)
-
-To build and install viash, run the following commands.
-
-``` bash
-./configure --prefix=~
-make
-make install
-```
-
-If you wish to install viash for all users and not just yourself, run
-the following commands instead.
-
-``` bash
-./configure
-make
-sudo make install
-```
-
-To verify your installation, run the following command:
-
-``` bash
-viash --help
-```
-
-### Build from source using docker
-
-If you have Java and Docker installed, but not `sbt`, run this instead:
-
-``` bash
-./configure --prefix=~
-make docker
-make install
 ```
 
 To verify your installation, run the following command:

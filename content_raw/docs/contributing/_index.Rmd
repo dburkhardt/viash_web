@@ -1,6 +1,6 @@
 ---
-title : "Creating Components"
-description: "Creating Components"
+title : "Contributing"
+description: "Contributing"
 lead: ""
 date: 2021-05-28T14:00:00+00:00
 lastmod: "`r format(Sys.time(), '%Y-%Om-%dT%H:%M:%S+00:00')`"

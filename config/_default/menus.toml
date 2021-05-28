@@ -11,16 +11,34 @@
   url = "/docs/creating_components/"
   
 [[docs]]
-  name = "Reference"
+  name = "Creating Pipelines"
+  weight = 20
+  identifier = "creating_pipelines"
+  url = "/docs/creating_pipelines/"
+  
+[[docs]]
+  name = "Reference: Commands"
   weight = 30
-  identifier = "reference"
-  url = "/docs/reference/"
+  identifier = "reference_commands"
+  url = "/docs/reference_commands/"
+  
+[[docs]]
+  name = "Reference: Config"
+  weight = 40
+  identifier = "reference_config"
+  url = "/docs/reference_config/"
   
 [[docs]]
   name = "Help"
-  weight = 60
+  weight = 50
   identifier = "help"
   url = "/docs/help/"
+  
+[[docs]]
+  name = "Contributing"
+  weight = 60
+  identifier = "contributing"
+  url = "/docs/contributing/"
 
 [[main]]
   name = "Docs"
