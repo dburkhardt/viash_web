@@ -3,13 +3,13 @@ title: "Dev Environment"
 description: "Installation requirements and instructions."
 lead: "Installation requirements and instructions."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-28T19:01:10+00:00"
+lastmod: "2021-05-28T19:58:45+00:00"
 draft: false
 images: []
 menu:
   docs:
     parent: "contributing"
-weight: 300
+weight: 730
 toc: true
 ---
 

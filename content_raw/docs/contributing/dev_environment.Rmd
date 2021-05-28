@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "contributing"
-weight: 300
+weight: 730
 toc: true
 ---
 

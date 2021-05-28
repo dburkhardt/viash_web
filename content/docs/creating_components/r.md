@@ -3,13 +3,13 @@ title: "Creating an R component"
 description: "Developing a new viash component."
 lead: "Developing a new viash component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-28T14:02:07+00:00"
+lastmod: "2021-05-28T19:59:00+00:00"
 draft: false
 images: []
 menu:
   docs:
     parent: "creating_components"
-weight: 300
+weight: 230
 toc: true
 ---
 

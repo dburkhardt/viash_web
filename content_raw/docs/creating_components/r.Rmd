@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "creating_components"
-weight: 300
+weight: 230
 toc: true
 ---
 

@@ -3,13 +3,13 @@ title: "viash test"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-28T18:41:00+00:00"
+lastmod: "2021-05-28T19:59:26+00:00"
 draft: false
 images: []
 menu:
   docs:
     parent: "reference_commands"
-weight: 300
+weight: 420
 toc: true
 ---
 
