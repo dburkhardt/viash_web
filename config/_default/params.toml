@@ -4,7 +4,7 @@
 title = "viash"
 titleSeparator = "-"
 titleAddition = "From scripts to pipelines"
-description = "Turn a simple script into a reusable and reproducible pipeline component."
+description = "script + metadata = standalone component"
 
 ## Open Graph + Twitter Cards
 images = ["doks.png"]
