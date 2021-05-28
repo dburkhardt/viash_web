@@ -1,5 +1,5 @@
-baseurl = "/"
-canonifyURLs = false
+baseurl = "https://viash.io/"
+canonifyURLs = true
 disableAliases = true
 disableHugoGeneratorInject = true
 enableEmoji = true

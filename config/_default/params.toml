@@ -3,8 +3,8 @@
 ## Homepage
 title = "viash"
 titleSeparator = "-"
-titleAddition = "from scripts to pipelines"
-description = "viash helps you turn a simple script into a reusable and reproducible pipeline component."
+titleAddition = "From scripts to pipelines"
+description = "Turn a simple script into a reusable and reproducible pipeline component."
 
 ## Open Graph + Twitter Cards
 images = ["doks.png"]
