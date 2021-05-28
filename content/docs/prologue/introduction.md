@@ -1,9 +1,9 @@
 ---
 title: "Introduction"
-description: "Doks is a Hugo theme helping you build modern documentation websites that are secure, fast, and SEO-ready — by default."
-lead: "Doks is a Hugo theme helping you build modern documentation websites that are secure, fast, and SEO-ready — by default."
-date: 2020-10-06T08:48:57+00:00
-lastmod: 2020-10-06T08:48:57+00:00
+description: "viash helps you turn a script (Bash/R/Python/Scala/JavaScript) into a reusable component."
+lead: "viash helps you turn a script (Bash/R/Python/Scala/JavaScript) into a reusable component."
+date: 2020-10-06T08:48:45+00:00
+lastmod: 2020-10-06T08:48:45+00:00
 draft: false
 images: []
 menu:
@@ -13,46 +13,69 @@ weight: 100
 toc: true
 ---
 
-## Get started
 
-There are two main ways to get started with Doks:
 
-### Tutorial
+<!-- TODO: What is viash if you would describe it in one or two sentences?
+viash is a ... -->
 
-{{< alert icon="👉" text="The Tutorial is intended for novice to intermediate users." >}}
+By providing some meta-data regarding its functionality and the platform
+on which you want to run the software, viash can help you:
 
-Step-by-step instructions on how to start a new Doks project. [Tutorial →](https://getdoks.org/tutorial/introduction/)
+-   Wrap your script in an executable with a CLI and `--help`
+    functionality.
+-   Seamlessly execute your component natively on the host platform or
+    in a **Docker** container.
+-   Combine multiple components in a **Nextflow** pipeline.
+-   Unit-test your component to ensure that it works at all times.
 
-### Quick Start
+## Example use cases
 
-{{< alert icon="👉" text="The Quick Start is intended for intermediate to advanced users." >}}
+Here are a few use cases which serve as motivation for viash:
 
-One page summary of how to start a new Doks project. [Quick Start →]({{< relref "quick-start" >}})
+<!-- TODO: Rewrite use cases, the reason why viash helps in those situations should be crystal clear to someone that has never seen viash before, this part of the docs is presented before the installation after all. Ideally each of these should have "viash can help here by../In this case, viash can.../etc." -->
 
-## Go further
+-   You want to combine several tools in a pipeline and every tool has
+    specific requirements on how they should be run. Even worse: some
+    requirements might directly conflict with each other.
+-   Your next data analysis project is very similar to the previous
+    project, so you copy and paste the source code. Unfortunately, you
+    detect a bug in some of your code, so now you need to go back and
+    fix the same bug in all the different projects.
+-   You want to look back at a data analysis you performed two years
+    ago. Unfortunately, the software you used back then is not supported
+    anymore, or the newest version produces totally different results.
+    With viash you can package the older version together with its
+    dependencies in an executable so you don’t have to worry about
+    conflicts or deprecated versions
+-   You developed a [Jupyter](https://jupyter.org/) notebook report for
+    a data analysis. You wish to share it with your colleague, only to
+    spend two hours installing your [Conda](https://docs.conda.io/)
+    stack on their laptop.
 
-Recipes, Reference Guides, Extensions, and Showcase.
+## Getting started
 
-### Recipes
+Here are some links to get you started with viash:
 
-Get instructions on how to accomplish common tasks with Doks. [Recipes →](https://getdoks.org/docs/recipes/project-configuration/)
+-   [Installing viash](/getting_started/installation): This guide walks
+    you through the steps to install viash on your machine.
+-   [Running your first component
+    (Bash)](/getting_started/hello_world_bash): Get a feel for viash
+    with a classic **Hello World** tutorial, written in Bash.
+-   [Running your first component
+    (Python)](/getting_started/hello_world_python): Get a feel for viash
+    with a classic **Hello World** tutorial, written in Python.
+-   [Running your first component (R)](/getting_started/hello_world_r):
+    Get a feel for viash with a classic **Hello World** tutorial,
+    written in R.
 
-### Reference Guides
+## Documentation
 
-Learn how to customize Doks to fully make it your own. [Reference Guides →](https://getdoks.org/docs/reference-guides/security/)
+Once you understand how viash works and what it could do for you, take a
+look at our docs:
 
-### Extensions
+-   [Commands](/commands)
+-   [Config files](/config)
+-   [Good practices](/good_practices)
 
-Get instructions on how to add even more to Doks. [Extensions →](https://getdoks.org/docs/extensions/breadcrumb-navigation/)
-
-### Showcase
-
-See what others have build with Doks. [Showcase →](https://getdoks.org/showcase/electric-blocks/)
-
-## Contributing
-
-Find out how to contribute to Doks. [Contributing →](https://getdoks.org/docs/contributing/how-to-contribute/)
-
-## Help
-
-Get help on Doks. [Help →]({{< relref "how-to-update" >}})
+Check out the navigation menu on the left for more in-depth information
+about each topic.

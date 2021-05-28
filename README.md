@@ -9,10 +9,6 @@
 </h3>
 
 <p align="center">
-  viash helps you turn a simple script into a reusable and reproducible pipeline component.
-</p>
-
-<p align="center">
   <a href="https://github.com/viash-io/viash/blob/master/LICENSE.md">
     <img src="https://img.shields.io/github/license/viash-io/viash?style=flat-square" alt="GitHub">
   </a>
