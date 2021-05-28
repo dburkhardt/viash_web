@@ -62,5 +62,8 @@
     "standard-version": "^9.2",
     "stylelint": "^13.13",
     "stylelint-config-standard": "^22.0"
+  },
+  "dependencies": {
+    "markdown-it-code-copy": "^0.1.0"
   }
 }
