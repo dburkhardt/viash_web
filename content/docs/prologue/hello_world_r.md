@@ -2,8 +2,8 @@
 title: "Hello World (R)"
 description: "You can use several programming languages with viash to write your own components. To get started with your preferred language, take a look at the language specific Hello World examples and the [Creating components](/creating_components) section. "
 lead: "You can use several programming languages with viash to write your own components. To get started with your preferred language, take a look at the language specific Hello World examples and the [Creating components](/creating_components) section. "
-date: 2020-10-06T08:48:45+00:00
-lastmod: 2020-10-06T08:48:45+00:00
+date: 2021-05-28T14:00:00+00:00
+lastmod: "2021-05-28T13:32:02+00:00"
 draft: false
 images: []
 menu:
@@ -37,7 +37,7 @@ You can run a simple ‘Hello World’ component by running the following
 command:
 
 ``` bash
-URL=http://www.data-intuitive.com/viash_docs/examples/hello_world_r/config.vsh.yaml
+URL=https://viash.io/examples/hello_world_r/config.vsh.yaml
 viash run $URL
 ```
 
@@ -73,7 +73,7 @@ viash run $URL -- NAME. --greeter="Hello there,"
 ## How Does the hello world component work?
 
 When you call ‘viash run’, viash parses the
-[`config.vsh.yaml`](http://www.data-intuitive.com/viash_docs/examples/hello_world_r/config.vsh.yaml)
+[`config.vsh.yaml`](https://viash.io/examples/hello_world_r/config.vsh.yaml)
 file, which is a meta description of the component written in the yaml
 serialization language:
 
@@ -118,9 +118,9 @@ The ‘Hello World’ component accepts two arguments:
 
 These arguments are passed on to the **resources**. In this case,
 there’s a single reference to a file named
-[`script.r`](http://www.data-intuitive.com/viash_docs/examples/hello_world_r/script.r).
-This file is the ‘brain’ of the component, it’s small R script which
-prints out two environment values: `par_input` and `par_greeter`:
+[`script.r`](https://viash.io/examples/hello_world_r/script.r). This
+file is the ‘brain’ of the component, it’s small R script which prints
+out two environment values: `par_input` and `par_greeter`:
 
 ``` r
 ## VIASH START
@@ -144,7 +144,7 @@ Finally, there’s a **tests** section to put your test scripts. It’s a
 good practice to write tests and run these every time you update your
 component and/or the resources. You can read more about writing and
 running viash tests [on the Testing
-page](http://www.data-intuitive.com/viash_docs/good_practices/testing/).
+page](https://viash.io/good_practices/testing/).
 
 ### Platforms
 

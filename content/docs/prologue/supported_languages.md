@@ -2,8 +2,8 @@
 title: "Supported languages"
 description: "You can use several programming languages with viash to write your own components. To get started with your preferred language, take a look at the language specific Hello World examples and the [Creating components](/creating_components) section. "
 lead: "You can use several programming languages with viash to write your own components. To get started with your preferred language, take a look at the language specific Hello World examples and the [Creating components](/creating_components) section. "
-date: 2020-10-06T08:48:45+00:00
-lastmod: 2020-10-06T08:48:45+00:00
+date: 2021-05-28T14:00:00+00:00
+lastmod: "2021-05-28T13:29:58+00:00"
 draft: false
 images: []
 menu:
