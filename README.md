@@ -5,7 +5,7 @@
 </p>
 
 <h3 align="center">
-  from script to pipelines
+  script + metadata = standalone component
 </h3>
 
 <p align="center">
