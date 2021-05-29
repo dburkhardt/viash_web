@@ -3,13 +3,17 @@ title: "viash run"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
+<<<<<<< HEAD
 lastmod: "2021-05-29T09:19:14+00:00"
+=======
+lastmod: "2021-05-28T19:59:26+00:00"
+>>>>>>> main
 draft: false
 images: []
 menu:
   docs:
     parent: "reference_commands"
-weight: 100
+weight: 400
 toc: true
 ---
 

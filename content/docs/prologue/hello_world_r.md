@@ -3,13 +3,17 @@ title: "Hello World (R)"
 description: "You can use several programming languages with viash to write your own components. To get started with your preferred language, take a look at the language specific Hello World examples and the [Creating components](/docs/creating_components) section. "
 lead: "You can use several programming languages with viash to write your own components. To get started with your preferred language, take a look at the language specific Hello World examples and the [Creating components](/docs/creating_components) section. "
 date: 2021-05-28T14:00:00+00:00
+<<<<<<< HEAD
 lastmod: "2021-05-29T08:22:37+00:00"
+=======
+lastmod: "2021-05-28T19:59:15+00:00"
+>>>>>>> main
 draft: false
 images: []
 menu:
   docs:
     parent: "prologue"
-weight: 600
+weight: 160
 toc: true
 ---
 
