@@ -64,6 +64,7 @@
     "stylelint-config-standard": "^22.0"
   },
   "dependencies": {
+    "@mdi/font": "^5.9.55",
     "markdown-it-code-copy": "^0.1.0"
   }
 }

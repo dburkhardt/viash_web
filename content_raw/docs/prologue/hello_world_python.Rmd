@@ -28,7 +28,7 @@ knitr::opts_chunk$set(comment = NA)
 
 To follow along with this tutorial, you need to have this software installed on your machine:
 
-- An [installation of viash](/getting_started/installation).
+- An [installation of viash](/docs/prologue/installation).
 - A **Bash** Unix shell.
 - An [installation of python 3](https://www.python.org/downloads). You may have to install the `python-is-python3` package on Ubuntu and its derivatives to make Python 3 the default version.
 
@@ -84,7 +84,7 @@ print_file("script.py", format = "python", show_filename = FALSE)
 
 Any variables defined in the config file will be automatically generated between the `## VIASH START` and `## VIASH END` lines. You can add pre-defined values here for debugging purposes by adding the variables in a `par` dictionary. Their values will automatically be replaced at runtime with parameter values from the CLI. 
 
-Finally, there's a **tests** section to put your test scripts. It's a good practice to write tests and run these every time you update your component and/or the resources. You can read more about writing and running viash tests [on the Testing page](https://viash.io/good_practices/testing/).
+Finally, there's a **tests** section to put your test scripts. It's a good practice to write tests and run these every time you update your component and/or the resources. The component creating tutorials on the left include an example.
 
 ### Platforms
 
@@ -103,7 +103,7 @@ platforms:
         packages: [ bash ]
 ```
 
-The list of currently supported platforms are [Native](/config/platform-native/), [Docker](/config/platform-docker/), and [Nextflow](/config/platform-nextflow/). If no platforms are specified, a native platform with no system requirements is assumed.
+The list of currently supported platforms are [Native](/docs/reference_config/platform-native/), [Docker](/docs/reference_config/platform-docker/), and [Nextflow](/docs/reference_config/platform-nextflow/). If no platforms are specified, a native platform with no system requirements is assumed.
 
 You can specify what platform a component should run on by passing the `-p` or `--platform` option. For example, try running the following command:
 
@@ -142,9 +142,9 @@ my_hello_world/hello_world_py NAME. --greeter="Hello there,"
 
 Now that you understand the basics of how viash works, take a look at how to write your own component:
 
-- [Creating a Bash component](/creating_components/bash)
-- [Creating a Python component](/creating_components/python)
-- [Creating an R component](/creating_components/r)
+- [Creating a Bash component](/docs/creating_components/bash)
+- [Creating a Python component](/docs/creating_components/python)
+- [Creating an R component](/docs/creating_components/r)
 
 ```{bash cleanup, echo=FALSE}
 rm -r my_hello_world
