@@ -3,7 +3,7 @@ title: "Creating a Bash component"
 description: "Developing a new viash component."
 lead: "Developing a new viash component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-28T20:03:23+00:00"
+lastmod: "2021-05-29T08:37:47+00:00"
 draft: false
 images: []
 menu:
@@ -27,21 +27,21 @@ functionality and a config file that describes the component.
 
 The files used in this tutorial can be found here:
 
-<https://github.com/data-intuitive/viash_docs/examples/md_url_checker>
+<https://github.com/viash-io/viash_web/tree/main/static/examples/md_url_checker>
 
 ## Prerequisites
 
 To follow along with this tutorial, you need to have this software
 installed on your machine:
 
--   An [installation of viash](/getting_started/installation).
+-   An [installation of viash](/docs/prologue/installation).
 -   A **Bash** Unix shell.
 -   An installation of [Docker](https://www.docker.com/).
 -   An installation of [cURL](https://curl.se/). Install this via your
     package manager if you don’t have it installed yet.
 
 We recommend you take a look at the [hello world
-example](/getting_started/hello_world_bash) first to understand how
+example](/docs/prologue/hello_world_bash) first to understand how
 components work.
 
 ## Write a script in bash
@@ -241,12 +241,11 @@ platforms:
 ```
 
 Every config file requires these two dictionaries:
-[functionality](http://www.data-intuitive.com/viash_docs/getting_started/hello_world_bash/#functionality)
-and
-[platforms](http://www.data-intuitive.com/viash_docs/getting_started/hello_world_bash/#platforms).
-This bare-bones config file makes it easy to “fill in the blanks” for
-this example. For more information about config files, you can take a
-look at the [Config](/config) page.
+[functionality](/docs/prologue/hello_world_bash/#functionality) and
+[platforms](/docs/prologue/hello_world_bash/#platforms). This bare-bones
+config file makes it easy to “fill in the blanks” for this example. For
+more information about config files, you can take a look at the
+**Reference: Config** section on the left.
 
 Let’s start off by defining the functionality of our component.
 
@@ -284,7 +283,7 @@ To create good arguments, you need to ask yourself a few essential
 questions about each variable:
 
 -   What is the most fitting [data
-    type](config/functionality/#arguments-list)?
+    type](/docs/reference_config/functionality/#arguments-list)?
 -   Is it an input or an output?
 -   Is it required?
 
@@ -391,7 +390,7 @@ dictionary, so replace the following values to point to the script:
     accordingly so viash knows what flavor of code to generate to create
     the final component. You can find a full overview of the different
     resource types on the [Functionality
-    page](/config/functionality/#resources-list).
+    page](/docs/reference_config/functionality/#resources-list).
 -   Change the value of **path** to **script.sh**. This points to the
     resource and can be a relative path, an absolute path or even a URL.
     In this case we keep the script in the same directory as the config
@@ -405,10 +404,11 @@ and building the component.
 
 The platforms dictionary specifies the requirements to execute the
 component on zero or more platforms. The list of currently supported
-platforms are [Native](config/platform-native),
-[Docker](config/platform-docker), and
-[Nextflow](config/platform-nextflow). If no platforms are specified, a
-native platform is assumed. Here’s a quick overview of the platforms:
+platforms are [Native](/docs/reference_config/platform-native),
+[Docker](/docs/reference_config/platform-docker), and
+[Nextflow](/docs/reference_config/platform-nextflow). If no platforms
+are specified, a native platform is assumed. Here’s a quick overview of
+the platforms:
 
 -   **native**: The platform for developers that know what they’re doing
     or for simple components without any dependencies. All dependencies
@@ -439,9 +439,10 @@ with the [latest bash image](https://hub.docker.com/_/bash) as its base.
 If your script doesn’t depend on any packages, this would be all you’d
 have to add when using a bash script. The script in our example however
 needs **curl** installed to work. Luckily, this isn’t a problem since
-viash [supports defining dependencies](config/platform-docker/#example)
-which then get pulled from inside the docker container before running
-the script. To add curl as a dependancy that needs to be installed, add
+viash [supports defining
+dependencies](/docs/reference_config/platform-docker/#example) which
+then get pulled from inside the docker container before running the
+script. To add curl as a dependancy that needs to be installed, add
 these lines below `image: bash:latest`:
 
 ``` yaml
@@ -456,7 +457,7 @@ package manager to download and install curl inside of the container.
 That’s it for the config! Be sure to save it and let’s move on to
 actually running the component you’ve created. For reference, you can
 take a look at the completed **config.vsh.yaml** file in [our Github
-repository](https://github.com/data-intuitive/viash_docs/tree/master/examples/md_url_checker/config.vsh.yaml).
+repository](https://github.com/viash-io/viash_web/blob/main/static/examples/md_url_checker/config.vsh.yaml).
 
 ## Run the component
 
@@ -495,7 +496,7 @@ platform, in this case **native** as it’s the first in the **platforms**
 dictionary:
 
 ``` bash
-viash run config.vsh.yaml -- --inputfile=Testfile.md --domain=http://www.data-intuitive.com/viash_docs/ --output=my_report.txt
+viash run config.vsh.yaml -- --inputfile=Testfile.md --domain=http://www.viash-io.com/ --output=my_report.txt
 ```
 
 If all goes well, you’ll see something like this output in the terminal
@@ -511,17 +512,17 @@ and a file named **my\_report.txt** will have appeared:
     HTTP/2 404 
     4: http://www.data-intuitive.com/viash_docs/
     OK
-    5: http://www.data-intuitive.com/viash_docs//getting_started/installation
-    OK
-    6: http://www.data-intuitive.com/viash_docs//good_practices/testing
-    OK
+    5: http://www.viash-io.com//getting_started/installation
+
+    6: http://www.viash-io.com//good_practices/testing
+
 
     Testfile.md has been checked and a report named my_report.txt has been generated.
-    1 of 6 URLs could not be resolved.
+    3 of 6 URLs could not be resolved.
 
 For more information on the run command, take a look at [the viash run
-command page](/commands/run/). Great! With that working, the next step
-is building an executable.
+command page](/docs/reference_commands/run/). Great! With that working,
+the next step is building an executable.
 
 ## Building an executable
 
@@ -541,7 +542,7 @@ inside named **md\_url\_checker**. To test it out, execute the following
 command:
 
 ``` bash
-output/md_url_checker --inputfile=Testfile.md --domain=http://www.data-intuitive.com/viash_docs/ --output=my_report.txt
+output/md_url_checker --inputfile=Testfile.md --domain=http://www.viash-io.com/ --output=my_report.txt
 ```
 
 The output is the same as by running the component, but the executable
@@ -561,7 +562,7 @@ inner workings are slightly different than before. Run
 **md\_url\_checker** with the full arguments list to test what happens:
 
 ``` bash
-docker_output/md_url_checker --inputfile=Testfile.md --domain=http://www.data-intuitive.com/viash_docs/ --output=my_report.txt
+docker_output/md_url_checker --inputfile=Testfile.md --domain=http://www.viash-io.com/ --output=my_report.txt
 ```
 
 Here’s what just happened:
@@ -576,8 +577,8 @@ Here’s what just happened:
     working directory.
 
 For more information about the `viash build` command, take a look at
-[its command page](/commands/build/). That concludes the building of
-executables based on components using viash!
+[its command page](/docs/reference_commands/build/). That concludes the
+building of executables based on components using viash!
 
 ## Writing and running a unit test
 
@@ -658,11 +659,11 @@ viash test config.vsh.yaml
 
 The output will look like this:
 
-    Running tests in temporary directory: '/tmp/viash_test_md_url_checker9132134603032428587'
+    Running tests in temporary directory: '/tmp/viash_test_md_url_checker6729182718920261674'
     ====================================================================
-    +/tmp/viash_test_md_url_checker9132134603032428587/build_executable/md_url_checker ---setup
+    +/tmp/viash_test_md_url_checker6729182718920261674/build_executable/md_url_checker ---setup
     ====================================================================
-    +/tmp/viash_test_md_url_checker9132134603032428587/test_test.sh/test.sh
+    +/tmp/viash_test_md_url_checker6729182718920261674/test_test.sh/test.sh
     + echo '>>> Checking whether output is correct'
     + ./md_url_checker --inputfile Testfile.md
     >>> Checking whether output is correct
@@ -684,8 +685,8 @@ The output will look like this:
 
 If the test succeeds it simply writes the full output to the shell. If
 there’s any issues, the script stops and an error message will appear in
-red. For more information on tests take a look at the [Testing
-page](/good_practices/testing/).
+red. For more information on tests take a look at the [viash test
+command page](/docs/reference_commands/test/).
 
 ## What’s next?
 
@@ -693,7 +694,9 @@ Now you’re ready to use viash to creating components from your own
 scripts, check out the rest of our documentation on the left. Here are
 some good starting points:
 
--   The [viash commands](/commands/)
+-   The **Reference: Commands** section on the left
 -   An [overview of the functionality
-    dictionary](/config/functionality/) of the config file
--   More details about [the docker platform](/config/platform-docker/)
+    dictionary](/docs/reference_config/functionality/) of the config
+    file
+-   More details about [the docker
+    platform](/docs/reference_config/platform-docker/)
