@@ -3,7 +3,7 @@ title: "viash ns list"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-28T19:13:31+00:00"
+lastmod: "2021-05-29T09:21:52+00:00"
 draft: false
 images: []
 menu:
@@ -15,9 +15,8 @@ toc: true
 
 
 
-# viash ns list
-
-List a namespace containing many [viash config](/config) files.
+List a namespace containing many [viash
+config](/docs/reference_config/config) files.
 
 Usage:
 
@@ -27,9 +26,9 @@ Usage:
 
 Arguments:
 
--   `-c, --config_mod  <arg>...`: Modify a [viash config](/config) at
-    runtime using a custom DSL. For more information, see the online
-    documentation.
+-   `-c, --config_mod  <arg>...`: Modify a [viash
+    config](/docs/reference_config/config) at runtime using a custom
+    DSL. For more information, see the online documentation.
 -   `-k, --keep  <arg>`: Whether or not to keep temporary files. By
     default, files will be deleted if all goes well but remain when an
     error occurs. By specifying –keep true, the temporary files will
@@ -49,7 +48,7 @@ Arguments:
 -   `-n, --query_namespace  <arg>`: Filter which namespaces get selected
     by namespace. Can be a regex. Example: “^mynamespace$”.
 -   `-s, --src  <arg>`: A source directory containing [viash
-    config](/config) files, possibly structured in a hierarchical folder
-    structure. Default: src/.
+    config](/docs/reference_config/config) files, possibly structured in
+    a hierarchical folder structure. Default: src/.
 -   `-t, --tsv  <arg>`: Path to write a summary of the list results to.
 -   `-h, --help`: Show help message

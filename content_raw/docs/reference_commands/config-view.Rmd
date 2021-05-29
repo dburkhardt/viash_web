@@ -25,14 +25,14 @@ txt <- out$stdout %>% strsplit("\n") %>% first()
 
 detect_links <- function(x) {
   x %>% 
-    gsub("viash[ \n]*config", "[viash config](/config)", .) %>% 
-    gsub("config[ \n]*mods", "[config mods](/config_mods)", .)
+    gsub("viash[ \n]*config", "[viash config](/docs/reference_config/config)", .) %>% 
+    gsub("config[ \n]*mods", "[config mods](/docs/reference_config/config_mods/)", .)
 }
 ```
 
 ```{r desc}
 desc <- txt[seq(
-  1,
+  2,
   grep("^Usage:", txt)-2
 )] %>% gsub("^viash ", "# viash ", .) %>% 
   paste(., collapse = "\n")

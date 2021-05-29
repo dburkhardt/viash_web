@@ -3,7 +3,7 @@ title: "viash test"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-28T18:41:00+00:00"
+lastmod: "2021-05-29T09:21:53+00:00"
 draft: false
 images: []
 menu:
@@ -15,10 +15,8 @@ toc: true
 
 
 
-# viash test
-
 Test the component using the tests defined in the [viash
-config](/config) file.
+config](/docs/reference_config/config) file.
 
 Usage:
 
@@ -30,9 +28,10 @@ Arguments:
 
 -   `config`: A viash config file (example: `config.vsh.yaml`). This
     argument can also be a script with the config as a header.
--   `-c, --config_mod  <arg>...`: Modify a [viash config](/config) at
-    runtime using a custom DSL. For more information, see the online
-    documentation. (default = List())
+-   `-c, --config_mod  <arg>...`: Modify a [viash
+    config](/docs/reference_config/config) at runtime using a custom
+    DSL. For more information, see the online documentation. (default =
+    List())
 -   `-k, --keep  <arg>`: Whether or not to keep temporary files. By
     default, files will be deleted if all goes well but remain when an
     error occurs. By specifying –keep true, the temporary files will

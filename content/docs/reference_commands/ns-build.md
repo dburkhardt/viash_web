@@ -3,7 +3,7 @@ title: "viash ns build"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-28T18:40:57+00:00"
+lastmod: "2021-05-29T09:21:52+00:00"
 draft: false
 images: []
 menu:
@@ -15,9 +15,8 @@ toc: true
 
 
 
-# viash ns build
-
-Build a namespace from many [viash config](/config) files.
+Build a namespace from many [viash
+config](/docs/reference_config/config) files.
 
 Usage:
 
@@ -27,9 +26,9 @@ Usage:
 
 Arguments:
 
--   `-c, --config_mod  <arg>...`: Modify a [viash config](/config) at
-    runtime using a custom DSL. For more information, see the online
-    documentation.
+-   `-c, --config_mod  <arg>...`: Modify a [viash
+    config](/docs/reference_config/config) at runtime using a custom
+    DSL. For more information, see the online documentation.
 -   `-f, --flatten`: Flatten the target builds, handy for building one
     platform to a bin directory.
 -   `-l, --parallel`: Whether or not to run the process in parallel.
@@ -48,8 +47,8 @@ Arguments:
     Whether or not to set up the platform environment after building the
     executable.
 -   `-s, --src  <arg>`: A source directory containing [viash
-    config](/config) files, possibly structured in a hierarchical folder
-    structure. Default: src/.
+    config](/docs/reference_config/config) files, possibly structured in
+    a hierarchical folder structure. Default: src/.
 -   `-t, --target  <arg>`: A target directory to build the executables
     into. Default: target/.
 -   `-w, --write_meta`: Write out some meta information to
