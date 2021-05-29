@@ -13,7 +13,7 @@ weight: 570
 toc: true
 ---
 
-Since version 0.4.0, viash supports modifying a [viash config](/config) YAML 
+Since version 0.4.0, viash supports modifying a [viash config](/docs/reference_config/config/) YAML 
 at runtime using a custom DSL. This allows making dynamic changes to your components or projects.
 All viash subcommands have support for the DSL through the `-c|--config_mod` parameter.
 

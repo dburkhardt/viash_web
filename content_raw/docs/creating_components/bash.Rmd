@@ -264,13 +264,13 @@ Next, let's run the component natively with some arguments. You can use one of y
 Execute the following command to run the component with the default platform, in this case **native** as it's the first in the **platforms** dictionary:
 
 ```{bash, eval=FALSE}
-viash run config.vsh.yaml -- --inputfile=Testfile.md --domain=http://www.viash-io.com/ --output=my_report.txt
+viash run config.vsh.yaml -- --inputfile=Testfile.md --domain=https://viash.io/ --output=my_report.txt
 ```
 
 If all goes well, you'll see something like this output in the terminal and a file named **my_report.txt** will have appeared:
 
 ```{bash, echo=FALSE}
-viash run config.vsh.yaml -- --inputfile=Testfile.md --domain=http://www.viash-io.com/ --output=my_report.txt
+viash run config.vsh.yaml -- --inputfile=Testfile.md --domain=https://viash.io/ --output=my_report.txt
 ```
 
 For more information on the run command, take a look at [the viash run command page](/docs/reference_commands/run/).
@@ -288,7 +288,7 @@ viash build config.vsh.yaml
 A new folder named **output** will have been created with an executable inside named **md_url_checker**. To test it out, execute the following command:
 
 ```{bash, eval=FALSE}
-output/md_url_checker --inputfile=Testfile.md --domain=http://www.viash-io.com/ --output=my_report.txt
+output/md_url_checker --inputfile=Testfile.md --domain=https://viash.io/ --output=my_report.txt
 ```
 
 The output is the same as by running the component, but the executable can be easily shared and now includes the ability to feed arguments to it and an included `--help` command. Not bad!  
@@ -306,7 +306,7 @@ You'll now have a **docker_ouput** folder alongside the **output** one. This fol
 Run **md_url_checker** with the full arguments list to test what happens:
 
 ```{bash, eval=FALSE}
-docker_output/md_url_checker --inputfile=Testfile.md --domain=http://www.viash-io.com/ --output=my_report.txt
+docker_output/md_url_checker --inputfile=Testfile.md --domain=https://viash.io/ --output=my_report.txt
 ```
 
 Here's what just happened:

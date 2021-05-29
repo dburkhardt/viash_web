@@ -3,7 +3,7 @@ title: "Creating a Bash component"
 description: "Developing a new viash component."
 lead: "Developing a new viash component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-29T10:26:38+00:00"
+lastmod: "2021-05-29T20:01:32+00:00"
 draft: false
 images: []
 menu:
@@ -496,7 +496,7 @@ platform, in this case **native** as it’s the first in the **platforms**
 dictionary:
 
 ``` bash
-viash run config.vsh.yaml -- --inputfile=Testfile.md --domain=http://www.viash-io.com/ --output=my_report.txt
+viash run config.vsh.yaml -- --inputfile=Testfile.md --domain=https://viash.io/ --output=my_report.txt
 ```
 
 If all goes well, you’ll see something like this output in the terminal
@@ -512,10 +512,10 @@ and a file named **my\_report.txt** will have appeared:
     HTTP/2 404 
     4: http://www.data-intuitive.com/viash_docs/
     OK
-    5: http://www.viash-io.com//getting_started/installation
-
-    6: http://www.viash-io.com//good_practices/testing
-
+    5: https://viash.io//getting_started/installation
+    HTTP/2 404 
+    6: https://viash.io//good_practices/testing
+    HTTP/2 404 
 
     Testfile.md has been checked and a report named my_report.txt has been generated.
     3 of 6 URLs could not be resolved.
@@ -542,7 +542,7 @@ inside named **md\_url\_checker**. To test it out, execute the following
 command:
 
 ``` bash
-output/md_url_checker --inputfile=Testfile.md --domain=http://www.viash-io.com/ --output=my_report.txt
+output/md_url_checker --inputfile=Testfile.md --domain=https://viash.io/ --output=my_report.txt
 ```
 
 The output is the same as by running the component, but the executable
@@ -562,7 +562,7 @@ inner workings are slightly different than before. Run
 **md\_url\_checker** with the full arguments list to test what happens:
 
 ``` bash
-docker_output/md_url_checker --inputfile=Testfile.md --domain=http://www.viash-io.com/ --output=my_report.txt
+docker_output/md_url_checker --inputfile=Testfile.md --domain=https://viash.io/ --output=my_report.txt
 ```
 
 Here’s what just happened:
@@ -659,11 +659,11 @@ viash test config.vsh.yaml
 
 The output will look like this:
 
-    Running tests in temporary directory: '/tmp/viash_test_md_url_checker1318537987892075868'
+    Running tests in temporary directory: '/tmp/viash_test_md_url_checker5241146125846480354'
     ====================================================================
-    +/tmp/viash_test_md_url_checker1318537987892075868/build_executable/md_url_checker ---setup
+    +/tmp/viash_test_md_url_checker5241146125846480354/build_executable/md_url_checker ---setup
     ====================================================================
-    +/tmp/viash_test_md_url_checker1318537987892075868/test_test.sh/test.sh
+    +/tmp/viash_test_md_url_checker5241146125846480354/test_test.sh/test.sh
     + echo '>>> Checking whether output is correct'
     + ./md_url_checker --inputfile Testfile.md
     >>> Checking whether output is correct
@@ -671,9 +671,9 @@ The output will look like this:
     + grep -q '1: https://www.google.com' test-output.txt
     + grep -q 'HTTP/2 404' test-output.txt
     + echo '>>> Checking whether an output file was created correctly'
-    >>> Checking whether an output file was created correctly
     + [[ ! -f output.txt ]]
     + grep -q 'URL: https://www.google.com' output.txt
+    >>> Checking whether an output file was created correctly
     + grep -q 'Status: ERROR! URL cannot be reached. Status code: HTTP/2 404' output.txt
     + grep -q 'Link name: install viash here' output.txt
     + echo '>>> Test finished successfully!'
