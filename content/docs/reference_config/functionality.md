@@ -3,7 +3,7 @@ title: "Functionality"
 description: "The functionality-part of the config file describes the behaviour of the script in terms of arguments and resources."
 lead: "The functionality-part of the config file describes the behaviour of the script in terms of arguments and resources."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-28T19:59:32+00:00"
+lastmod: "2021-05-29T10:27:24+00:00"
 draft: false
 images: []
 menu:

@@ -3,7 +3,7 @@ title: "Creating a Bash component"
 description: "Developing a new viash component."
 lead: "Developing a new viash component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-29T08:42:20+00:00"
+lastmod: "2021-05-29T10:26:38+00:00"
 draft: false
 images: []
 menu:
@@ -659,14 +659,14 @@ viash test config.vsh.yaml
 
 The output will look like this:
 
-    Running tests in temporary directory: '/tmp/viash_test_md_url_checker9154973748283962112'
+    Running tests in temporary directory: '/tmp/viash_test_md_url_checker1318537987892075868'
     ====================================================================
-    +/tmp/viash_test_md_url_checker9154973748283962112/build_executable/md_url_checker ---setup
+    +/tmp/viash_test_md_url_checker1318537987892075868/build_executable/md_url_checker ---setup
     ====================================================================
-    +/tmp/viash_test_md_url_checker9154973748283962112/test_test.sh/test.sh
-    >>> Checking whether output is correct
+    +/tmp/viash_test_md_url_checker1318537987892075868/test_test.sh/test.sh
     + echo '>>> Checking whether output is correct'
     + ./md_url_checker --inputfile Testfile.md
+    >>> Checking whether output is correct
     + [[ ! -f test-output.txt ]]
     + grep -q '1: https://www.google.com' test-output.txt
     + grep -q 'HTTP/2 404' test-output.txt

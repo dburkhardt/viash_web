@@ -149,3 +149,4 @@ Now that you understand the basics of how viash works, take a look at how to wri
 ```{bash cleanup, echo=FALSE}
 rm -r my_hello_world
 ```
+ 

@@ -3,7 +3,7 @@ title: "Docker Platform"
 description: "Run a viash component on a Docker backend platform."
 lead: "Run a viash component on a Docker backend platform."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-28T19:59:32+00:00"
+lastmod: "2021-05-29T10:27:24+00:00"
 draft: false
 images: []
 menu:
