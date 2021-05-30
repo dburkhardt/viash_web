@@ -5,7 +5,7 @@
 ## VIASH START
 
 par_inputfile="Testfile.md"
-par_domain="http://www.data-intuitive.com/viash_docs"
+par_domain="https://viash.io"
 par_output="output.txt"
 
 ## VIASH END

@@ -6,7 +6,7 @@
 
 par = {
   "inputfile": "Testfile.md",
-  "domain": "http://www.data-intuitive.com/viash_docs",
+  "domain": "https://viash.io",
   "output": "output.txt"
 }
 
