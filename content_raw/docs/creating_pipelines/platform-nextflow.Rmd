@@ -334,7 +334,7 @@ If an argument is `required: false`, it can have
 - `a default: ...` value: It will use this default value unless you override it from the CLI
 - no default value: In this case, this argument will not be present on the CLI, but it can still be overridden from the CLI
 
-Please refer to [this issue](https://github.com/data-intuitive/viash/issues/46) for more information.
+Please refer to [this issue](https://github.com/viash-io/viash/issues/46) for more information.
 
 Given the above, its possible to override any of these using the following scheme:
 
