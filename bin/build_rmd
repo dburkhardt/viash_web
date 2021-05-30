@@ -302,7 +302,7 @@ FROM docker:dind
 
 RUN apk add --no-cache openjdk8-jre
 
-RUN wget https://github.com/data-intuitive/viash/releases/download/0.4.0/viash && chmod +x viash && mv viash /usr/local/bin
+RUN wget https://github.com/viash-io/viash/releases/download/0.4.0/viash && chmod +x viash && mv viash /usr/local/bin
 RUN apk add --update-cache --repository http://nl.alpinelinux.org/alpine/v3.11/main autoconf=2.69-r2 automake=1.16.1-r0
 RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 RUN apk add --no-cache cmark@testing pandoc@testing

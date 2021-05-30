@@ -596,7 +596,7 @@ trap clean_up EXIT
 
 # download latest viash components
 echo "> Fetching components sources"
-fetch --repo="https://github.com/data-intuitive/viash" --branch="develop" --source-path="/src/viash" "\$build_dir"
+fetch --repo="https://github.com/viash-io/viash" --branch="develop" --source-path="/src/viash" "\$build_dir"
 
 # build components
 echo "> Building components"

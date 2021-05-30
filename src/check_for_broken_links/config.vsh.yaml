@@ -1,0 +1,12 @@
+functionality:
+  name: check_for_broken_links
+  description: A very simple 'Hello world' component.
+  arguments:
+  - type: string
+    name: url
+    default: "https://viash.io"
+  resources:
+  - type: bash_script
+    path: script.sh
+platforms:
+  - type: native
