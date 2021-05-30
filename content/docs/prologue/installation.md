@@ -3,7 +3,7 @@ title: "Installation"
 description: "Installation requirements and instructions."
 lead: "Installation requirements and instructions."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-29T10:27:14+00:00"
+lastmod: "2021-05-30T08:17:36+00:00"
 draft: false
 images: []
 menu:
@@ -36,9 +36,9 @@ You can run viash on the following operating systems:
 ### Packaged release
 
 To install viash, download the [latest
-release](https://github.com/data-intuitive/viash/releases/latest) and
-save it to the `~/bin` folder or any other directory that is specified
-your `$PATH` variable. To verify what directories are included, run this
+release](https://github.com/viash-io/viash/releases/latest) and save it
+to the `~/bin` folder or any other directory that is specified your
+`$PATH` variable. To verify what directories are included, run this
 command:
 
 ``` bash
@@ -66,7 +66,7 @@ one-liner command that does this for you:
 
 ``` bash
 mkdir ~/bin ; source ~/.bashrc &&
-wget "https://github.com/data-intuitive/viash/releases/latest/download/viash" -O ~/bin/viash &&
+wget "https://github.com/viash-io/viash/releases/latest/download/viash" -O ~/bin/viash &&
 chmod +x ~/bin/viash
 ```
 
@@ -85,7 +85,7 @@ If you wish to install viash to your usr/bin folder instead, run the
 following command:
 
 ``` bash
-sudo wget "https://github.com/data-intuitive/viash/releases/latest/download/viash" -O /usr/bin/viash
+sudo wget "https://github.com/viash-io/viash/releases/latest/download/viash" -O /usr/bin/viash
 ```
 
 To verify your installation, run the following command:

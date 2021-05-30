@@ -3,7 +3,7 @@ title: "Creating a Bash component"
 description: "Developing a new viash component."
 lead: "Developing a new viash component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-29T20:01:32+00:00"
+lastmod: "2021-05-30T08:17:22+00:00"
 draft: false
 images: []
 menu:
@@ -659,11 +659,11 @@ viash test config.vsh.yaml
 
 The output will look like this:
 
-    Running tests in temporary directory: '/tmp/viash_test_md_url_checker5241146125846480354'
+    Running tests in temporary directory: '/tmp/viash_test_md_url_checker8653350506465021476'
     ====================================================================
-    +/tmp/viash_test_md_url_checker5241146125846480354/build_executable/md_url_checker ---setup
+    +/tmp/viash_test_md_url_checker8653350506465021476/build_executable/md_url_checker ---setup
     ====================================================================
-    +/tmp/viash_test_md_url_checker5241146125846480354/test_test.sh/test.sh
+    +/tmp/viash_test_md_url_checker8653350506465021476/test_test.sh/test.sh
     + echo '>>> Checking whether output is correct'
     + ./md_url_checker --inputfile Testfile.md
     >>> Checking whether output is correct
@@ -671,14 +671,14 @@ The output will look like this:
     + grep -q '1: https://www.google.com' test-output.txt
     + grep -q 'HTTP/2 404' test-output.txt
     + echo '>>> Checking whether an output file was created correctly'
+    >>> Checking whether an output file was created correctly
     + [[ ! -f output.txt ]]
     + grep -q 'URL: https://www.google.com' output.txt
-    >>> Checking whether an output file was created correctly
     + grep -q 'Status: ERROR! URL cannot be reached. Status code: HTTP/2 404' output.txt
     + grep -q 'Link name: install viash here' output.txt
     + echo '>>> Test finished successfully!'
-    >>> Test finished successfully!
     + exit 0
+    >>> Test finished successfully!
     ====================================================================
     [32mSUCCESS! All 1 out of 1 test scripts succeeded![0m
     Cleaning up temporary directory
