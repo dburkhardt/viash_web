@@ -9,4 +9,11 @@ functionality:
   - type: bash_script
     path: script.sh
 platforms:
-  - type: native
+  - type: docker
+    image: raviqqe/muffet:2.4.2
+    setup:
+      - type: apk
+        packages: [ bash ]
+      - type: docker
+        run:
+        - ln -s /muffet /bin/muffet
