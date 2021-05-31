@@ -22,7 +22,7 @@ platforms:
       # viash
       - type: docker
         run:
-          - wget https://github.com/data-intuitive/viash/releases/download/0.4.0/viash && chmod +x viash && mv viash /usr/local/bin
+          - wget https://github.com/viash-io/viash/releases/download/0.4.0/viash && chmod +x viash && mv viash /usr/local/bin
       # r dependencies
       - type: docker
         run:
@@ -46,9 +46,13 @@ platforms:
         cran: [ tidyverse ]
       # python
       - type: apk
-        packages: [ python3 ]
+        packages: [ gcc, g++, python3, python3-dev, py3-pip, libxml2-dev, libxslt-dev ]
       - type: docker
         run: [ ln -sf python3 /usr/bin/python ]
+      - type: python
+        pip: [ wheel ]
+      - type: python
+        pip: [ markdown, lxml, requests ]
       # documentation example dependencies
       - type: apk
         packages: [ curl ]

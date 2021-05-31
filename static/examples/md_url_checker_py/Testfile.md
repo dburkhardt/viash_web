@@ -7,7 +7,7 @@ Some links to websites:
 - [Reddit](https://www.reddit.com)
 - [A broken link](http://microsoft.com/random-link)
 
-Links that are relative to [Viash Docs](http://www.data-intuitive.com/viash_docs/):
+Links that are relative to [viash.io](http://www.viash.io):
 
-- You can [install viash here](/getting_started/installation).
-- It's important to write [tests](/good_practices/testing) for your components.
+- You can [install viash here](/docs/prologue/installation).
+- It all starts with a script and a [config file](/docs/reference_config/config) for your components.

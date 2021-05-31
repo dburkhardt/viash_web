@@ -3,7 +3,7 @@ title: "Introduction"
 description: "viash helps you turn a script (Bash/R/Python/Scala/JavaScript) into a reusable component."
 lead: "viash helps you turn a script (Bash/R/Python/Scala/JavaScript) into a reusable component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-28T13:29:58+00:00"
+lastmod: "2021-05-31T10:52:51+00:00"
 draft: false
 images: []
 menu:
@@ -56,15 +56,15 @@ Here are a few use cases which serve as motivation for viash:
 
 Here are some links to get you started with viash:
 
--   [Installing viash](/getting_started/installation): This guide walks
+-   [Installing viash](/docs/prologue/installation): This guide walks
     you through the steps to install viash on your machine.
 -   [Running your first component
-    (Bash)](/getting_started/hello_world_bash): Get a feel for viash
-    with a classic **Hello World** tutorial, written in Bash.
+    (Bash)](/docs/prologue/hello_world_bash): Get a feel for viash with
+    a classic **Hello World** tutorial, written in Bash.
 -   [Running your first component
-    (Python)](/getting_started/hello_world_python): Get a feel for viash
+    (Python)](/docs/prologue/hello_world_python): Get a feel for viash
     with a classic **Hello World** tutorial, written in Python.
--   [Running your first component (R)](/getting_started/hello_world_r):
+-   [Running your first component (R)](/docs/prologue/hello_world_r):
     Get a feel for viash with a classic **Hello World** tutorial,
     written in R.
 
@@ -73,9 +73,9 @@ Here are some links to get you started with viash:
 Once you understand how viash works and what it could do for you, take a
 look at our docs:
 
--   [Commands](/commands)
--   [Config files](/config)
--   [Good practices](/good_practices)
+-   [viash run command](/docs/reference_commands/run/)
+-   [Config files](/docs/reference_config/config/)
+-   [Frequently asked questions](/docs/help/frequently_asked_questions/)
 
 Check out the navigation menu on the left for more in-depth information
 about each topic.

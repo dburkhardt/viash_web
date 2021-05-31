@@ -3,7 +3,7 @@ title: "Functionality"
 description: "The functionality-part of the config file describes the behaviour of the script in terms of arguments and resources."
 lead: "The functionality-part of the config file describes the behaviour of the script in terms of arguments and resources."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-28T19:59:32+00:00"
+lastmod: "2021-05-31T10:53:01+00:00"
 draft: false
 images: []
 menu:
@@ -179,8 +179,8 @@ Common properties:
     the type of resource. The first resource cannot be of type `file`.
     When the type is not specified, the default type is simply `file`.
     For more information regarding how to write a script in Bash, R or
-    Python with viash, check out the [Guides](guides) for the respective
-    languages.
+    Python with viash, check out the guides for the respective languages
+    on the left.
 -   `name: filename`, the resulting name of the resource.
 -   `path: path/to/file`, the path of the input file. Can be a relative
     or an absolute path, or a URI.
@@ -206,9 +206,7 @@ One or more Bash/R/Python scripts to be used to test the component
 behaviour when `viash test` is invoked. Additional files of type `file`
 will be made available only during testing. Each test script should
 expect no command-line inputs, be platform-independent, and return an
-exit code &gt;0 when unexpected behaviour occurs during testing. See
-[Testing](good_practices/testing) for more information on how to write
-tests in each of the different scripting languages.
+exit code &gt;0 when unexpected behaviour occurs during testing.
 
 Example:
 

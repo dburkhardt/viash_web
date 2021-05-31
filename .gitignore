@@ -6,3 +6,4 @@ resources
 .netlify
 .Rproj.user
 .Rhistory
+*/.Rhistory

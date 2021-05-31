@@ -1,7 +1,7 @@
 ---
 title: "Hello World (R)"
-description: "You can use several programming languages with viash to write your own components. To get started with your preferred language, take a look at the language specific Hello World examples and the [Creating components](/creating_components) section. "
-lead: "You can use several programming languages with viash to write your own components. To get started with your preferred language, take a look at the language specific Hello World examples and the [Creating components](/creating_components) section. "
+description: "We have provided a simple **Hello World** component as an introduction to viash. Follow the steps below to learn how to run a component and get a result back from it."
+lead: "We have provided a simple **Hello World** component as an introduction to viash. Follow the steps below to learn how to run a component and get a result back from it."
 date: 2021-05-28T14:00:00+00:00
 lastmod: "`r format(Sys.time(), '%Y-%Om-%dT%H:%M:%S+00:00')`"
 draft: false
@@ -32,7 +32,7 @@ We have provided a simple **Hello World** component as an introduction to viash.
 
 To follow along with this tutorial, you need to have this software installed on your machine:
 
-- An [installation of viash](/getting_started/installation).
+- An [installation of viash](/docs/prologue/installation).
 - A **Bash** Unix shell.
 - An [installation of the R software environment](https://cran.r-project.org/mirrors.html) 
 
@@ -80,7 +80,7 @@ The **functionality** attribute describes the core functionality of the componen
 - A `string` named **input** that accepts multiple space-separated arguments.
 - A second `string` named **--greeter** which defaults to "Hello world!".
 
-These arguments are passed on to the **resources**. In this case, there's a single reference to a file named [`script.r`](https://viash.io/examples/hello_world_r/script.r). This file is the 'brain' of the component, it's small R script which prints out two environment values: `par_input` and `par_greeter`: 
+These arguments are passed on to the **resources**. In this case, there's a single reference to a file named [`script.R`](https://viash.io/examples/hello_world_r/script.R). This file is the 'brain' of the component, it's small R script which prints out two environment values: `par_input` and `par_greeter`: 
 
 ```{r, echo = FALSE}
 print_file("script.R", format = "r", show_filename = FALSE)
@@ -88,7 +88,7 @@ print_file("script.R", format = "r", show_filename = FALSE)
 
 Any variables defined in the config file will be automatically generated between the `## VIASH START` and `## VIASH END` lines. You can add pre-defined values here for debugging purposes by adding the variables in a `par` list. Their values will automatically be replaced at runtime with parameter values from the CLI. 
 
-Finally, there's a **tests** section to put your test scripts. It's a good practice to write tests and run these every time you update your component and/or the resources. You can read more about writing and running viash tests [on the Testing page](https://viash.io/good_practices/testing/).
+Finally, there's a **tests** section to put your test scripts. It's a good practice to write tests and run these every time you update your component and/or the resources. The component creating tutorials on the left include an example.
 
 ### Platforms
 
@@ -107,7 +107,7 @@ platforms:
         packages: [ bash ]
 ```
 
-The list of currently supported platforms are [Native](/config/platform-native/), [Docker](/config/platform-docker/), and [Nextflow](/config/platform-nextflow/). If no platforms are specified, a native platform with no system requirements is assumed.
+The list of currently supported platforms are [Native](/docs/reference_config/platform-native/), [Docker](/docs/reference_config/platform-docker/), and [Nextflow](/docs/reference_config/platform-nextflow/). If no platforms are specified, a native platform with no system requirements is assumed.
 
 You can specify what platform a component should run on by passing the `-p` or `--platform` option. For example, try running the following command:
 
@@ -146,10 +146,11 @@ my_hello_world/hello_world_r NAME. --greeter="Hello there,"
 
 Now that you understand the basics of how viash works, take a look at how to write your own component:
 
-- [Creating a Bash component](/creating_components/bash)
-- [Creating a Python component](/creating_components/python)
-- [Creating an R component](/creating_components/r)
+- [Creating a Bash component](/docs/creating_components/bash)
+- [Creating a Python component](/docs/creating_components/python)
+- [Creating an R component](/docs/creating_components/r)
 
 ```{bash cleanup, echo=FALSE}
 rm -r my_hello_world
 ```
+ 

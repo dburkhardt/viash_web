@@ -3,7 +3,7 @@ title: "Dynamic Config Modding"
 description: "The config can be dynamically altered from the command line to change the component's behaviour during the build-stage."
 lead: "The config can be dynamically altered from the command line to change the component's behaviour during the build-stage."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-28T19:59:32+00:00"
+lastmod: "2021-05-31T10:53:01+00:00"
 draft: false
 images: []
 menu:
@@ -15,10 +15,11 @@ toc: true
 
 
 
-Since version 0.4.0, viash supports modifying a [viash config](/config)
-YAML at runtime using a custom DSL. This allows making dynamic changes
-to your components or projects. All viash subcommands have support for
-the DSL through the `-c|--config_mod` parameter.
+Since version 0.4.0, viash supports modifying a [viash
+config](/docs/reference_config/config/) YAML at runtime using a custom
+DSL. This allows making dynamic changes to your components or projects.
+All viash subcommands have support for the DSL through the
+`-c|--config_mod` parameter.
 
 The easiest way to explain is perhaps by showing some examples. The
 following statements are all valid under the DSL definition.

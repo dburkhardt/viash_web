@@ -3,7 +3,7 @@ title: "viash build"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-28T19:59:22+00:00"
+lastmod: "2021-05-31T10:52:51+00:00"
 draft: false
 images: []
 menu:
@@ -15,9 +15,8 @@ toc: true
 
 
 
-# viash build
-
-Build an executable from the provided [viash config](/config) file.
+Build an executable from the provided [viash
+config](/docs/reference_config/config) file.
 
 Usage:
 
@@ -29,9 +28,10 @@ Arguments:
 
 -   `config`: A viash config file (example: `config.vsh.yaml`). This
     argument can also be a script with the config as a header.
--   `-c, --config_mod  <arg>...`: Modify a [viash config](/config) at
-    runtime using a custom DSL. For more information, see the online
-    documentation. (default = List())
+-   `-c, --config_mod  <arg>...`: Modify a [viash
+    config](/docs/reference_config/config) at runtime using a custom
+    DSL. For more information, see the online documentation. (default =
+    List())
 -   `-m, --meta`: Print out some meta information at the end.
 -   `-o, --output  <arg>`: Path to directory in which the executable and
     any resources is built to. Default: “output/”. (default = output/)

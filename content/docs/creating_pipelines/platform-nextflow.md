@@ -3,7 +3,7 @@ title: "Creating a Nextflow Pipeline"
 description: "Developing a Pipeline in Nextflow with viash."
 lead: "Developing a Pipeline in Nextflow with viash."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-28T19:59:00+00:00"
+lastmod: "2021-05-31T10:52:29+00:00"
 draft: false
 images: []
 menu:
@@ -421,7 +421,7 @@ If an argument is `required: false`, it can have
     the CLI, but it can still be overridden from the CLI
 
 Please refer to [this
-issue](https://github.com/data-intuitive/viash/issues/46) for more
+issue](https://github.com/viash-io/viash/issues/46) for more
 information.
 
 Given the above, its possible to override any of these using the

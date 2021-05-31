@@ -3,7 +3,7 @@ title: "Native Platform"
 description: "Running a viash component on a native platform means that the script will be executed in your current environment."
 lead: "Running a viash component on a native platform means that the script will be executed in your current environment."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-28T19:59:32+00:00"
+lastmod: "2021-05-31T10:53:01+00:00"
 draft: false
 images: []
 menu:

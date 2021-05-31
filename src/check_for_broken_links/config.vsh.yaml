@@ -1,0 +1,19 @@
+functionality:
+  name: check_for_broken_links
+  description: A very simple 'Hello world' component.
+  arguments:
+  - type: string
+    name: url
+    default: "https://viash.io"
+  resources:
+  - type: bash_script
+    path: script.sh
+platforms:
+  - type: docker
+    image: raviqqe/muffet:2.4.2
+    setup:
+      - type: apk
+        packages: [ bash ]
+      - type: docker
+        run:
+        - ln -s /muffet /bin/muffet

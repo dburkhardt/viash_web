@@ -3,7 +3,7 @@ title: "Creating an R component"
 description: "Developing a new viash component."
 lead: "Developing a new viash component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-28T19:59:00+00:00"
+lastmod: "2021-05-31T10:52:29+00:00"
 draft: false
 images: []
 menu:
@@ -14,6 +14,9 @@ toc: true
 ---
 
 
+
+NOTICE: This documentation might be outdated. Please be patient while
+the tutorial is being rewritten.
 
 The first step of developing this component, is writing the core
 functionality of the component, in this case an R script.
@@ -54,9 +57,9 @@ component in YAML format.
 
 #### Describe the component with as a YAML
 
-A [viash config](/config) file describes the behaviour of a script and
-the platform it runs on. It consists of two main sections:
-`functionality` and `platforms`.
+A [viash config](/docs/reference_config/config) file describes the
+behaviour of a script and the platform it runs on. It consists of two
+main sections: `functionality` and `platforms`.
 
 Contents of [`yaml`](config.vsh.yaml):
 
@@ -84,19 +87,19 @@ platforms:
     image: "rocker/tidyverse:4.0.4"
 ```
 
-The [functionality](/config/functionality) section describes the core
-functionality of the component, such as its inputs, outputs, arguments,
-and extra resources. For each of the arguments, specifying a description
-and a set of argument restrictions help create a useful command-line
-interface. To ensure that your component works as expected, writing one
-or more tests is essential.
+The [functionality](/docs/reference_config/functionality) section
+describes the core functionality of the component, such as its inputs,
+outputs, arguments, and extra resources. For each of the arguments,
+specifying a description and a set of argument restrictions help create
+a useful command-line interface. To ensure that your component works as
+expected, writing one or more tests is essential.
 
 The platforms section specifies the requirements to execute the
 component on zero or more platforms. The list of currently supported
-platforms are [Native](/config/platform-native),
-[Docker](/config/platform-docker), and
-[Nextflow](/config/platform-nextflow). If no platforms are specified, a
-native platform with no system requirements is assumed.
+platforms are [Native](/docs/reference_config/platform-native),
+[Docker](/docs/reference_config/platform-docker), and
+[Nextflow](/docs/reference_config/platform-native). If no platforms are
+specified, a native platform with no system requirements is assumed.
 
 ### Writing a first unit test
 
