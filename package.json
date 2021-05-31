@@ -27,6 +27,8 @@
     "lint:scripts": "eslint assets/js assets/lambda config",
     "lint:styles": "stylelint \"assets/scss/**/*.{css,sass,scss,sss,less}\"",
     "lint:markdown": "markdownlint *.md content/**/*.md",
+    "release": "standard-version",
+    "release:dry-run": "standard-version --dry-run",
     "server": "hugo server",
     "test": "npm run -s lint",
     "env": "env",
@@ -58,7 +60,7 @@
     "rimraf": "^3.0",
     "shx": "^0.3.3",
     "standard-version": "^9.2",
-    "stylelint": "^9.3.0",
+    "stylelint": "^13.13",
     "stylelint-config-standard": "^22.0"
   }
 }

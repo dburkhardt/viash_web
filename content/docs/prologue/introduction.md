@@ -3,7 +3,7 @@ title: "Introduction"
 description: "viash helps you turn a script (Bash/R/Python/Scala/JavaScript) into a reusable component."
 lead: "viash helps you turn a script (Bash/R/Python/Scala/JavaScript) into a reusable component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-29T10:27:14+00:00"
+lastmod: "2021-05-31T10:52:51+00:00"
 draft: false
 images: []
 menu:

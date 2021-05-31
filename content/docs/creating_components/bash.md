@@ -3,7 +3,7 @@ title: "Creating a Bash component"
 description: "Developing a new viash component."
 lead: "Developing a new viash component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-30T08:17:22+00:00"
+lastmod: "2021-05-31T10:52:17+00:00"
 draft: false
 images: []
 menu:
@@ -60,7 +60,7 @@ content:
 ## VIASH START
 
 par_inputfile="Testfile.md"
-par_domain="http://www.data-intuitive.com/viash_docs"
+par_domain="https://viash.io"
 par_output="output.txt"
 
 ## VIASH END
@@ -170,10 +170,10 @@ Some links to websites:
 - [Reddit](https://www.reddit.com)
 - [A broken link](http://microsoft.com/random-link)
 
-Links that are relative to [Viash Docs](http://www.data-intuitive.com/viash_docs/):
+Links that are relative to [viash.io](http://www.viash.io):
 
-- You can [install viash here](/getting_started/installation).
-- It's important to write [tests](/good_practices/testing) for your components.
+- You can [install viash here](/docs/prologue/installation).
+- It all starts with a script and a [config file](/docs/reference_config/config) for your components.
 ```
 
 Now open a terminal in the folder and execute the following command to
@@ -199,11 +199,11 @@ The script will now show the following output:
     OK
     3: http://microsoft.com/random-link
     HTTP/2 404 
-    4: http://www.data-intuitive.com/viash_docs/
+    4: http://www.viash.io
     OK
-    5: http://www.data-intuitive.com/viash_docs/getting_started/installation
+    5: https://viash.io/docs/prologue/installation
     OK
-    6: http://www.data-intuitive.com/viash_docs/good_practices/testing
+    6: https://viash.io/docs/reference_config/config
     OK
 
     Testfile.md has been checked and a report named output.txt has been generated.
@@ -510,15 +510,15 @@ and a file named **my\_report.txt** will have appeared:
     OK
     3: http://microsoft.com/random-link
     HTTP/2 404 
-    4: http://www.data-intuitive.com/viash_docs/
+    4: http://www.viash.io
     OK
-    5: https://viash.io//getting_started/installation
-    HTTP/2 404 
-    6: https://viash.io//good_practices/testing
-    HTTP/2 404 
+    5: https://viash.io//docs/prologue/installation
+    OK
+    6: https://viash.io//docs/reference_config/config
+    OK
 
     Testfile.md has been checked and a report named my_report.txt has been generated.
-    3 of 6 URLs could not be resolved.
+    1 of 6 URLs could not be resolved.
 
 For more information on the run command, take a look at [the viash run
 command page](/docs/reference_commands/run/). Great! With that working,
@@ -659,14 +659,14 @@ viash test config.vsh.yaml
 
 The output will look like this:
 
-    Running tests in temporary directory: '/tmp/viash_test_md_url_checker8653350506465021476'
+    Running tests in temporary directory: '/tmp/viash_test_md_url_checker159892277392401116'
     ====================================================================
-    +/tmp/viash_test_md_url_checker8653350506465021476/build_executable/md_url_checker ---setup
+    +/tmp/viash_test_md_url_checker159892277392401116/build_executable/md_url_checker ---setup
     ====================================================================
-    +/tmp/viash_test_md_url_checker8653350506465021476/test_test.sh/test.sh
+    +/tmp/viash_test_md_url_checker159892277392401116/test_test.sh/test.sh
     + echo '>>> Checking whether output is correct'
-    + ./md_url_checker --inputfile Testfile.md
     >>> Checking whether output is correct
+    + ./md_url_checker --inputfile Testfile.md
     + [[ ! -f test-output.txt ]]
     + grep -q '1: https://www.google.com' test-output.txt
     + grep -q 'HTTP/2 404' test-output.txt
@@ -677,8 +677,8 @@ The output will look like this:
     + grep -q 'Status: ERROR! URL cannot be reached. Status code: HTTP/2 404' output.txt
     + grep -q 'Link name: install viash here' output.txt
     + echo '>>> Test finished successfully!'
-    + exit 0
     >>> Test finished successfully!
+    + exit 0
     ====================================================================
     [32mSUCCESS! All 1 out of 1 test scripts succeeded![0m
     Cleaning up temporary directory

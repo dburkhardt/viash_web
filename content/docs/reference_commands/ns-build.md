@@ -3,7 +3,7 @@ title: "viash ns build"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-29T10:27:15+00:00"
+lastmod: "2021-05-31T10:52:53+00:00"
 draft: false
 images: []
 menu:

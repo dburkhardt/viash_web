@@ -3,7 +3,7 @@ title: "Hello World (Python)"
 description: "We have provided a simple **Hello World** component as an introduction to viash. Follow the steps below to learn how to run a component and get a result back from it."
 lead: "We have provided a simple **Hello World** component as an introduction to viash. Follow the steps below to learn how to run a component and get a result back from it. "
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-29T10:26:59+00:00"
+lastmod: "2021-05-31T10:52:37+00:00"
 draft: false
 images: []
 menu:
