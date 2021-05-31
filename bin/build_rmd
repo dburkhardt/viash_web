@@ -318,11 +318,11 @@ RUN Rscript -e 'if (!requireNamespace("remotes", quietly = TRUE)) install.packag
 RUN Rscript -e 'if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")' && \
   Rscript -e 'remotes::install_cran(c("tidyverse"), repos = "https://cran.rstudio.com")'
 
-RUN apk add --no-cache python3 python3-lxml
+RUN apk add --no-cache gcc g++ python3 python3-dev py3-pip libxml2-dev libxslt-dev
 
 RUN ln -sf python3 /usr/bin/python
 RUN pip install --upgrade pip && \
-  pip install --no-cache-dir "markdown" "lxml" "requests"
+  pip install --no-cache-dir "wheel" "markdown" "lxml" "requests"
 
 RUN apk add --no-cache curl
 
