@@ -150,14 +150,14 @@ echo ""
 
 echo "    -r, --registry"
 echo "        type: string"
-echo "        default: itx-aiv.artifactrepo.jnj.com"
+echo "        default: "
 echo "        Docker registry to use, only used when using a registry."
 echo ""
 
 
 echo "    --namespace_separator"
 echo "        type: string"
-echo "        default: /"
+echo "        default: _"
 echo "        The separator to use between the component name and namespace as the image name of a Docker container."
 echo ""
 
@@ -176,7 +176,6 @@ echo ""
 
 echo "    --viash"
 echo "        type: file"
-echo "        default: "
 echo "        A path to the viash executable. If not specified, this component will look for 'viash' on the \$PATH."
 echo ""
 
@@ -597,13 +596,10 @@ if [ -z "$VIASH_PAR_BIN" ]; then
   VIASH_PAR_BIN="bin"
 fi
 if [ -z "$VIASH_PAR_REGISTRY" ]; then
-  VIASH_PAR_REGISTRY="itx-aiv.artifactrepo.jnj.com"
+  VIASH_PAR_REGISTRY=""
 fi
 if [ -z "$VIASH_PAR_NAMESPACE_SEPARATOR" ]; then
-  VIASH_PAR_NAMESPACE_SEPARATOR="/"
-fi
-if [ -z "$VIASH_PAR_VIASH" ]; then
-  VIASH_PAR_VIASH=""
+  VIASH_PAR_NAMESPACE_SEPARATOR="_"
 fi
 
 ViashDockerSetup 'viash_viash_bootstrap:0.1' ifneedbepullelsecachedbuild
