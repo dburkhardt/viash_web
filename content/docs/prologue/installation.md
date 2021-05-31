@@ -3,7 +3,7 @@ title: "Installation"
 description: "Installation requirements and instructions."
 lead: "Installation requirements and instructions."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-30T08:17:36+00:00"
+lastmod: "2021-05-31T10:15:16+00:00"
 draft: false
 images: []
 menu:
@@ -69,9 +69,6 @@ mkdir ~/bin ; source ~/.bashrc &&
 wget "https://github.com/viash-io/viash/releases/latest/download/viash" -O ~/bin/viash &&
 chmod +x ~/bin/viash
 ```
-
-**Note**: Replace `~/.bashrc` with `~/.zshrc` in the command above if
-you’re using ZSH instead of Bash.
 
 To verify your installation, run the following command:
 
