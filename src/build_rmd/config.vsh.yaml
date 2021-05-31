@@ -46,11 +46,11 @@ platforms:
         cran: [ tidyverse ]
       # python
       - type: apk
-        packages: [ python3, py-lxml ]
+        packages: [ gcc, g++, python3, python3-dev, py3-pip, libxml2-dev, libxslt-dev ]
       - type: docker
         run: [ ln -sf python3 /usr/bin/python ]
       - type: python
-        pip: [ markdown, lxml, requests ]
+        pip: [ wheel, markdown, lxml, requests ]
       # documentation example dependencies
       - type: apk
         packages: [ curl ]
