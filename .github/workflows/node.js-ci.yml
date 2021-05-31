@@ -45,7 +45,7 @@ jobs:
     - name: Check for linting errors
       run: |
         npm run -s lint:scripts
-        # npm run -s lint:styles # turn off style linting for now
+        npm run -s lint:styles
         npm run -s lint:markdown
 
     - name: Delete temporary directories
