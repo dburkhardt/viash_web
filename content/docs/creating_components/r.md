@@ -3,7 +3,7 @@ title: "Creating an R component"
 description: "Developing a new viash component."
 lead: "Developing a new viash component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-01T12:43:04+00:00"
+lastmod: "2021-06-01T19:49:30+00:00"
 draft: false
 images: []
 menu:
@@ -39,7 +39,7 @@ installed on your machine:
 -   An installation of [Docker](https://www.docker.com/).
 -   An [installation of the R software
     environment](https://cran.r-project.org/mirrors.html)
--   The following CRAN packages: tidyverse, httr, testthat and rvest.
+-   The following CRAN packages: tidyverse and testthat.
 
 We recommend you take a look at the [hello world
 example](/docs/prologue/hello_world_r) first to understand how
@@ -680,11 +680,11 @@ viash test config.vsh.yaml
 
 The output will look like this:
 
-    Running tests in temporary directory: '/tmp/viash_test_md_url_checker_r7591095020864628480'
+    Running tests in temporary directory: '/tmp/viash_test_md_url_checker_r1199768056600347092'
     ====================================================================
-    +/tmp/viash_test_md_url_checker_r7591095020864628480/build_executable/md_url_checker_r ---setup
+    +/tmp/viash_test_md_url_checker_r1199768056600347092/build_executable/md_url_checker_r ---setup
     ====================================================================
-    +/tmp/viash_test_md_url_checker_r7591095020864628480/test_test.R/test.R
+    +/tmp/viash_test_md_url_checker_r1199768056600347092/test_test.R/test.R
     >>> Checking whether output is correct
     >>> Checking whether output file is correct
     >>> Test finished successfully!

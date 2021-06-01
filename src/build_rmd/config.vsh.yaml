@@ -40,7 +40,7 @@ platforms:
           - echo "options(repos = c(CRAN = '${CRAN}'))" >> ${R_HOME}/etc/Rprofile.site
       # R packages
       - type: r
-        cran: [ blogdown, rmarkdown, tidyverse, httr, rvest, testthat ]
+        cran: [ blogdown, tidyverse, testthat ]
         github: [ tidyverse/readxl ] # cran version of readxl doesn't work with alpine yet
       - type: r
         cran: [ tidyverse ]
