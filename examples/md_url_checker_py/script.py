@@ -44,8 +44,8 @@ for index, link in enumerate(doc.xpath('//a')):
     ### 4 ###
 
     # If an URL doesn't start with 'http', add the domain before it
-    if not url.startswith('http'):
-        url = par["domain"] + url
+    if not url.startswith('http') and par["domain"] != None:
+        url = '{}{}'.format(par["domain"] , url)
 
     print(str(index+1) + ": " + url)
 
@@ -70,6 +70,10 @@ for index, link in enumerate(doc.xpath('//a')):
     except requests.ConnectionError:
         print("Could not connect")
         output_file.write("Status: ERROR! URL cannot be reached. A connection error occured.\n")
+        amount_of_errors+=1
+    except:
+        print("Something went wrong")
+        output_file.write("Status: ERROR! URL cannot be reached. Something went wrong.\n")
         amount_of_errors+=1
 
     output_file.write("---\n")
