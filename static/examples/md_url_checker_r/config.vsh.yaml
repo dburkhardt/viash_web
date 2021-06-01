@@ -15,18 +15,17 @@ functionality:
     description: The path of the output text file that will contain the report.
     default: "output.txt"
     direction: output
-  - type: file                           
-    name: --temp_html
-    description: The path of the temporary html file.
-    default: "temp.html"
-    direction: output
   resources:
   - type: r_script
     path: script.R
+  tests:
+  - type: r_script
+    path: test.R
+  - path: Testfile.md
 platforms:
   - type: native
   - type: docker
-    image: "rocker/tidyverse:latest"
+    image: rocker/tidyverse:latest
     setup:
     - type: apt
       packages:

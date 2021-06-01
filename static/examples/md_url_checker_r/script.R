@@ -55,8 +55,6 @@ outputs <- map_df(seq_along(urls), function(i) {
     url = paste0(par$domain, url)
   }
 
-  cat(i, ": ", url, "\n", sep = "")
-
   output <- tibble(
     url,
     title,
@@ -90,7 +88,7 @@ content <- paste0(
   "Link name: ", outputs$title, "\n",
   "URL: ", outputs$url, "\n",
   outputs$status, "\n",
-  "---\n"
+  "---"
 )
 
 write_lines(content, par$output)

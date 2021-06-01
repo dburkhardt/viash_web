@@ -3,7 +3,7 @@ title: "Installation"
 description: "Installation requirements and instructions."
 lead: "Installation requirements and instructions."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-31T10:52:51+00:00"
+lastmod: "2021-06-01T09:56:40+00:00"
 draft: false
 images: []
 menu:
@@ -69,6 +69,8 @@ mkdir ~/bin ; source ~/.bashrc &&
 wget "https://github.com/viash-io/viash/releases/latest/download/viash" -O ~/bin/viash &&
 chmod +x ~/bin/viash
 ```
+
+<!-- TODO: replace the instructions above with just running `wget -qO- get.viash.io | bash`. Needs testing to see if PATH instructions above are still needed with that method. -->
 
 To verify your installation, run the following command:
 

@@ -306,13 +306,13 @@ RUN wget https://github.com/viash-io/viash/releases/download/0.4.0/viash && chmo
 RUN apk add --update-cache --repository http://nl.alpinelinux.org/alpine/v3.11/main autoconf=2.69-r2 automake=1.16.1-r0
 RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 RUN apk add --no-cache cmark@testing pandoc@testing
-RUN apk add --no-cache bash R R-dev libcurl g++ gcc linux-headers gfortran automake libtool m4 autoconf linux-headers openssl R R-dev wget R-doc libxml2 libxml2-dev libc-dev
+RUN apk add --no-cache bash R R-dev libcurl curl g++ gcc linux-headers gfortran automake libtool m4 autoconf linux-headers openssl R R-dev wget R-doc libxml2 libxml2-dev libc-dev
 
 ENV CRAN="https://cran.rstudio.com"
 ENV R_HOME="/usr/lib/R"
 RUN echo "options(repos = c(CRAN = '${CRAN}'))" >> ${R_HOME}/etc/Rprofile.site
 RUN Rscript -e 'if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")' && \
-  Rscript -e 'remotes::install_cran(c("blogdown", "rmarkdown", "tidyverse"), repos = "https://cran.rstudio.com")' && \
+  Rscript -e 'remotes::install_cran(c("blogdown", "rmarkdown", "tidyverse", "httr", "rvest", "testthat"), repos = "https://cran.rstudio.com")' && \
   Rscript -e 'remotes::install_github(c("tidyverse/readxl"), repos = "https://cran.rstudio.com")'
 
 RUN Rscript -e 'if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")' && \
@@ -326,8 +326,6 @@ RUN pip install --upgrade pip && \
 
 RUN pip install --upgrade pip && \
   pip install --no-cache-dir "markdown" "lxml" "requests"
-
-RUN apk add --no-cache curl
 
 VIASHDOCKER
 }

@@ -58,7 +58,7 @@ mkdir ~/bin ; source ~/.bashrc &&
 wget "https://github.com/viash-io/viash/releases/latest/download/viash" -O ~/bin/viash &&
 chmod +x ~/bin/viash
 ```
-
+<!-- TODO: replace the instructions above with just running `wget -qO- get.viash.io | bash`. Needs testing to see if PATH instructions above are still needed with that method. -->
 To verify your installation, run the following command:
 
 ```bash
