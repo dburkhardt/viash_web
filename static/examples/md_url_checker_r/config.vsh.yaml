@@ -1,16 +1,16 @@
 functionality:
   name: md_url_checker_r
   description: Check if URLs in a markdown are reachable and create a text report with the results.
-  arguments:                     
+  arguments:
   - type: file
     name: --inputfile
     description: The input markdown file.
     required: true
     must_exist: true
-  - type: string                           
+  - type: string
     name: --domain
     description: The domain URL that gets inserted before any relative URLs. For example, "/documentation/intro" could be replaced with "https://my-website/documentation/intro" to create a valid URL.
-  - type: file                           
+  - type: file
     name: --output
     description: The path of the output text file that will contain the report.
     default: "output.txt"
@@ -25,8 +25,9 @@ functionality:
 platforms:
   - type: native
   - type: docker
-    image: rocker/tidyverse:latest
+    image: rocker/tidyverse:4.0.4
     setup:
-    - type: apt
-      packages:
-        - pandoc
+      - type: apt
+        packages: [ pandoc ]
+      - type: r
+        cran: [ testthat ]
