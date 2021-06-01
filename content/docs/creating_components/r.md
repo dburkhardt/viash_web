@@ -3,7 +3,7 @@ title: "Creating an R component"
 description: "Developing a new viash component."
 lead: "Developing a new viash component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-01T19:49:30+00:00"
+lastmod: "2021-06-01T19:54:14+00:00"
 draft: false
 images: []
 menu:
@@ -59,10 +59,6 @@ library(tidyverse)
 library(httr, quietly = TRUE)
 library(rvest, quietly = TRUE)
 
-# Depends on pandoc local package
-
-### 1 ###
-
 ## VIASH START
 par <- list(
   inputfile = "Testfile.md",
@@ -75,56 +71,42 @@ par <- list(
 temp_html <- tempfile(fileext = ".html")
 on.exit(file.remove(temp_html)) # remove tempfile after scripts exits to make sure it's always removed
 
-
 # Convert the markdown file to html
-rmarkdown::render(input = par$inputfile, output_format = "html_document", output_file = temp_html, quiet = TRUE, runtime="static")
+rmarkdown::render(
+  input = par$inputfile,
+  output_format = "html_document",
+  output_file = temp_html,
+  quiet = TRUE,
+  runtime = "static"
+)
 html <- rvest::read_html(temp_html)
 
 cat("Extracting URLs\n")
-
-### 2 ###
-
-# Extract the titles and URLs from the converted html file and put the results in arrays
 urls <- html %>% html_elements("a") %>%
   html_attr("href")
 titles <- html %>% html_elements("a") %>%
   html_text()
 
-# Convert the markdown file to html
 cat("Checking", length(urls), "URLs\n")
-
-amount_of_errors <- 0
-expected_code <- "200"
-
-### 3 ###
-
-# Iterate over the array of URLs and check each of them
 outputs <- map_df(seq_along(urls), function(i) {
   url <- urls[i]
   title <- titles[i]
-
-  ### 4 ###
 
   # If an URL doesn't start with 'http', add the domain before it
   if (!grepl("^https?://", url)) {
     url = paste0(par$domain, url)
   }
 
-  output <- tibble(
-    url,
-    title,
-  )
-
-  ### 5 ###
+  output <- tibble(url, title)
 
   # Do a web request and get the status code
   output$status <-
     tryCatch({
       code <- status_code(GET(url))
-      if (code == expected_code) {
+      if (code == "200") {
         "OK"
       } else {
-        paste0("ERROR! URL cannot be reached. Status code:")
+        paste0("ERROR! URL cannot be reached. Status code: ", code)
       }
     },
     error = function(cond) {
@@ -223,14 +205,14 @@ The script will now show the following output:
     Extracting URLs
     Checking 6 URLs
     # A tibble: 6 x 3
-      url                              title          status                        
-      <chr>                            <chr>          <chr>                         
-    1 https://www.google.com           Google         OK                            
-    2 https://www.reddit.com           Reddit         OK                            
-    3 http://microsoft.com/random-link A broken link  ERROR! URL cannot be reached.…
-    4 http://www.viash.io              viash.io       OK                            
-    5 https://viash.io/docs/prologue/… install viash… OK                            
-    6 https://viash.io/docs/reference… config file    OK                            
+      url                             title          status                         
+      <chr>                           <chr>          <chr>                          
+    1 https://www.google.com          Google         OK                             
+    2 https://www.reddit.com          Reddit         OK                             
+    3 http://microsoft.com/random-li… A broken link  ERROR! URL cannot be reached. …
+    4 http://www.viash.io             viash.io       OK                             
+    5 https://viash.io/docs/prologue… install viash… OK                             
+    6 https://viash.io/docs/referenc… config file    OK                             
     Input 'Testfile.md' has been checked and a report named 'output.txt' has been generated.
     1 out of 6 URLs could not be reached.
 
@@ -538,14 +520,14 @@ and a file named **my\_report.txt** will have appeared:
     Extracting URLs
     Checking 6 URLs
     # A tibble: 6 x 3
-      url                               title         status                        
-      <chr>                             <chr>         <chr>                         
-    1 https://www.google.com            Google        OK                            
-    2 https://www.reddit.com            Reddit        OK                            
-    3 http://microsoft.com/random-link  A broken link ERROR! URL cannot be reached.…
-    4 http://www.viash.io               viash.io      OK                            
-    5 https://viash.io//docs/prologue/… install vias… OK                            
-    6 https://viash.io//docs/reference… config file   OK                            
+      url                              title         status                         
+      <chr>                            <chr>         <chr>                          
+    1 https://www.google.com           Google        OK                             
+    2 https://www.reddit.com           Reddit        OK                             
+    3 http://microsoft.com/random-link A broken link ERROR! URL cannot be reached. …
+    4 http://www.viash.io              viash.io      OK                             
+    5 https://viash.io//docs/prologue… install vias… OK                             
+    6 https://viash.io//docs/referenc… config file   OK                             
     Input 'Testfile.md' has been checked and a report named 'my_report.txt' has been generated.
     1 out of 6 URLs could not be reached.
 
@@ -680,11 +662,11 @@ viash test config.vsh.yaml
 
 The output will look like this:
 
-    Running tests in temporary directory: '/tmp/viash_test_md_url_checker_r1199768056600347092'
+    Running tests in temporary directory: '/tmp/viash_test_md_url_checker_r6575178993583360861'
     ====================================================================
-    +/tmp/viash_test_md_url_checker_r1199768056600347092/build_executable/md_url_checker_r ---setup
+    +/tmp/viash_test_md_url_checker_r6575178993583360861/build_executable/md_url_checker_r ---setup
     ====================================================================
-    +/tmp/viash_test_md_url_checker_r1199768056600347092/test_test.R/test.R
+    +/tmp/viash_test_md_url_checker_r6575178993583360861/test_test.R/test.R
     >>> Checking whether output is correct
     >>> Checking whether output file is correct
     >>> Test finished successfully!
