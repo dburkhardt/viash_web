@@ -3,7 +3,7 @@ title: "Creating a Python component"
 description: "Developing a new viash component."
 lead: "Developing a new viash component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-31T10:52:29+00:00"
+lastmod: "2021-06-01T08:56:23+00:00"
 draft: false
 images: []
 menu:
@@ -15,126 +15,681 @@ toc: true
 
 
 
-NOTICE: This documentation might be outdated. Please be patient while
-the tutorial is being rewritten.
+In this tutorial, you’ll create a component that does the following:
+
+-   Extract all hyperlinks from a markdown file
+-   Check if every URL is reachable
+-   Create a text report with the results
+
+The component will be able to run locally and as a docker container. In
+order to create a component you need two files: a script for the
+functionality and a config file that describes the component.
+
+The files used in this tutorial can be found here:
+
+<https://github.com/viash-io/viash_web/tree/main/static/examples/md_url_checker_py>
+
+## Prerequisites
+
+To follow along with this tutorial, you need to have this software
+installed on your machine:
+
+-   An [installation of viash](/docs/prologue/installation).
+-   A **Bash** Unix shell.
+-   An installation of [Docker](https://www.docker.com/).
+-   [Python 3.8 or newer](https://www.python.org/downloads/). You may
+    have to install the `python-is-python3` package on Ubuntu and its
+    derivatives.
+-   An installation of
+    [python3-lxml](https://lxml.de/installation.html). Install this via
+    your package manager if you don’t have it installed yet.
+-   Install the following packages via
+    [pip](https://pypi.org/project/pip/): markdown, lxml and requests.
+
+We recommend you take a look at the [hello world
+example](/docs/prologue/hello_world_python) first to understand how
+components work.
+
+## Write a script in python
 
 The first step of developing this component, is writing the core
-functionality of the component, in this case a Python script.
-
-#### Write a script in Python
-
-This is a simple script which prints a simple message, along with any
-input provided to it through the `par["input"]` parameter. Optionally,
-you can override the greeter with `par["greeter"]`.
-
-Contents of [`script.py`](script.py):
+functionality of the component, in this case a python script.  
+Create a new folder named **my\_viash\_component** and open it. Now
+create a new file named **script.py** in there and add this code as its
+content:
 
 ``` python
+# Dependancies:
+# packages: python3-lxml
+# pip: markdown, lxml, requests
+
+### 1 ###
+
 ## VIASH START
+
 par = {
-  "input": ["I am debug!"],
-  "greeter": "Hello world!"
+  "inputfile": "Testfile.md",
+  "domain": "https://viash.io",
+  "output": "output.txt"
 }
 
 ## VIASH END
 
-if par["input"] is None:
-  par["input"] = []
+import markdown
+from lxml import etree
+import requests
 
-print(par["greeter"], *par["input"])
+### 2 ###
+
+# Open markdown file, convert it to html and parse it to an ElementTree
+with open(par["inputfile"], encoding="utf8") as file:
+    md = file.read().replace('\n', '')
+
+doc = etree.fromstring(markdown.markdown(md))
+
+# Create and clear output file
+output_file = open(par['output'], 'a')
+output_file.truncate(0)
+
+amount_of_urls = len(doc.xpath('//a'))
+amount_of_errors = 0
+expected_code = 200
+
+### 3 ###
+
+# Iterate over all hyperlinks and check each URL
+for index, link in enumerate(doc.xpath('//a')):
+    title = link.text
+    url = link.get('href')
+
+    ### 4 ###
+
+    # If an URL doesn't start with 'http', add the domain before it
+    if not url.startswith('http') and par["domain"] != None:
+        url = '{}{}'.format(par["domain"] , url)
+
+    print(str(index+1) + ": " + url)
+
+    output_file.write("Link name: " + title + "\n")
+    output_file.write("URL: " + url + "\n")
+
+    ### 5 ###
+
+    try:
+        # Do a HEAD request and get the status code from the last response after following any redirects
+        req = requests.head(url, allow_redirects=True)
+
+        # Check if status code contains 200, which means the connection was succesful
+        if req.status_code == 200:
+            print('OK')
+            output_file.write("Status: OK, can be reached.\n")
+        else:
+            print(req.status_code) 
+            output_file.write("Status: ERROR! URL cannot be reached. Status code: " + str(req.status_code) + "\n")
+            amount_of_errors+=1
+
+    except requests.ConnectionError:
+        print("Could not connect")
+        output_file.write("Status: ERROR! URL cannot be reached. A connection error occured.\n")
+        amount_of_errors+=1
+    except:
+        print("Something went wrong")
+        output_file.write("Status: ERROR! URL cannot be reached. Something went wrong.\n")
+        amount_of_errors+=1
+
+    output_file.write("---\n")
+
+print("\n" + par["inputfile"] + " has been checked and a report named " + par["output"] + " has been generated.\n" +
+str(amount_of_errors) + " of " + str(amount_of_urls) + " URLs could not be resolved.")
 ```
 
-Anything between the `## VIASH START` and `## VIASH END` lines will
-automatically be replaced at runtime with parameter values from the CLI.
-Anything between these two lines can be used to test the script without
-viash:
+Note the numbered comments scattered about looking like `### x ###`,
+here’s a breakdown of the code:
+
+1.  The variables are placed between `## VIASH START` and `## VIASH END`
+    for debugging purposes, their final values will be dynamically
+    generated by viash once the script is turned into a component. If
+    you want to skip the testing of your script, you can leave these out
+    and viash will create variables based on the configuration file.
+    There are three variables:
+    -   `inputfile`: The markdown file that needs to be parsed.
+    -   `domain`: The domain URL that gets inserted before any relative
+        URLs. For example, “/documentation/intro” could be replaced with
+        “<https://my-website/documentation/intro>” to create a valid
+        URL.
+    -   `output`: The path of the output text file that will contain the
+        report.
+2.  The script converts the markdown file to html and extracts the
+    hyperlinks into an
+    [ElementTree](https://lxml.de/tutorial.html#the-elementtree-class)
+    for later use.
+3.  Start a for-loop to iterate the hyperlinks.
+4.  Any relative URLs (or those that don’t start with “http” at least)
+    will get the domain added before it.
+5.  A HEAD request is used to check for a response from the URL. The
+    resulting status code is stored and compared to the expected code.
+    The results get written to the terminal and the report.
+
+## Test the script
+
+Before turning the script into a component, it’s a good idea to test if
+it actually works as expected.  
+As the script expects a markdown file with hyperlinks, create a new file
+in the script folder named **Testfile.md** and paste in the following:
+
+``` markdown
+# Test File
+
+This is a simple markdown file with some hyperlinks to test if the check_if_URLS_reachable component works correctly.
+Some links to websites:
+
+- [Google](https://www.google.com)
+- [Reddit](https://www.reddit.com)
+- [A broken link](http://microsoft.com/random-link)
+
+Links that are relative to [viash.io](http://www.viash.io):
+
+- You can [install viash here](/docs/prologue/installation).
+- It all starts with a script and a [config file](/docs/reference_config/config) for your components.
+```
+
+Now open a terminal in the folder and execute the following command to
+run the python script:
 
 ``` bash
 python script.py
 ```
 
-    Hello world! I am debug!
+The script will now show the following output:
 
-Next, we write a meta-file describing the functionality of this
-component in YAML format.
+    1: https://www.google.com
+    OK
+    2: https://www.reddit.com
+    OK
+    3: http://microsoft.com/random-link
+    404
+    4: http://www.viash.io
+    OK
+    5: https://viash.io/docs/prologue/installation
+    OK
+    6: https://viash.io/docs/reference_config/config
+    OK
 
-#### Describe the component with as a YAML
+    Testfile.md has been checked and a report named output.txt has been generated.
+    1 of 6 URLs could not be resolved.
 
-A [viash config](config) file describes the behaviour of a script and
-the platform it runs on. It consists of two main sections:
-`functionality` and `platforms`.
+If you get this same output, that means the script is working as
+intended! Feel free to take a peek at the generated **output.txt** file
+as well. You might have noticed you didn’t have to provide any
+arguments, that’s because the values are hard-coded into the script for
+debugging purposes.
 
-Contents of [`yaml`](config.vsh.yaml):
+Now the script has been tested, it’s time to create a config file to
+describe the component based on it.
 
-``` bash
+## Describe the component using YAML
+
+A **viash config file** is a [YAML](https://yaml.org/) file that
+describes the behavior and supported platforms of a viash component.
+Create new file named **config.vsh.yaml** and paste the following
+template inside of it:
+
+``` yaml
 functionality:
-  name: hello_world_py
-  description: A very simple 'Hello world' component.
-  arguments:
+  name: NAME
+  description: DESCRIPTION
+  arguments:                     
   - type: string
-    name: input
-    multiple: true
-    multiple_sep: " "
-  - type: string
-    name: --greeter
-    default: "Hello world!"
+    name: --input
+    description: INPUT DESCRIPTION
   resources:
-  - type: python_script
-    path: script.py
-  tests:
-  - type: python_script
-    path: test.py
+  - type: LANGUAGE_script
+    path: SCRIPT
 platforms:
   - type: native
-  - type: docker
-    image: "python:3.8"
 ```
 
-The [functionality](/docs/reference_config/functionality) section
-describes the core functionality of the component, such as its inputs,
-outputs, arguments, and extra resources. For each of the arguments,
-specifying a description and a set of argument restrictions help create
-a useful command-line interface. To ensure that your component works as
-expected, writing one or more tests is essential.
+Every config file requires these two dictionaries:
+[functionality](/docs/prologue/hello_world_bash/#functionality) and
+[platforms](/docs/prologue/hello_world_bash/#platforms). This bare-bones
+config file makes it easy to “fill in the blanks” for this example. For
+more information about config files, you can take a look at the
+**Reference: Config** section on the left.
 
-The platforms section specifies the requirements to execute the
+Let’s start off by defining the functionality of our component.
+
+### Defining the functionality
+
+The **functionality** dictionary describes what the component does and
+the resources it needs to do so. The first key is **name**, this will be
+the name of the component once it’s built. Replace the **NAME** value
+with **md\_url\_checker\_py** or any other name of your choosing.
+
+Next up is the **description** key, its value will be printed out at the
+top when the **–help** command is called. Replace **DESCRIPTION** with
+“**Check if URLs in a markdown are reachable and create a text report
+with the results.**”. You can use multiple lines for a description by
+starting its value with a pipe (\|) and a new line, like so:
+
+``` yaml
+functionality:
+  name: md_url_checker_py
+  description: |
+    This is the first line of my description.
+    Here's a second line!
+```
+
+The **arguments** dictionary contains all of the arguments that are
+accepted by the component. These arguments will be injected as variables
+in the script. In the case of the example script, this are the variables
+we’re working with:
+
+-   `inputfile`
+-   `domain`
+-   `output`
+
+To create good arguments, you need to ask yourself a few essential
+questions about each variable:
+
+-   What is the most fitting [data
+    type](/docs/reference_config/functionality/#arguments-list)?
+-   Is it an input or an output?
+-   Is it required?
+
+Let’s take a closer look at `inputfile` for starters:
+
+We know it’s a file, as the script needs the path to a markdown **file**
+as its **input**. It’s also definitely a **required** variable, as the
+script would be pointless without it.  
+With this in mind, modify the first argument as follows:
+
+-   Change **type**’s value to **file**.
+-   Set **name**’s value to **–inputfile**. The name of an argument has
+    to match the variable name as the argument will be injected into the
+    final script. In the case of **python** scripts, the variables are
+    added to a dictionary named **par**.
+-   Use “**The input markdown file.**” for the **description** value.
+    This description will be included when the **–help** option is
+    called.
+-   Add a new key named **required** and set its value to **true**. This
+    ensures that the component will not be run without a value for this
+    argument.
+-   Add another key, name it **must\_exist** and set its value to
+    **true**. This key is unique to **file** type arguments, it adds
+    extra logic to the component to check if a file exists before
+    running the component. This saves you from having to do this check
+    yourself in the script.
+
+That’s it for the first argument! The result should look like this:
+
+``` yaml
+  - type: file
+    name: --inputfile
+    description: The input markdown file.
+    required: true
+    must_exist: true
+```
+
+Now for `domain`, this is a simple **optional string** that gets added
+before relative URLs. Make room for a new argument by creating a new
+line below `must_exist: true` and press **Shift + Tab** to back up one
+tab so the cursor is aligned with the start of the first argument. Add
+the `--domain` argument here:
+
+``` yaml
+  - type: string                           
+    name: --domain
+    description: The domain URL that gets inserted before any relative URLs. For example, "/documentation/intro" could be replaced with "https://my-website/documentation/intro" to create a valid URL.
+```
+
+If an argument isn’t required, you can simply omit the **required** key.
+Here’s what the arguments dictionary look like up until now:
+
+``` yaml
+  arguments:                     
+  - type: file
+    name: --inputfile
+    description: The input markdown file.
+    required: true
+    must_exist: true
+  - type: string                           
+    name: --domain
+    description: The domain URL that gets inserted before any relative URLs. For example, "/documentation/intro" could be replaced with "https://my-website/documentation/intro" to create a valid URL.
+```
+
+The final variable to create an argument for is `output`. This is
+another **file** and clearly an **output**. Its value **isn’t required**
+as we can use a **default** path if no explicit value is given.  
+Add yet another new argument with the following keys and values:
+
+-   Add a **type** key and set **file** as its value.
+-   The next key is **name**, use **–output** as its value.
+-   For the **description**, use “**The path of the output text file
+    that will contain the report.**”.
+-   Add a new key and name it **default**. This will act as the default
+    value when not specified by the user of the component. Set its value
+    to **“output.txt”**, including the quotation marks.
+-   Finally, add the **direction** key and set its value to **output**.
+    This specifies the direction of an argument as either **input** or
+    **output**, with input being the default. Specifying that an
+    argument is an output is important so the component can correctly
+    handle the writing of files and the passing of values in a pipeline.
+
+The finished argument should look like this:
+
+``` yaml
+  - type: file                           
+    name: --output
+    description: The path of the output text file that will contain the report.
+    default: "output.txt"
+    direction: output
+```
+
+With that, there’s just one more part of the functionality to fill in:
+the script itself!  
+Every viash component has one or more resources, the most important of
+which is often the script. The template already contains a **resources**
+dictionary, so replace the following values to point to the script:
+
+-   Set the value of **type** to **python\_script**. The script used in
+    this case was written in **python**, so the resource type is set
+    accordingly so viash knows what flavor of code to generate to create
+    the final component. You can find a full overview of the different
+    resource types on the [Functionality
+    page](/docs/reference_config/functionality/#resources-list).
+-   Change the value of **path** to **script.py**. This points to the
+    resource and can be a relative path, an absolute path or even a URL.
+    In this case we keep the script in the same directory as the config
+    file to keep things simple.
+
+That finishes up the functionality side of the component! All that’s
+left is defining the platforms with their dependencies and then running
+and building the component.
+
+### Defining the platforms
+
+The platforms dictionary specifies the requirements to execute the
 component on zero or more platforms. The list of currently supported
 platforms are [Native](/docs/reference_config/platform-native),
 [Docker](/docs/reference_config/platform-docker), and
-[Nextflow](/docs/reference_config/platform-native). If no platforms are
-specified, a native platform with no system requirements is assumed.
+[Nextflow](/docs/reference_config/platform-nextflow). If no platforms
+are specified, a native platform is assumed. Here’s a quick overview of
+the platforms:
 
-### Writing a first unit test
+-   **native**: The platform for developers that know what they’re doing
+    or for simple components without any dependencies. All dependencies
+    need to be installed on the system the component is run on.
+-   **docker**: This platform is recommended for most components. The
+    dependencies are resolved by using [docker](https://www.docker.com/)
+    containers, either from scratch or by pulling one from a docker
+    repository. This has huge benefits as the end user doesn’t need to
+    have any of the dependencies installed locally.
+-   **nextflow**: This converts the component into a
+    [NextFlow](https://www.nextflow.io/) module that can be imported
+    into a pipeline.
 
-Writing a unit test for a viash component is relatively simple. You just
-need to write a Bash script (or R, or Python) which runs the executable
-multiple times, and verifies the output. Take note that the test needs
-to produce an error code not equal to 0 when a mistake is found.
+In this tutorial, we’ll take a look at both the native and docker
+platforms. The platforms are also defined in the **config.vsh.yaml**
+file at the very bottom. The native platform is actually already defined
+in the template, that one **type** key with a value of **native** is
+enough! Now for adding the docker platform, add a new line below the
+last and add the following:
 
-Contents of [`test.py`](test.py):
+``` yaml
+  - type: docker
+    image: python:3.9.5-slim-buster
+```
+
+This tells viash that this component can be built to a docker container
+with the a [slimmed down version of the python
+image](https://hub.docker.com/_/python) as its base. If your script
+doesn’t depend on any packages, this would be all you’d have to add when
+using a python script. The script in our example however needs a few
+packages installed to work. Luckily, this isn’t a problem since viash
+[supports defining
+dependencies](/docs/reference_config/platform-docker/#example) which
+then get pulled from inside the docker container before running the
+script. To add the dependencies that needs to be installed, add these
+lines below `image: python:3.9.5-slim-buster`:
+
+``` yaml
+    setup:
+      - type: apt
+        packages: [ python3-lxml ]
+      - type: python
+        pip: [ markdown, lxml, requests ]
+```
+
+This will prompt the [apt](https://en.wikipedia.org/wiki/APT_(software))
+package manager to download and install **python3-lxml** inside of the
+container. Next, the python dependencies are resolved by using
+[pip](https://pypi.org/project/pip/), the package installer for Python
+to download the necessary packages for reading markdown and html on top
+of sending web requests. That’s it for the config! Be sure to save it
+and let’s move on to actually running the component you’ve created. For
+reference, you can take a look at the completed **config.vsh.yaml** file
+in [our Github
+repository](https://github.com/viash-io/viash_web/blob/main/static/examples/md_url_checker_py/config.vsh.yaml).
+
+## Run the component
+
+Time to run the component! First off, let’s see what the output of
+`--help` is. To do that, open a terminal in the **my\_viash\_component**
+folder and execute the following command:
 
 ``` bash
+viash run config.vsh.yaml -- --help
+```
+
+This will show the following:
+
+    Check if URLs in a markdown are reachable and create a text report with the results.
+
+    Options:
+        --inputfile=file
+            type: file, required parameter
+            The input markdown file.
+
+        --domain=string
+            type: string
+            The domain URL that gets inserted before any relative URLs. For example, /documentation/intro could be replaced with https://my-website/documentation/intro to create a valid URL.
+
+        --output=file
+            type: file, default: output.txt
+            The path of the output text file that will contain the report.
+
+As you can see, the values you entered into the config file are all
+here.  
+Next, let’s run the component natively with some arguments. You can use
+one of your own markdown files as the input if you desire. In that case,
+replace **Testfile.md** in the command with the path to your file.  
+Execute the following command to run the component with the default
+platform, in this case **native** as it’s the first in the **platforms**
+dictionary:
+
+``` bash
+viash run config.vsh.yaml -- --inputfile=Testfile.md --domain=https://viash.io/ --output=my_report.txt
+```
+
+If all goes well, you’ll see something like this output in the terminal
+and a file named **my\_report.txt** will have appeared:
+
+    1: https://www.google.com
+    OK
+    2: https://www.reddit.com
+    OK
+    3: http://microsoft.com/random-link
+    404
+    4: http://www.viash.io
+    OK
+    5: https://viash.io//docs/prologue/installation
+    OK
+    6: https://viash.io//docs/reference_config/config
+    OK
+
+    Testfile.md has been checked and a report named my_report.txt has been generated.
+    1 of 6 URLs could not be resolved.
+
+For more information on the run command, take a look at [the viash run
+command page](/docs/reference_commands/run/). Great! With that working,
+the next step is building an executable.
+
+## Building an executable
+
+You can generate an executable using either the native or the docker
+platform. The former will generate a file that can be run locally, but
+depends on your locally installed software packages to work. A docker
+executable on the other hand can build and start up a docker container
+that handles the dependencies for you.  
+To create a native build, execute the following command:
+
+``` bash
+viash build config.vsh.yaml
+```
+
+A new folder named **output** will have been created with an executable
+inside named **md\_url\_checker\_py**. To test it out, execute the
+following command:
+
+``` bash
+output/md_url_checker_py --inputfile=Testfile.md --domain=https://viash.io/ --output=my_report.txt
+```
+
+The output is the same as by running the component, but the executable
+can be easily shared and now includes the ability to feed arguments to
+it and an included `--help` command. Not bad!  
+Next up is the docker executable. You can specify the platform with the
+`-p` argument and choose an output folder using `-o`, apart from that
+it’s the same as the previous build command:
+
+``` bash
+viash build -p docker -o docker_output config.vsh.yaml 
+```
+
+You’ll now have a **docker\_ouput** folder alongside the **output** one.
+This folder also contains a file named **md\_url\_checker\_py**, but its
+inner workings are slightly different than before. Run
+**md\_url\_checker\_py** with the full arguments list to test what
+happens:
+
+``` bash
+docker_output/md_url_checker_py --inputfile=Testfile.md --domain=https://viash.io/ --output=my_report.txt
+```
+
+Here’s what just happened:
+
+-   If the docker image wasn’t found, viash will download it.
+-   A check is made to see if a container named “md\_url\_checker\_py”
+    exists. If not, one will be built with the image defined in the
+    config as its base.
+-   All dependencies defined in the config are taken care of.
+-   The script is run with the passed arguments and the output is passed
+    to your shell. The **my\_report.txt** file is written to your
+    working directory.
+
+For more information about the `viash build` command, take a look at
+[its command page](/docs/reference_commands/build/). That concludes the
+building of executables based on components using viash!
+
+## Writing and running a unit test
+
+To finish off this tutorial, it’s important to talk about unit tests. To
+ensure that your component works as expected during its development
+cycle, writing one or more tests is essential. Luckily, writing a unit
+test for a viash component is straightforward.
+
+You just need to add test parameters in the config file and write a
+script which runs the executable and verifies the output. When running
+tests, viash will automatically build an executable and place it
+alongside the other defined resources in a temporary working directory.
+To get started, open up **config.vsh.yaml** file again and add this at
+the end of the functionality dictionary, between the `path: script.py`
+and `platforms:` lines:
+
+``` yaml
+  tests:
+  - type: python_script
+    path: test.py
+  - path: Testfile.md
+```
+
+This test dictionary contains a reference to the test script and all of
+the files that need to be copied over in order to complete a test. In
+the case of our example, **test.py** will be the test script and
+**Testfile.md** is necessary as an input markdown file is required for
+the script to function. Now create a new file named **test.py** in the
+**my\_viash\_component** folder and add this as its content:
+
+``` python
 import unittest
-import os
 from os import path
 import subprocess
 
 class Tester(unittest.TestCase):
-    def simple_test(self):
-        out = subprocess.check_output(["./hello_world_py", "I", "am", "viash"]).decode("utf-8")
-        self.assertEqual(out, "Hello world! I am viash\n")
+    def test_arguments(self):
+        out = subprocess.check_output(["./md_url_checker_py", "--inputfile", "Testfile.md", "--domain", "https://viash.io"]).decode("utf-8")
+        self.assertIn("1: https://www.google.com", out) # Did the script find the URL?
+        self.assertIn("404", out) # Did the web request return a 404 for the page that doesn't exist?
         
-    def less_params(self):
-        out = subprocess.check_output(["./hello_world_py"]).decode("utf-8")
-        self.assertEqual(out, "Hello world!\n")
-        
-    def simple_test(self):
-        out = subprocess.check_output(["./hello_world_py", "General", "Kenobi", "--greeter=Hello there."]).decode("utf-8")
-        self.assertEqual(out, "Hello there. General Kenobi.\n")
+    def test_output_file(self):
+        with open ("output.txt", "r") as output:
+            out=output.readlines()
+        self.assertIn("URL: https://www.google.com\n", out) # Was the URL written correctly in the report?
+        self.assertIn("Status: ERROR! URL cannot be reached. Status code: 404\n", out) # Was the error written correctly in the report?
+        self.assertIn("Link name: install viash here\n", out) # Was the error written correctly in the report?
+
 
 unittest.main()
 ```
 
-When running the test, viash will automatically build an executable and
-place it – along with other resources and test resources – in a
-temporary working directory.
+This python script will run the component and perform several checks to
+its output using
+[unittest](https://docs.python.org/3/library/unittest.html). A
+successful test runs all the way down and exits with “OK”.
+
+-   `subprocess.check_output()` runs the component and writes its output
+    to a string.
+-   All of the `self.assertIn()` calls check if a certain piece of text
+    could be found.
+-   `unittest.main()` executes the tests.
+
+Make sure both the config and test files are saved, then run a test by
+running this command:
+
+``` bash
+viash test config.vsh.yaml 
+```
+
+The output will look like this:
+
+    Running tests in temporary directory: '/tmp/viash_test_md_url_checker_py8940229966332389881'
+    ====================================================================
+    +/tmp/viash_test_md_url_checker_py8940229966332389881/build_executable/md_url_checker_py ---setup
+    ====================================================================
+    +/tmp/viash_test_md_url_checker_py8940229966332389881/test_test.py/test.py
+    ..
+    ----------------------------------------------------------------------
+    Ran 2 tests in 3.251s
+
+    OK
+    ====================================================================
+    [32mSUCCESS! All 1 out of 1 test scripts succeeded![0m
+    Cleaning up temporary directory
+
+If the test succeeds it simply writes the full output to the shell. If
+there’s any issues, the script stops and an error message will appear in
+red. For more information on tests take a look at the [viash test
+command page](/docs/reference_commands/test/).
+
+## What’s next?
+
+Now you’re ready to use viash to creating components from your own
+scripts, check out the rest of our documentation on the left. Here are
+some good starting points:
+
+-   The **Reference: Commands** section on the left
+-   An [overview of the functionality
+    dictionary](/docs/reference_config/functionality/) of the config
+    file
+-   More details about [the docker
+    platform](/docs/reference_config/platform-docker/)

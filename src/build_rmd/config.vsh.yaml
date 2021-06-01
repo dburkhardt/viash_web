@@ -30,7 +30,7 @@ platforms:
           - echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
           - apk add --no-cache cmark@testing pandoc@testing
       - type: apk
-        packages: [ bash, R, R-dev, libcurl, g++, gcc, linux-headers, gfortran, automake, libtool, m4, autoconf, linux-headers, openssl, R, R-dev, wget, R-doc libxml2 libxml2-dev libc-dev ]
+        packages: [ bash, R, R-dev, libcurl, curl, g++, gcc, linux-headers, gfortran, automake, libtool, m4, autoconf, linux-headers, openssl, R, R-dev, wget, R-doc libxml2 libxml2-dev libc-dev ]
       # r setup
       - type: docker
         env:
@@ -40,7 +40,7 @@ platforms:
           - echo "options(repos = c(CRAN = '${CRAN}'))" >> ${R_HOME}/etc/Rprofile.site
       # R packages
       - type: r
-        cran: [ blogdown, rmarkdown, tidyverse ]
+        cran: [ blogdown, tidyverse, testthat ]
         github: [ tidyverse/readxl ] # cran version of readxl doesn't work with alpine yet
       - type: r
         cran: [ tidyverse ]
@@ -53,6 +53,4 @@ platforms:
         pip: [ wheel ]
       - type: python
         pip: [ markdown, lxml, requests ]
-      # documentation example dependencies
-      - type: apk
-        packages: [ curl ]
+
