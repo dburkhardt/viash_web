@@ -13,6 +13,15 @@ weight: 110
 toc: true
 ---
 
+```{r init, include=FALSE}
+source("../../../src/helper/md_helpers.R")
+
+# change wd to where the files are located
+knitr::opts_knit$set(root.dir = "../../../") 
+# Remove hashtags before bash output
+knitr::opts_chunk$set(comment = NA)
+```
+
 ## Supported Operating Systems
 
 You can run viash on the following operating systems:
@@ -28,7 +37,7 @@ You can run viash on the following operating systems:
 
 ## Installing viash
 
-To install viash to a **bin** folder in your current directory, run the following command:
+To install viash to a **bin** folder in your current directory, run the following command to download and run the bootstrap tool:
 
 ```bash
 wget -qO- get.viash.io | bash
@@ -38,4 +47,26 @@ To verify your installation, run the following command:
 
 ```bash
 bin/viash --help
+
+```
+
+### Installation options
+
+Additional options can be set immediately or during a second run of the bootstrap tool using the following syntax:
+
+```bash
+wget -qO- get.viash.io | bash -s -- OPTIONS
+```
+
+For example, this command installs a release candidate of viash in a directory named 'applications':
+
+```bash
+wget -qO- get.viash.io | bash -s -- -bin applications -tag 0.5.0-rc3
+```
+
+Here's the full list of options:
+
+
+```{bash, echo=FALSE}
+./viash_bootstrap --help | tail -n +5 | awk '{$1=$1};1'
 ```
