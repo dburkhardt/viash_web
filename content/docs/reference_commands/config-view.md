@@ -3,7 +3,7 @@ title: "viash config view"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-31T10:52:52+00:00"
+lastmod: "2021-06-04T07:47:15+00:00"
 draft: false
 images: []
 menu:

@@ -3,7 +3,7 @@ title: "Creating an R component"
 description: "Developing a new viash component."
 lead: "Developing a new viash component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-01T19:54:14+00:00"
+lastmod: "2021-06-04T07:45:54+00:00"
 draft: false
 images: []
 menu:
@@ -662,11 +662,11 @@ viash test config.vsh.yaml
 
 The output will look like this:
 
-    Running tests in temporary directory: '/tmp/viash_test_md_url_checker_r6575178993583360861'
+    Running tests in temporary directory: '/tmp/viash_test_md_url_checker_r3966300622305181870'
     ====================================================================
-    +/tmp/viash_test_md_url_checker_r6575178993583360861/build_executable/md_url_checker_r ---setup
+    +/tmp/viash_test_md_url_checker_r3966300622305181870/build_executable/md_url_checker_r ---setup
     ====================================================================
-    +/tmp/viash_test_md_url_checker_r6575178993583360861/test_test.R/test.R
+    +/tmp/viash_test_md_url_checker_r3966300622305181870/test_test.R/test.R
     >>> Checking whether output is correct
     >>> Checking whether output file is correct
     >>> Test finished successfully!
