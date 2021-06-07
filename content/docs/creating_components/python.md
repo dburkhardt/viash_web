@@ -3,7 +3,7 @@ title: "Creating a Python component"
 description: "Developing a new viash component."
 lead: "Developing a new viash component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-01T08:56:23+00:00"
+lastmod: "2021-06-04T07:45:30+00:00"
 draft: false
 images: []
 menu:
@@ -662,14 +662,14 @@ viash test config.vsh.yaml
 
 The output will look like this:
 
-    Running tests in temporary directory: '/tmp/viash_test_md_url_checker_py8940229966332389881'
+    Running tests in temporary directory: '/tmp/viash_test_md_url_checker_py3106314027501573648'
     ====================================================================
-    +/tmp/viash_test_md_url_checker_py8940229966332389881/build_executable/md_url_checker_py ---setup
+    +/tmp/viash_test_md_url_checker_py3106314027501573648/build_executable/md_url_checker_py ---setup
     ====================================================================
-    +/tmp/viash_test_md_url_checker_py8940229966332389881/test_test.py/test.py
+    +/tmp/viash_test_md_url_checker_py3106314027501573648/test_test.py/test.py
     ..
     ----------------------------------------------------------------------
-    Ran 2 tests in 3.251s
+    Ran 2 tests in 2.926s
 
     OK
     ====================================================================

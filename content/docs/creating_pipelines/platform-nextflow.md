@@ -3,7 +3,7 @@ title: "Creating a Nextflow Pipeline"
 description: "Developing a Pipeline in Nextflow with viash."
 lead: "Developing a Pipeline in Nextflow with viash."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-01T20:09:12+00:00"
+lastmod: "2021-06-04T07:46:25+00:00"
 draft: false
 images: []
 menu:

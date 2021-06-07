@@ -3,7 +3,7 @@ title: "viash ns test"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-31T10:52:54+00:00"
+lastmod: "2021-06-04T07:47:21+00:00"
 draft: false
 images: []
 menu:
