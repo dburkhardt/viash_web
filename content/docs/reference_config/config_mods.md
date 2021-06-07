@@ -3,7 +3,7 @@ title: "Dynamic Config Modding"
 description: "The config can be dynamically altered from the command line to change the component's behaviour during the build-stage."
 lead: "The config can be dynamically altered from the command line to change the component's behaviour during the build-stage."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-31T10:53:01+00:00"
+lastmod: "2021-06-04T07:47:39+00:00"
 draft: false
 images: []
 menu:
