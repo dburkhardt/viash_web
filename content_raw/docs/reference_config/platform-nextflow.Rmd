@@ -31,7 +31,7 @@ platforms:
 
 Every platform can be given a specific `id` that can later be referred to explicitly when running or building the viash component.
 
-## `image [strng]`, `tag`/`version [string]` and `registry [string]`
+## image [string], tag/version [string] and registry [string]
 
 If no image attributes are configured, viash will use the auto-generated image name from the Docker platform:
 

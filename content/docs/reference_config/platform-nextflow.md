@@ -3,7 +3,7 @@ title: "Nextflow Platform"
 description: "Run a viash component as a Nextflow module."
 lead: "Run a viash component as a Nextflow module."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-04T13:52:59+00:00"
+lastmod: "2021-06-05T18:22:24+00:00"
 draft: false
 images: []
 menu:
@@ -34,7 +34,7 @@ platforms:
 Every platform can be given a specific `id` that can later be referred
 to explicitly when running or building the viash component.
 
-## `image [strng]`, `tag`/`version [string]` and `registry [string]`
+## image \[string\], tag/version \[string\] and registry \[string\]
 
 If no image attributes are configured, viash will use the auto-generated
 image name from the Docker platform:
