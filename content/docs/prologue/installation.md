@@ -3,7 +3,7 @@ title: "Installation"
 description: "Installation requirements and instructions."
 lead: "Installation requirements and instructions."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-01T13:43:27+00:00"
+lastmod: "2021-06-07T06:49:15+00:00"
 draft: false
 images: []
 menu:
@@ -36,7 +36,7 @@ You can run viash on the following operating systems:
 ## Installing viash
 
 To install viash to a **bin** folder in your current directory, run the
-following command:
+following command to download and run the bootstrap tool:
 
 ``` bash
 wget -qO- get.viash.io | bash
@@ -47,3 +47,56 @@ To verify your installation, run the following command:
 ``` bash
 bin/viash --help
 ```
+
+### Installation options
+
+Additional options can be set immediately using the following syntax:
+
+``` bash
+wget -qO- get.viash.io | bash -s -- OPTIONS
+```
+
+For example, this command installs a release candidate of viash in a
+directory named ‘applications’:
+
+``` bash
+wget -qO- get.viash.io | bash -s -- -bin applications -tag 0.5.0-rc3
+```
+
+Use `--help` to get more information on the various parameters. Here’s
+the full list of options:
+
+``` bash
+./viash_bootstrap --help
+```
+
+    viash_bootstrap 0.1
+    Bootstrap or update a viash project's CI/CD artefacts
+
+    Options:
+        --bin
+            type: file, output
+            default: bin
+            Target dir for viash scripts and tools
+
+        -r, --registry
+            type: string
+            default: 
+            Docker registry to use, only used when using a registry.
+
+        --namespace_separator
+            type: string
+            default: _
+            The separator to use between the component name and namespace as the image name of a Docker container.
+
+        -c, --config_mod
+            type: string, multiple values allowed
+            Modify a viash config at runtime using a custom DSL. For more information, see the online documentation.
+
+        -t, --tag
+            type: string
+            Which tag/version of viash to use, leave blank for the latest release
+
+        --viash
+            type: file
+            A path to the viash executable. If not specified, this component will look for 'viash' on the $PATH.
