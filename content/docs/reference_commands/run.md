@@ -3,7 +3,7 @@ title: "viash run"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-07T07:54:31+00:00"
+lastmod: "2021-06-07T08:29:40+00:00"
 draft: false
 images: []
 menu:
@@ -15,9 +15,9 @@ toc: true
 
 
 
-Executes a viash component from the provided [viash
-config](/docs/reference_config/config) file. viash generates a temporary
-executable and immediately executes it with the given parameters.
+Executes a viash component from the provided viash config file. viash
+generates a temporary executable and immediately executes it with the
+given parameters.
 
 Usage:
 
@@ -29,14 +29,14 @@ Usage:
 
 ### –config
 
-A viash config file (example: `config.vsh.yaml`). This argument can also
-be a script with the config as a header.
+A [viash config file](/docs/reference_config/config) (example:
+`config.vsh.yaml`). This argument can also be a script with the config
+as a header.
 
 ### -c, –config\_mod <arg>…
 
-Modify a [viash config](/docs/reference_config/config) at runtime using
-a custom DSL. For more information, see the online documentation.
-(default = List())
+Modify a viash config at runtime using a custom DSL. For more
+information, see the online documentation. (default = List())
 
 ### -k, –keep <arg>
 
@@ -48,10 +48,12 @@ overwritten by setting defining a VIASH\_TEMP directory.
 
 ### -p, –platform <arg>
 
-Specifies which platform amongst those specified in the config to use.
-If this is not provided, the first platform will be used. If no
-platforms are defined in the config, the native platform will be used.
-In addition, the path to a platform yaml file can also be specified.
+Specifies which platform amongst those specified in the [viash
+config](/docs/reference_config/config) to use. If this is not provided,
+the first platform will be used. If no platforms are defined in the
+[viash config](/docs/reference_config/config), the native platform will
+be used. In addition, the path to a platform yaml file can also be
+specified.
 
 ### -h, –help
 

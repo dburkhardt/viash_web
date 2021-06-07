@@ -15,18 +15,13 @@ toc: true
 
 ```{r setup, include=FALSE}
 library(tidyverse)
+source("../../../src/helper/md_helpers.R")
 
 knitr::opts_chunk$set(echo = FALSE)
 
 # get info from help page
 out <- processx::run("viash", c("run", "-h"))
 txt <- out$stdout %>% strsplit("\n") %>% first()
-
-detect_links <- function(x) {
-  x %>% 
-    gsub("viash[ \n]*config", "[viash config](/docs/reference_config/config)", .) %>% 
-    gsub("config[ \n]*mods", "[config mods](/docs/reference_config/config_mods/)", .)
-}
 ```
 
 ```{r desc}
@@ -54,7 +49,7 @@ knitr::asis_output(usage)
 
 ### --config  
   
-A viash config file (example: `config.vsh.yaml`). This argument can also be a script with the config as a header.
+A [viash config file](/docs/reference_config/config) (example: `config.vsh.yaml`). This argument can also be a script with the config as a header.
 
 ```{r arg}
 trail <- grep("^ trailing arguments:", txt)

@@ -23,3 +23,12 @@ print_file <- function(path, path_text = path, format = "bash", show_filename = 
 
   knitr::asis_output(markdown)
 }
+
+
+# Detects certain combinations of words in generated texts and replaces them with links to documentation pages.
+# Heavily used in the command pages.
+detect_links <- function(x) {
+  x %>% 
+    gsub("the[ \n]*config", "the [viash config](/docs/reference_config/config)", .) %>% 
+    gsub("config[ \n]*mods", "[config mods](/docs/reference_config/config_mods/)", .)
+}
