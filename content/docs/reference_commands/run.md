@@ -3,7 +3,7 @@ title: "viash run"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-31T10:52:55+00:00"
+lastmod: "2021-06-07T07:54:31+00:00"
 draft: false
 images: []
 menu:
@@ -25,23 +25,83 @@ Usage:
   viash run config.vsh.yaml [-p docker] [-k true/false]  -- [arguments for script]
 ```
 
-Arguments:
+## Arguments
 
--   `config`: A viash config file (example: `config.vsh.yaml`). This
-    argument can also be a script with the config as a header.
--   `-c, --config_mod  <arg>...`: Modify a [viash
-    config](/docs/reference_config/config) at runtime using a custom
-    DSL. For more information, see the online documentation. (default =
-    List())
--   `-k, --keep  <arg>`: Whether or not to keep temporary files. By
-    default, files will be deleted if all goes well but remain when an
-    error occurs. By specifying –keep true, the temporary files will
-    always be retained, whereas –keep false will always delete them. The
-    temporary directory can be overwritten by setting defining a
-    VIASH\_TEMP directory.
--   `-p, --platform  <arg>`: Specifies which platform amongst those
-    specified in the config to use. If this is not provided, the first
-    platform will be used. If no platforms are defined in the config,
-    the native platform will be used. In addition, the path to a
-    platform yaml file can also be specified.
--   `-h, --help`: Show help message
+### –config
+
+A viash config file (example: `config.vsh.yaml`). This argument can also
+be a script with the config as a header.
+
+### -c, –config\_mod <arg>…
+
+Modify a [viash config](/docs/reference_config/config) at runtime using
+a custom DSL. For more information, see the online documentation.
+(default = List())
+
+### -k, –keep <arg>
+
+Whether or not to keep temporary files. By default, files will be
+deleted if all goes well but remain when an error occurs. By specifying
+–keep true, the temporary files will always be retained, whereas –keep
+false will always delete them. The temporary directory can be
+overwritten by setting defining a VIASH\_TEMP directory.
+
+### -p, –platform <arg>
+
+Specifies which platform amongst those specified in the config to use.
+If this is not provided, the first platform will be used. If no
+platforms are defined in the config, the native platform will be used.
+In addition, the path to a platform yaml file can also be specified.
+
+### -h, –help
+
+Show help message
+
+## Examples
+
+Simply run a viash component with its default platform and no script
+arguments:
+
+``` bash
+viash run config.vsh.yaml
+```
+
+Run a component with script arguments:
+
+``` bash
+viash run config.vsh.yaml -- --input="Hello!" -o=my_file.txt
+```
+
+Here’s how you run a viash component using the [Docker
+platform](/docs/reference_config/platform-docker) and keep the temporary
+files:
+
+``` bash
+viash run config.vsh.yaml --platform docker --keep true
+```
+
+This example runs a component using the [native
+platform](/docs/reference_config/platform-native) and passes arguments
+to the script:
+
+``` bash
+viash run config.vsh.yaml --platform native -- --input="Hello!" -o=my_file.txt
+```
+
+Run a viash component using a [config
+mod](/docs/reference_config/config_mods) to override the [config
+file](/docs/reference_config/config). In this case, pull an image from a
+docker registry and specify a specific docker registry server URL.
+
+``` bash
+viash run config.vsh.yaml -p docker \
+  -c '.platforms[.type == "docker"].setup_strategy := "pull"' \
+  -c '.platforms[.type == "docker"].container_registry := "url-to-registry"'
+```
+
+## See also
+
+-   [Config file](/docs/reference_config/config)
+-   [Dynamic Config Modding](/docs/reference_config/config_mods)
+-   [Native platform](/docs/reference_config/platform-native)
+-   [Docker platform](/docs/reference_config/platform-docker)

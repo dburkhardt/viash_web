@@ -38,6 +38,6 @@ The documentation for this language is still in progress.
 
 The documentation for this language is still in progress.
 
-## C#
+## C&#35;
 
 The documentation for this language is still in progress.
