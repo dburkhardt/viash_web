@@ -38,6 +38,6 @@ The documentation for this language is still in progress.
 
 The documentation for this language is still in progress.
 
-## C&#35;
+## C\#
 
 The documentation for this language is still in progress.

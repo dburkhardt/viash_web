@@ -3,7 +3,7 @@ title: "Supported languages"
 description: "You can use several programming languages with viash to write your own components."
 lead: "You can use several programming languages with viash to write your own components."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-07T06:25:19+00:00"
+lastmod: "2021-06-07T07:57:47+00:00"
 draft: false
 images: []
 menu:
