@@ -3,7 +3,7 @@ title: "Installation"
 description: "Installation requirements and instructions."
 lead: "Installation requirements and instructions."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-04T12:59:10+00:00"
+lastmod: "2021-06-07T06:49:15+00:00"
 draft: false
 images: []
 menu:
@@ -50,8 +50,7 @@ bin/viash --help
 
 ### Installation options
 
-Additional options can be set immediately or during a second run of the
-bootstrap tool using the following syntax:
+Additional options can be set immediately using the following syntax:
 
 ``` bash
 wget -qO- get.viash.io | bash -s -- OPTIONS
@@ -64,31 +63,40 @@ directory named ‘applications’:
 wget -qO- get.viash.io | bash -s -- -bin applications -tag 0.5.0-rc3
 ```
 
-Here’s the full list of options:
+Use `--help` to get more information on the various parameters. Here’s
+the full list of options:
 
-    --bin
-    type: file
-    default: bin
-    Target dir for viash scripts and tools
+``` bash
+./viash_bootstrap --help
+```
 
-    -r, --registry
-    type: string
-    default:
-    Docker registry to use, only used when using a registry.
+    viash_bootstrap 0.1
+    Bootstrap or update a viash project's CI/CD artefacts
 
-    --namespace_separator
-    type: string
-    default: _
-    The separator to use between the component name and namespace as the image name of a Docker container.
+    Options:
+        --bin
+            type: file, output
+            default: bin
+            Target dir for viash scripts and tools
 
-    -c, --config_mod
-    type: string, multiple values allowed
-    Modify a viash config at runtime using a custom DSL. For more information, see the online documentation.
+        -r, --registry
+            type: string
+            default: 
+            Docker registry to use, only used when using a registry.
 
-    -t, --tag
-    type: string
-    Which tag/version of viash to use, leave blank for the latest release
+        --namespace_separator
+            type: string
+            default: _
+            The separator to use between the component name and namespace as the image name of a Docker container.
 
-    --viash
-    type: file
-    A path to the viash executable. If not specified, this component will look for 'viash' on the $PATH.
+        -c, --config_mod
+            type: string, multiple values allowed
+            Modify a viash config at runtime using a custom DSL. For more information, see the online documentation.
+
+        -t, --tag
+            type: string
+            Which tag/version of viash to use, leave blank for the latest release
+
+        --viash
+            type: file
+            A path to the viash executable. If not specified, this component will look for 'viash' on the $PATH.
