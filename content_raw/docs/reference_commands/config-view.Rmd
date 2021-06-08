@@ -41,7 +41,7 @@ usage <- txt[seq(
   grep("^Usage:", txt)+1,
   grep("^Arguments:", txt)-2
 )] %>% 
-  {paste0("```bash\n", paste(.,collapse = "\n"),"\n```\n")} %>% 
+  {paste0("```bash\n", paste(str_trim(.),collapse = "\n"),"\n```\n")} %>% 
   detect_links
 knitr::asis_output(usage)
 ```
@@ -59,7 +59,7 @@ arg <- txt[seq(
   grep("^Arguments:", txt)+1,
   trail-1
 )] %>% 
-  gsub("^  (-[^A-Z]*)", "\n### \\1 \n\n", .) %>% 
+  gsub("\\s\\s(-[^A-Z]*)\\s\\s", "\n### \\1 \n\n", .) %>% 
   gsub(" *$", "", .) %>% 
   paste(., collapse = "\n") %>% 
   detect_links
@@ -67,6 +67,87 @@ knitr::asis_output(arg)
 ```
 
 ## Examples
+
+### Print a viash config to the terminal
+
+The `config view` command prints a **parsed** version of a [config file](/docs/reference_config/config) to the terminal. This includes all fields, even those that were not given values in the config file itself:
+
+```bash
+viash config view config.vsh.yaml
+```
+
+For the [hello_world example config file](/examples/hello_world/config.vsh.yaml), this prints out the following:
+
+```yaml
+functionality:
+  name: "hello_world"
+  authors: []
+  arguments:
+  - type: "string"
+    name: "input"
+    alternatives: []
+    required: false
+    direction: "Input"
+    multiple: true
+    multiple_sep: " "
+  - type: "string"
+    name: "--greeter"
+    alternatives: []
+    default: "Hello world!"
+    required: false
+    direction: "Input"
+    multiple: false
+    multiple_sep: ":"
+  resources:
+  - type: "bash_script"
+    path: "script.sh"
+    is_executable: true
+    parent: "file:///home/user/hello_world/config.vsh.yaml"
+  description: "A very simple 'Hello world' component."
+  tests:
+  - type: "bash_script"
+    path: "test.sh"
+    is_executable: true
+    parent: "file:///home/user/hello_world/config.vsh.yaml"
+  info: {}
+platforms:
+- type: "native"
+  id: "native"
+  setup: []
+- type: "docker"
+  id: "docker"
+  image: "bash:4.0"
+  namespace_separator: "_"
+  resolve_volume: "Automatic"
+  chown: true
+  setup_strategy: "alwayscachedbuild"
+  push_strategy: "pushifnotpresent"
+  privileged: false
+  setup: []
+- type: "docker"
+  id: "alpine"
+  image: "alpine"
+  namespace_separator: "_"
+  resolve_volume: "Automatic"
+  chown: true
+  setup_strategy: "alwayscachedbuild"
+  push_strategy: "pushifnotpresent"
+  privileged: false
+  setup:
+  - type: "apk"
+    packages:
+    - "bash"
+```
+
+### Override a config with config mods
+
+Prints out what a **parsed** viash component config would look like while using a [config mod](/docs/reference_config/config_mods) to override the [config file](/docs/reference_config/config).
+
+```bash
+viash config view config.vsh.yaml \
+-c '.platforms[.type == "docker"].setup_strategy := "pull"' \
+-c '.platforms[.type == "docker"].image := "bash:latest"'
+```
 
 
 ## See also

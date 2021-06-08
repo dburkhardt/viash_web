@@ -3,7 +3,7 @@ title: "viash run"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-07T08:29:40+00:00"
+lastmod: "2021-06-08T12:28:50+00:00"
 draft: false
 images: []
 menu:
@@ -22,7 +22,7 @@ given parameters.
 Usage:
 
 ``` bash
-  viash run config.vsh.yaml [-p docker] [-k true/false]  -- [arguments for script]
+viash run config.vsh.yaml [-p docker] [-k true/false]  -- [arguments for script]
 ```
 
 ## Arguments
@@ -35,8 +35,8 @@ as a header.
 
 ### -c, –config\_mod <arg>…
 
-Modify a viash config at runtime using a custom DSL. For more
-information, see the online documentation. (default = List())
+Modify a [viash config](/docs/reference_config/config) at runtime using
+a [custom DSL](/docs/reference_config/config_mods). (default = List())
 
 ### -k, –keep <arg>
 
@@ -51,15 +51,17 @@ overwritten by setting defining a VIASH\_TEMP directory.
 Specifies which platform amongst those specified in the [viash
 config](/docs/reference_config/config) to use. If this is not provided,
 the first platform will be used. If no platforms are defined in the
-[viash config](/docs/reference_config/config), the native platform will
-be used. In addition, the path to a platform yaml file can also be
-specified.
+[viash config](/docs/reference_config/config), the [native
+platform](/docs/reference_config/platform-native) will be used. In
+addition, the path to a platform yaml file can also be specified.
 
 ### -h, –help
 
 Show help message
 
 ## Examples
+
+### Running without arguments
 
 Simply run a viash component with its default platform and no script
 arguments:
@@ -68,11 +70,15 @@ arguments:
 viash run config.vsh.yaml
 ```
 
+### Passing script arguments
+
 Run a component with script arguments:
 
 ``` bash
 viash run config.vsh.yaml -- --input="Hello!" -o=my_file.txt
 ```
+
+### Preserve temporary files
 
 Here’s how you run a viash component using the [Docker
 platform](/docs/reference_config/platform-docker) and keep the temporary
@@ -82,6 +88,8 @@ files:
 viash run config.vsh.yaml --platform docker --keep true
 ```
 
+### Combining run options with script arguments
+
 This example runs a component using the [native
 platform](/docs/reference_config/platform-native) and passes arguments
 to the script:
@@ -89,6 +97,8 @@ to the script:
 ``` bash
 viash run config.vsh.yaml --platform native -- --input="Hello!" -o=my_file.txt
 ```
+
+### Override a config with config mods
 
 Run a viash component using a [config
 mod](/docs/reference_config/config_mods) to override the [config
