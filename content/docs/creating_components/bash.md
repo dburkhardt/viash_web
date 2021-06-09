@@ -3,7 +3,7 @@ title: "Creating a Bash component"
 description: "Developing a new viash component."
 lead: "Developing a new viash component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-04T07:45:05+00:00"
+lastmod: "2021-06-09T07:18:00+00:00"
 draft: false
 images: []
 menu:
@@ -659,11 +659,11 @@ viash test config.vsh.yaml
 
 The output will look like this:
 
-    Running tests in temporary directory: '/tmp/viash_test_md_url_checker7741351741309740138'
+    Running tests in temporary directory: '/tmp/viash_test_md_url_checker2884537170332487228'
     ====================================================================
-    +/tmp/viash_test_md_url_checker7741351741309740138/build_executable/md_url_checker ---setup
+    +/tmp/viash_test_md_url_checker2884537170332487228/build_executable/md_url_checker ---setup
     ====================================================================
-    +/tmp/viash_test_md_url_checker7741351741309740138/test_test.sh/test.sh
+    +/tmp/viash_test_md_url_checker2884537170332487228/test_test.sh/test.sh
     + echo '>>> Checking whether output is correct'
     + ./md_url_checker --inputfile Testfile.md
     >>> Checking whether output is correct

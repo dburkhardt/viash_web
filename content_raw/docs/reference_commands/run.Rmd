@@ -15,18 +15,13 @@ toc: true
 
 ```{r setup, include=FALSE}
 library(tidyverse)
+source("../../../src/helper/md_helpers.R")
 
 knitr::opts_chunk$set(echo = FALSE)
 
 # get info from help page
 out <- processx::run("viash", c("run", "-h"))
 txt <- out$stdout %>% strsplit("\n") %>% first()
-
-detect_links <- function(x) {
-  x %>% 
-    gsub("viash[ \n]*config", "[viash config](/docs/reference_config/config)", .) %>% 
-    gsub("config[ \n]*mods", "[config mods](/docs/reference_config/config_mods/)", .)
-}
 ```
 
 ```{r desc}
@@ -35,7 +30,7 @@ desc <- txt[seq(
   grep("^Usage:", txt)-2
 )] %>% gsub("^viash ", "# viash ", .) %>% 
   paste(., collapse = "\n") %>% 
-  detect_links
+  detect_links 
 knitr::asis_output(desc)
 ```
 
@@ -45,16 +40,17 @@ usage <- txt[seq(
   grep("^Usage:", txt)+1,
   grep("^Arguments:", txt)-2
 )] %>% 
-  {paste0("```bash\n", paste(., collapse = "\n"), "\n```\n")} %>% 
+  {paste0("```bash\n", paste(str_trim(.),collapse = "\n"),"\n```\n")} %>% 
   detect_links
 knitr::asis_output(usage)
 ```
 
-Arguments:
+## Arguments 
 
-* `config`: A viash config file (example: `config.vsh.yaml`). This
-            argument can also be a script with the config as a
-            header.
+### --config  
+  
+A [viash config file](/docs/reference_config/config) (example: `config.vsh.yaml`). This argument can also be a script with the config as a header.
+
 ```{r arg}
 trail <- grep("^ trailing arguments:", txt)
 if (length(trail) == 0) trail <- length(txt)+1
@@ -62,9 +58,61 @@ arg <- txt[seq(
   grep("^Arguments:", txt)+1,
   trail-1
 )] %>% 
-  gsub("^  (-[^A-Z]*)", "* `\\1`: ", .) %>% 
+  gsub("\\s\\s(-[^A-Z]*)\\s\\s", "\n### \\1 \n\n", .) %>% 
   gsub(" *$", "", .) %>% 
   paste(., collapse = "\n") %>% 
   detect_links
 knitr::asis_output(arg)
 ```
+
+## Examples
+
+### Running without arguments
+
+Simply run a viash component with its default platform and no script arguments:
+
+```bash
+viash run config.vsh.yaml
+```
+
+### Passing script arguments
+
+Run a component with script arguments:
+
+```bash
+viash run config.vsh.yaml -- --input="Hello!" -o=my_file.txt
+```
+
+### Preserve temporary files
+
+Here's how you run a viash component using the [Docker platform](/docs/reference_config/platform-docker) and keep the temporary files:
+
+```bash
+viash run config.vsh.yaml --platform docker --keep true
+```
+
+### Combining run options with script arguments
+
+This example runs a component using the [native platform](/docs/reference_config/platform-native) and passes arguments to the script:
+
+```bash
+viash run config.vsh.yaml --platform native -- --input="Hello!" -o=my_file.txt
+```
+
+### Override a config with config mods
+
+Run a viash component using a [config mod](/docs/reference_config/config_mods) to override the [config file](/docs/reference_config/config).
+In this case, pull an image from a docker registry and specify a specific docker registry server URL.
+
+```bash
+viash run config.vsh.yaml -p docker \
+  -c '.platforms[.type == "docker"].setup_strategy := "pull"' \
+  -c '.platforms[.type == "docker"].container_registry := "url-to-registry"'
+```
+
+## See also
+
+- [Config file](/docs/reference_config/config)
+- [Dynamic Config Modding](/docs/reference_config/config_mods)
+- [Native platform](/docs/reference_config/platform-native)
+- [Docker platform](/docs/reference_config/platform-docker)

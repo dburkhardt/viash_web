@@ -3,7 +3,7 @@ title: "Supported languages"
 description: "You can use several programming languages with viash to write your own components."
 lead: "You can use several programming languages with viash to write your own components."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-04T07:47:13+00:00"
+lastmod: "2021-06-07T07:57:47+00:00"
 draft: false
 images: []
 menu:
@@ -56,6 +56,6 @@ The documentation for this language is still in progress.
 
 The documentation for this language is still in progress.
 
-## C
+## C\#
 
 The documentation for this language is still in progress.

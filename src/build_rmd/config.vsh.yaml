@@ -8,6 +8,13 @@ functionality:
       type: file
       description: The root of the viash_docs folder.
       default: "."
+    - name: "--force"
+      alternatives: ["-f"]
+      type: boolean_true
+      description: Rebuild all markdown files.
+    - name: "--dont_revert"
+      type: boolean_true
+      description: Don't revert changes if nothing has changed.
   resources:
     - type: r_script
       path: script.R

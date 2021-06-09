@@ -3,7 +3,7 @@ title: "Creating an R component"
 description: "Developing a new viash component."
 lead: "Developing a new viash component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-04T07:45:54+00:00"
+lastmod: "2021-06-09T07:18:22+00:00"
 draft: false
 images: []
 menu:
@@ -208,13 +208,13 @@ The script will now show the following output:
       url                             title          status                         
       <chr>                           <chr>          <chr>                          
     1 https://www.google.com          Google         OK                             
-    2 https://www.reddit.com          Reddit         OK                             
+    2 https://www.reddit.com          Reddit         ERROR! URL cannot be reached. …
     3 http://microsoft.com/random-li… A broken link  ERROR! URL cannot be reached. …
     4 http://www.viash.io             viash.io       OK                             
     5 https://viash.io/docs/prologue… install viash… OK                             
     6 https://viash.io/docs/referenc… config file    OK                             
     Input 'Testfile.md' has been checked and a report named 'output.txt' has been generated.
-    1 out of 6 URLs could not be reached.
+    2 out of 6 URLs could not be reached.
 
 If you get this same output, that means the script is working as
 intended! Feel free to take a peek at the generated **output.txt** file
@@ -662,11 +662,11 @@ viash test config.vsh.yaml
 
 The output will look like this:
 
-    Running tests in temporary directory: '/tmp/viash_test_md_url_checker_r3966300622305181870'
+    Running tests in temporary directory: '/tmp/viash_test_md_url_checker_r8069699966453660656'
     ====================================================================
-    +/tmp/viash_test_md_url_checker_r3966300622305181870/build_executable/md_url_checker_r ---setup
+    +/tmp/viash_test_md_url_checker_r8069699966453660656/build_executable/md_url_checker_r ---setup
     ====================================================================
-    +/tmp/viash_test_md_url_checker_r3966300622305181870/test_test.R/test.R
+    +/tmp/viash_test_md_url_checker_r8069699966453660656/test_test.R/test.R
     >>> Checking whether output is correct
     >>> Checking whether output file is correct
     >>> Test finished successfully!
