@@ -67,7 +67,7 @@ wget -qO- get.viash.io | bash -s -- -bin applications -tag 0.5.0-rc3
 Use `--help` to get more information on the various parameters. Here's the full list of options:
 
 ```bash
-./viash_bootstrap --help
+wget -qO- get.viash.io | bash -s -- --help
 ```
 
 ```{bash, echo=FALSE}
