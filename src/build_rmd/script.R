@@ -17,9 +17,10 @@ for (i in seq_along(rmds)) {
   md <- mds[[i]]
 
   # if output is not older than input, skip the compilation
-  if (blogdown:::require_rebuild(md, rmd)) {
+  if (par$force || blogdown:::require_rebuild(md, rmd)) {
     message('* knitting ', rmd)
 
+    before <- readLines(md)
     rmarkdown::render(
       input = rmd,
       output_file = basename(md),
@@ -29,6 +30,18 @@ for (i in seq_along(rmds)) {
         preserve_yaml = TRUE
       )
     )
+    after <- readLines(md)
+
+    # if only the date has changed,
+    # revert changes
+    if (
+      !par$dont_revert &&
+      length(before) == length(after) &&
+      sum(before != after) == 1 &&
+      grepl("^lastmod: ", before[before != after])
+    ) {
+      writeLines(before, md)
+    }
   }
 }
 
