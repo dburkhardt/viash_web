@@ -1,14 +1,14 @@
 ---
-title: "Hello World (Bash)"
-description: "We have provided a simple **Hello World** component as an introduction to viash. Follow the steps below to learn how to run a component and get a result back from it."
-lead: "We have provided a simple **Hello World** component as an introduction to viash. Follow the steps below to learn how to run a component and get a result back from it."
+title: "What is a viash component?"
+description: "We have provided a simple Hello World component as an introduction to viash. Follow the steps below to learn how to run a component and get a result back from it."
+lead: "We have provided a simple Hello World component as an introduction to viash. Follow the steps below to learn how to run a component and get a result back from it."
 date: 2021-05-28T14:00:00+00:00
 lastmod: "`r format(Sys.time(), '%Y-%Om-%dT%H:%M:%S+00:00')`"
 draft: false
 images: []
 menu:
   docs:
-    parent: "prologue"
+    parent: "getting_started"
 weight: 140
 toc: true
 ---
@@ -28,7 +28,7 @@ knitr::opts_chunk$set(comment = NA)
 
 To follow along with this tutorial, you need to have this software installed on your machine:
 
-- An [installation of viash](/docs/prologue/installation).
+- An [installation of viash](/docs/getting_started/installation).
 - A **Bash** Unix shell.
 
 ## Running the component

@@ -2,7 +2,7 @@
   name = "Getting Started"
   weight = 10
   identifier = "getting_started"
-  url = "/docs/prologue/"
+  url = "/docs/getting_started/"
 
 [[docs]]
   name = "Showcases"
@@ -54,7 +54,7 @@
 
 [[main]]
   name = "Docs"
-  url = "/docs/prologue/introduction/"
+  url = "/docs/getting_started/introduction/"
   weight = 10
 
 [[main]]

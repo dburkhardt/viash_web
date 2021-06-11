@@ -1,15 +1,15 @@
 ---
-title: "Hello World (Python)"
-description: "We have provided a simple **Hello World** component as an introduction to viash. Follow the steps below to learn how to run a component and get a result back from it."
-lead: "We have provided a simple **Hello World** component as an introduction to viash. Follow the steps below to learn how to run a component and get a result back from it. "
+title: "What is a viash component?"
+description: "We have provided a simple Hello World component as an introduction to viash. Follow the steps below to learn how to run a component and get a result back from it."
+lead: "We have provided a simple Hello World component as an introduction to viash. Follow the steps below to learn how to run a component and get a result back from it."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-31T10:52:37+00:00"
+lastmod: "2021-06-11T12:13:22+00:00"
 draft: false
 images: []
 menu:
   docs:
-    parent: "prologue"
-weight: 150
+    parent: "getting_started"
+weight: 140
 toc: true
 ---
 
@@ -20,11 +20,8 @@ toc: true
 To follow along with this tutorial, you need to have this software
 installed on your machine:
 
--   An [installation of viash](/docs/prologue/installation).
+-   An [installation of viash](/docs/getting_started/installation).
 -   A **Bash** Unix shell.
--   An [installation of python 3](https://www.python.org/downloads). You
-    may have to install the `python-is-python3` package on Ubuntu and
-    its derivatives to make Python 3 the default version.
 
 ## Running the component
 
@@ -32,7 +29,7 @@ You can run a simple ‘Hello World’ component by running the following
 command:
 
 ``` bash
-URL=https://viash.io/examples/hello_world_py/config.vsh.yaml
+URL=https://viash.io/examples/hello_world/config.vsh.yaml
 viash run $URL
 ```
 
@@ -68,13 +65,13 @@ viash run $URL -- NAME. --greeter="Hello there,"
 ## How does the hello world component work?
 
 When you call ‘viash run’, viash parses the
-[`config.vsh.yaml`](https://viash.io/examples/hello_world_py/config.vsh.yaml)
+[`config.vsh.yaml`](https://viash.io/examples/hello_world/config.vsh.yaml)
 file, which is a meta description of the component written in the yaml
 serialization language:
 
 ``` yaml
 functionality:
-  name: hello_world_py
+  name: hello_world
   description: A very simple 'Hello world' component.
   arguments:
   - type: string
@@ -85,15 +82,21 @@ functionality:
     name: --greeter
     default: "Hello world!"
   resources:
-  - type: python_script
-    path: script.py
+  - type: bash_script
+    path: script.sh
   tests:
-  - type: python_script
-    path: test.py
+  - type: bash_script
+    path: test.sh
 platforms:
   - type: native
   - type: docker
-    image: "python:3.8"
+    image: bash:4.0
+  - type: docker
+    id: alpine
+    image: alpine
+    setup:
+      - type: apk
+        packages: [ bash ]
 ```
 
 This config file describes the behavior of a script and the platform it
@@ -113,30 +116,24 @@ The ‘Hello World’ component accepts two arguments:
 
 These arguments are passed on to the **resources**. In this case,
 there’s a single reference to a file named
-[`script.py`](https://viash.io/examples/hello_world_py/script.py). This
-file is the ‘brain’ of the component, it’s small Python script which
+[`script.sh`](https://viash.io/examples/hello_world/script.sh). This
+file is the ‘brain’ of the component, it’s small Bash script which
 prints out two environment values: `par_input` and `par_greeter`:
 
-``` python
+``` bash
 ## VIASH START
-par = {
-  "input": ["I am debug!"],
-  "greeter": "Hello world!"
-}
-
+par_input="I am debug!"
+par_greeter="Hello world!"
 ## VIASH END
 
-if par["input"] is None:
-  par["input"] = []
-
-print(par["greeter"], *par["input"])
+echo $par_greeter $par_input
 ```
 
 Any variables defined in the config file will be automatically generated
 between the `## VIASH START` and `## VIASH END` lines. You can add
 pre-defined values here for debugging purposes by adding the variables
-in a `par` dictionary. Their values will automatically be replaced at
-runtime with parameter values from the CLI.
+and adding the `par_` prefix, their values will automatically be
+replaced at runtime with parameter values from the CLI.
 
 Finally, there’s a **tests** section to put your test scripts. It’s a
 good practice to write tests and run these every time you update your
@@ -170,10 +167,10 @@ You can specify what platform a component should run on by passing the
 command:
 
 ``` bash
-viash run -p native $URL -- Mike. --greeter="Hello there,"
+viash run -p native $URL -- NAME. --greeter="Hello there,"
 ```
 
-    Hello there, Mike.
+    Hello there, NAME.
 
 The results should be exactly the same as viash automatically picks the
 first platform when you don’t pass the platform option, in this case
@@ -185,8 +182,8 @@ Components can be exported to executables, making it easy to share
 scripted functionality without the need to have viash installed on the
 target system.  
 Run the following command to make viash parse the config file and export
-the result to an executable called **hello\_world\_py** in a (new)
-folder named **my\_hello\_world**:
+the result to an executable called **hello\_world** in a (new) folder
+named **my\_hello\_world**:
 
 ``` bash
 viash build $URL -o my_hello_world
@@ -195,7 +192,7 @@ viash build $URL -o my_hello_world
 You can now run the following command to run the generated executable:
 
 ``` bash
-my_hello_world/hello_world_py NAME. --greeter="Hello there,"
+my_hello_world/hello_world NAME. --greeter="Hello there,"
 ```
 
     Hello there, NAME.

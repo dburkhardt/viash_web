@@ -3,12 +3,12 @@ title: "Installation"
 description: "Installation requirements and instructions."
 lead: "Installation requirements and instructions."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-09T07:19:01+00:00"
+lastmod: "2021-06-11T11:56:55+00:00"
 draft: false
 images: []
 menu:
   docs:
-    parent: "prologue"
+    parent: "getting_started"
 weight: 110
 toc: true
 ---

@@ -3,12 +3,12 @@ title: "Introduction"
 description: "viash helps you turn a script (Bash/R/Python/Scala/JavaScript) into a reusable component."
 lead: "viash helps you turn a script (Bash/R/Python/Scala/JavaScript) into a reusable component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-31T10:52:51+00:00"
+lastmod: "2021-06-11T11:56:55+00:00"
 draft: false
 images: []
 menu:
   docs:
-    parent: "prologue"
+    parent: "getting_started"
 weight: 100
 toc: true
 ---
@@ -56,15 +56,15 @@ Here are a few use cases which serve as motivation for viash:
 
 Here are some links to get you started with viash:
 
--   [Installing viash](/docs/prologue/installation): This guide walks
+-   [Installing viash](/docs/getting_started/installation): This guide walks
     you through the steps to install viash on your machine.
 -   [Running your first component
-    (Bash)](/docs/prologue/hello_world_bash): Get a feel for viash with
+    (Bash)](/docs/getting_started/what_is_a_viash_component): Get a feel for viash with
     a classic **Hello World** tutorial, written in Bash.
 -   [Running your first component
-    (Python)](/docs/prologue/hello_world_python): Get a feel for viash
+    (Python)](/docs/getting_started/what_is_a_viash_component): Get a feel for viash
     with a classic **Hello World** tutorial, written in Python.
--   [Running your first component (R)](/docs/prologue/hello_world_r):
+-   [Running your first component (R)](/docs/getting_started/what_is_a_viash_component):
     Get a feel for viash with a classic **Hello World** tutorial,
     written in R.
 

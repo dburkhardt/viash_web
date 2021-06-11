@@ -43,12 +43,12 @@ The files used in this tutorial can be found here:
 
 To follow along with this tutorial, you need to have this software installed on your machine:
 
-- An [installation of viash](/docs/prologue/installation).
+- An [installation of viash](/docs/getting_started/installation).
 - A **Bash** Unix shell.
 - An installation of [Docker](https://www.docker.com/).
 - An installation of [cURL](https://curl.se/). Install this via your package manager if you don't have it installed yet.
 
-We recommend you take a look at the [hello world example](/docs/prologue/hello_world_bash) first to understand how components work.
+We recommend you take a look at the [hello world example](/docs/getting_started/what_is_a_viash_component) first to understand how components work.
 
 ## Write a script in bash
 
@@ -113,7 +113,7 @@ Create new file named **config.vsh.yaml** and paste the following template insid
 print_file("../../../static/templates/minimalconfig.vsh.yaml", format = "yaml", show_filename = FALSE)
 ```
 
-Every config file requires these two dictionaries: [functionality](/docs/prologue/hello_world_bash/#functionality) and [platforms](/docs/prologue/hello_world_bash/#platforms). 
+Every config file requires these two dictionaries: [functionality](/docs/getting_started/what_is_a_viash_component/#functionality) and [platforms](/docs/getting_started/what_is_a_viash_component/#platforms). 
 This bare-bones config file makes it easy to "fill in the blanks" for this example. For more information about config files, you can take a look at the **Reference: Config** section on the left.
 
 Let's start off by defining the functionality of our component.

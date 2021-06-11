@@ -3,7 +3,7 @@ title: "Creating a Bash component"
 description: "Developing a new viash component."
 lead: "Developing a new viash component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-09T07:18:00+00:00"
+lastmod: "2021-06-11T11:54:25+00:00"
 draft: false
 images: []
 menu:
@@ -34,14 +34,14 @@ The files used in this tutorial can be found here:
 To follow along with this tutorial, you need to have this software
 installed on your machine:
 
--   An [installation of viash](/docs/prologue/installation).
+-   An [installation of viash](/docs/getting_started/installation).
 -   A **Bash** Unix shell.
 -   An installation of [Docker](https://www.docker.com/).
 -   An installation of [cURL](https://curl.se/). Install this via your
     package manager if you don’t have it installed yet.
 
 We recommend you take a look at the [hello world
-example](/docs/prologue/hello_world_bash) first to understand how
+example](/docs/getting_started/what_is_a_viash_component) first to understand how
 components work.
 
 ## Write a script in bash
@@ -172,7 +172,7 @@ Some links to websites:
 
 Links that are relative to [viash.io](http://www.viash.io):
 
-- You can [install viash here](/docs/prologue/installation).
+- You can [install viash here](/docs/getting_started/installation).
 - It all starts with a script and a [config file](/docs/reference_config/config) for your components.
 ```
 
@@ -201,7 +201,7 @@ The script will now show the following output:
     HTTP/2 404 
     4: http://www.viash.io
     OK
-    5: https://viash.io/docs/prologue/installation
+    5: https://viash.io/docs/getting_started/installation
     OK
     6: https://viash.io/docs/reference_config/config
     OK
@@ -241,8 +241,8 @@ platforms:
 ```
 
 Every config file requires these two dictionaries:
-[functionality](/docs/prologue/hello_world_bash/#functionality) and
-[platforms](/docs/prologue/hello_world_bash/#platforms). This bare-bones
+[functionality](/docs/getting_started/what_is_a_viash_component/#functionality) and
+[platforms](/docs/getting_started/what_is_a_viash_component/#platforms). This bare-bones
 config file makes it easy to “fill in the blanks” for this example. For
 more information about config files, you can take a look at the
 **Reference: Config** section on the left.
@@ -512,7 +512,7 @@ and a file named **my\_report.txt** will have appeared:
     HTTP/2 404 
     4: http://www.viash.io
     OK
-    5: https://viash.io//docs/prologue/installation
+    5: https://viash.io//docs/getting_started/installation
     OK
     6: https://viash.io//docs/reference_config/config
     OK
@@ -659,19 +659,19 @@ viash test config.vsh.yaml
 
 The output will look like this:
 
-    Running tests in temporary directory: '/tmp/viash_test_md_url_checker2884537170332487228'
+    Running tests in temporary directory: '/tmp/viash_test_md_url_checker853458555441479770'
     ====================================================================
-    +/tmp/viash_test_md_url_checker2884537170332487228/build_executable/md_url_checker ---setup
+    +/tmp/viash_test_md_url_checker853458555441479770/build_executable/md_url_checker ---setup
     ====================================================================
-    +/tmp/viash_test_md_url_checker2884537170332487228/test_test.sh/test.sh
+    +/tmp/viash_test_md_url_checker853458555441479770/test_test.sh/test.sh
     + echo '>>> Checking whether output is correct'
     + ./md_url_checker --inputfile Testfile.md
     >>> Checking whether output is correct
     + [[ ! -f test-output.txt ]]
     + grep -q '1: https://www.google.com' test-output.txt
     + grep -q 'HTTP/2 404' test-output.txt
-    + echo '>>> Checking whether an output file was created correctly'
     >>> Checking whether an output file was created correctly
+    + echo '>>> Checking whether an output file was created correctly'
     + [[ ! -f output.txt ]]
     + grep -q 'URL: https://www.google.com' output.txt
     + grep -q 'Status: ERROR! URL cannot be reached. Status code: HTTP/2 404' output.txt

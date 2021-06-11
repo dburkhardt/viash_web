@@ -8,7 +8,7 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "reference_config"
+    parent: "creating_pipelines"
 weight: 570
 toc: true
 ---

@@ -1,25 +1,27 @@
 ---
 title: "Regarding file formats"
-description: "A viash config can be written as a standalone YAML or can be included as a header in the script itself."
-lead: "A viash config can be written as a standalone YAML or can be included as a header in the script itself."
-date: 2021-05-28T14:00:00+00:00
-lastmod: "`r format(Sys.time(), '%Y-%Om-%dT%H:%M:%S+00:00')`"
+description: ""
+lead: ""
+date: 2021-06-07T14:00:00+00:00
+lastmod: "2021-06-11T14:23:57+00:00"
 draft: false
 images: []
 menu:
   docs:
-    parent: "reference_config"
-weight: 560
+    parent: "creating_components"
+weight: 640
 toc: true
 ---
 
+
+
 The following two file formats are equivalent.
 
-## Config format 
+## Config format
 
 Metadata `config.vsh.yaml`:
 
-```yaml
+``` yaml
 functionality:
   name: hello
   arguments:
@@ -35,7 +37,7 @@ platforms:
 
 Script `script.sh`:
 
-```bash
+``` bash
 #!/bin/bash
 echo Hello $par_name
 ```
@@ -44,7 +46,7 @@ echo Hello $par_name
 
 Script `script.vsh.sh`:
 
-```bash
+``` bash
 #!/bin/bash
 
 #' functionality:
@@ -58,4 +60,3 @@ Script `script.vsh.sh`:
 
 echo Hello $par_name
 ```
-
