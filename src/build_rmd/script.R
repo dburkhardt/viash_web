@@ -20,7 +20,13 @@ for (i in seq_along(rmds)) {
   if (par$force || blogdown:::require_rebuild(md, rmd)) {
     message('* knitting ', rmd)
 
-    before <- readLines(md)
+    if (file.exists(md)) {
+       before <- readLines(md)
+    } else {
+       before <- ''
+    }
+
+    
     rmarkdown::render(
       input = rmd,
       output_file = basename(md),

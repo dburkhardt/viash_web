@@ -1,9 +1,9 @@
 ---
-title: "Running Components And Pipelines"
-description: "Running Components And Pipelines"
+title: "Running Components"
+description: "Running Components"
 lead: ""
 date: 2021-06-07T14:00:00+00:00
-lastmod: "2021-06-08T07:48:14+00:00"
+lastmod: "2021-06-11T11:28:28+00:00"
 draft: false
 images: []
 ---
