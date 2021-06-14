@@ -3,13 +3,13 @@ title: "Creating a Python component"
 description: "Developing a new viash component."
 lead: "Developing a new viash component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-11T11:50:53+00:00"
+lastmod: "2021-06-14T07:20:56+00:00"
 draft: false
 images: []
 menu:
   docs:
     parent: "creating_components"
-weight: 210
+weight: 302
 toc: true
 ---
 
@@ -47,8 +47,8 @@ installed on your machine:
     [pip](https://pypi.org/project/pip/): markdown, lxml and requests.
 
 We recommend you take a look at the [hello world
-example](/docs/getting_started/what_is_a_viash_component) first to understand how
-components work.
+example](/docs/getting_started/what_is_a_viash_component) first to
+understand how components work.
 
 ## Write a script in python
 
@@ -211,12 +211,12 @@ The script will now show the following output:
     4: http://www.viash.io
     OK
     5: https://viash.io/docs/getting_started/installation
-    OK
+    404
     6: https://viash.io/docs/reference_config/config
     OK
 
     Testfile.md has been checked and a report named output.txt has been generated.
-    1 of 6 URLs could not be resolved.
+    2 of 6 URLs could not be resolved.
 
 If you get this same output, that means the script is working as
 intended! Feel free to take a peek at the generated **output.txt** file
@@ -250,11 +250,12 @@ platforms:
 ```
 
 Every config file requires these two dictionaries:
-[functionality](/docs/getting_started/what_is_a_viash_component/#functionality) and
-[platforms](/docs/getting_started/what_is_a_viash_component/#platforms). This bare-bones
-config file makes it easy to “fill in the blanks” for this example. For
-more information about config files, you can take a look at the
-**Reference: Config** section on the left.
+[functionality](/docs/getting_started/what_is_a_viash_component/#functionality)
+and
+[platforms](/docs/getting_started/what_is_a_viash_component/#platforms).
+This bare-bones config file makes it easy to “fill in the blanks” for
+this example. For more information about config files, you can take a
+look at the **Reference: Config** section on the left.
 
 Let’s start off by defining the functionality of our component.
 
@@ -523,12 +524,12 @@ and a file named **my\_report.txt** will have appeared:
     4: http://www.viash.io
     OK
     5: https://viash.io//docs/getting_started/installation
-    OK
+    404
     6: https://viash.io//docs/reference_config/config
     OK
 
     Testfile.md has been checked and a report named my_report.txt has been generated.
-    1 of 6 URLs could not be resolved.
+    2 of 6 URLs could not be resolved.
 
 For more information on the run command, take a look at [the viash run
 command page](/docs/reference_commands/run/). Great! With that working,
@@ -662,14 +663,14 @@ viash test config.vsh.yaml
 
 The output will look like this:
 
-    Running tests in temporary directory: '/tmp/viash_test_md_url_checker_py3056143151037818537'
+    Running tests in temporary directory: '/tmp/viash_test_md_url_checker_py1909396442835657047'
     ====================================================================
-    +/tmp/viash_test_md_url_checker_py3056143151037818537/build_executable/md_url_checker_py ---setup
+    +/tmp/viash_test_md_url_checker_py1909396442835657047/build_executable/md_url_checker_py ---setup
     ====================================================================
-    +/tmp/viash_test_md_url_checker_py3056143151037818537/test_test.py/test.py
+    +/tmp/viash_test_md_url_checker_py1909396442835657047/test_test.py/test.py
     ..
     ----------------------------------------------------------------------
-    Ran 2 tests in 2.813s
+    Ran 2 tests in 2.414s
 
     OK
     ====================================================================
@@ -693,3 +694,8 @@ some good starting points:
     file
 -   More details about [the docker
     platform](/docs/reference_config/platform-docker/)
+
+<!-- -->
+
+    rm: can't remove 'output.txt': No such file or directory
+    rm: can't remove 'my_report.txt': No such file or directory

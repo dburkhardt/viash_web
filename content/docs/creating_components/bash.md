@@ -3,13 +3,13 @@ title: "Creating a Bash component"
 description: "Developing a new viash component."
 lead: "Developing a new viash component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-11T11:54:25+00:00"
+lastmod: "2021-06-14T07:20:41+00:00"
 draft: false
 images: []
 menu:
   docs:
     parent: "creating_components"
-weight: 200
+weight: 301
 toc: true
 ---
 
@@ -41,8 +41,8 @@ installed on your machine:
     package manager if you don’t have it installed yet.
 
 We recommend you take a look at the [hello world
-example](/docs/getting_started/what_is_a_viash_component) first to understand how
-components work.
+example](/docs/getting_started/what_is_a_viash_component) first to
+understand how components work.
 
 ## Write a script in bash
 
@@ -202,12 +202,12 @@ The script will now show the following output:
     4: http://www.viash.io
     OK
     5: https://viash.io/docs/getting_started/installation
-    OK
+    HTTP/2 404 
     6: https://viash.io/docs/reference_config/config
     OK
 
     Testfile.md has been checked and a report named output.txt has been generated.
-    1 of 6 URLs could not be resolved.
+    2 of 6 URLs could not be resolved.
 
 If you get this same output, that means the script is working as
 intended! Feel free to take a peek at the generated **output.txt** file
@@ -241,11 +241,12 @@ platforms:
 ```
 
 Every config file requires these two dictionaries:
-[functionality](/docs/getting_started/what_is_a_viash_component/#functionality) and
-[platforms](/docs/getting_started/what_is_a_viash_component/#platforms). This bare-bones
-config file makes it easy to “fill in the blanks” for this example. For
-more information about config files, you can take a look at the
-**Reference: Config** section on the left.
+[functionality](/docs/getting_started/what_is_a_viash_component/#functionality)
+and
+[platforms](/docs/getting_started/what_is_a_viash_component/#platforms).
+This bare-bones config file makes it easy to “fill in the blanks” for
+this example. For more information about config files, you can take a
+look at the **Reference: Config** section on the left.
 
 Let’s start off by defining the functionality of our component.
 
@@ -513,12 +514,12 @@ and a file named **my\_report.txt** will have appeared:
     4: http://www.viash.io
     OK
     5: https://viash.io//docs/getting_started/installation
-    OK
+    HTTP/2 404 
     6: https://viash.io//docs/reference_config/config
     OK
 
     Testfile.md has been checked and a report named my_report.txt has been generated.
-    1 of 6 URLs could not be resolved.
+    2 of 6 URLs could not be resolved.
 
 For more information on the run command, take a look at [the viash run
 command page](/docs/reference_commands/run/). Great! With that working,
@@ -659,25 +660,25 @@ viash test config.vsh.yaml
 
 The output will look like this:
 
-    Running tests in temporary directory: '/tmp/viash_test_md_url_checker853458555441479770'
+    Running tests in temporary directory: '/tmp/viash_test_md_url_checker8623225841885346767'
     ====================================================================
-    +/tmp/viash_test_md_url_checker853458555441479770/build_executable/md_url_checker ---setup
+    +/tmp/viash_test_md_url_checker8623225841885346767/build_executable/md_url_checker ---setup
     ====================================================================
-    +/tmp/viash_test_md_url_checker853458555441479770/test_test.sh/test.sh
+    +/tmp/viash_test_md_url_checker8623225841885346767/test_test.sh/test.sh
     + echo '>>> Checking whether output is correct'
     + ./md_url_checker --inputfile Testfile.md
     >>> Checking whether output is correct
     + [[ ! -f test-output.txt ]]
     + grep -q '1: https://www.google.com' test-output.txt
     + grep -q 'HTTP/2 404' test-output.txt
-    >>> Checking whether an output file was created correctly
     + echo '>>> Checking whether an output file was created correctly'
     + [[ ! -f output.txt ]]
     + grep -q 'URL: https://www.google.com' output.txt
+    >>> Checking whether an output file was created correctly
     + grep -q 'Status: ERROR! URL cannot be reached. Status code: HTTP/2 404' output.txt
     + grep -q 'Link name: install viash here' output.txt
-    + echo '>>> Test finished successfully!'
     >>> Test finished successfully!
+    + echo '>>> Test finished successfully!'
     + exit 0
     ====================================================================
     [32mSUCCESS! All 1 out of 1 test scripts succeeded![0m
@@ -700,3 +701,7 @@ some good starting points:
     file
 -   More details about [the docker
     platform](/docs/reference_config/platform-docker/)
+
+<!-- -->
+
+    rm: can't remove 'output.txt': No such file or directory

@@ -3,13 +3,13 @@ title: "Regarding file formats"
 description: ""
 lead: ""
 date: 2021-06-07T14:00:00+00:00
-lastmod: "2021-06-11T14:23:57+00:00"
+lastmod: "2021-06-14T07:22:04+00:00"
 draft: false
 images: []
 menu:
   docs:
     parent: "creating_components"
-weight: 640
+weight: 307
 toc: true
 ---
 

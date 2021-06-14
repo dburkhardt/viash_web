@@ -3,13 +3,13 @@ title: "Creating an R component"
 description: "Developing a new viash component."
 lead: "Developing a new viash component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-11T11:51:07+00:00"
+lastmod: "2021-06-14T07:21:23+00:00"
 draft: false
 images: []
 menu:
   docs:
     parent: "creating_components"
-weight: 230
+weight: 303
 toc: true
 ---
 
@@ -42,8 +42,8 @@ installed on your machine:
 -   The following CRAN packages: tidyverse and testthat.
 
 We recommend you take a look at the [hello world
-example](/docs/getting_started/what_is_a_viash_component) first to understand how
-components work.
+example](/docs/getting_started/what_is_a_viash_component) first to
+understand how components work.
 
 ## Write a script in R
 
@@ -205,16 +205,16 @@ The script will now show the following output:
     Extracting URLs
     Checking 6 URLs
     # A tibble: 6 x 3
-      url                             title          status                         
-      <chr>                           <chr>          <chr>                          
-    1 https://www.google.com          Google         OK                             
-    2 https://www.reddit.com          Reddit         OK                             
-    3 http://microsoft.com/random-li… A broken link  ERROR! URL cannot be reached. …
-    4 http://www.viash.io             viash.io       OK                             
-    5 https://viash.io/docs/prologue… install viash… OK                             
-    6 https://viash.io/docs/referenc… config file    OK                             
+      url                               title         status                        
+      <chr>                             <chr>         <chr>                         
+    1 https://www.google.com            Google        OK                            
+    2 https://www.reddit.com            Reddit        OK                            
+    3 http://microsoft.com/random-link  A broken link ERROR! URL cannot be reached.…
+    4 http://www.viash.io               viash.io      OK                            
+    5 https://viash.io/docs/getting_st… install vias… ERROR! URL cannot be reached.…
+    6 https://viash.io/docs/reference_… config file   OK                            
     Input 'Testfile.md' has been checked and a report named 'output.txt' has been generated.
-    1 out of 6 URLs could not be reached.
+    2 out of 6 URLs could not be reached.
 
 If you get this same output, that means the script is working as
 intended! Feel free to take a peek at the generated **output.txt** file
@@ -248,11 +248,12 @@ platforms:
 ```
 
 Every config file requires these two dictionaries:
-[functionality](/docs/getting_started/what_is_a_viash_component/#functionality) and
-[platforms](/docs/getting_started/what_is_a_viash_component/#platforms). This bare-bones
-config file makes it easy to “fill in the blanks” for this example. For
-more information about config files, you can take a look at the
-**Reference: Config** section on the left.
+[functionality](/docs/getting_started/what_is_a_viash_component/#functionality)
+and
+[platforms](/docs/getting_started/what_is_a_viash_component/#platforms).
+This bare-bones config file makes it easy to “fill in the blanks” for
+this example. For more information about config files, you can take a
+look at the **Reference: Config** section on the left.
 
 Let’s start off by defining the functionality of our component.
 
@@ -520,16 +521,16 @@ and a file named **my\_report.txt** will have appeared:
     Extracting URLs
     Checking 6 URLs
     # A tibble: 6 x 3
-      url                              title         status                         
-      <chr>                            <chr>         <chr>                          
-    1 https://www.google.com           Google        OK                             
-    2 https://www.reddit.com           Reddit        OK                             
-    3 http://microsoft.com/random-link A broken link ERROR! URL cannot be reached. …
-    4 http://www.viash.io              viash.io      OK                             
-    5 https://viash.io//docs/prologue… install vias… OK                             
-    6 https://viash.io//docs/referenc… config file   OK                             
+      url                               title         status                        
+      <chr>                             <chr>         <chr>                         
+    1 https://www.google.com            Google        OK                            
+    2 https://www.reddit.com            Reddit        OK                            
+    3 http://microsoft.com/random-link  A broken link ERROR! URL cannot be reached.…
+    4 http://www.viash.io               viash.io      OK                            
+    5 https://viash.io//docs/getting_s… install vias… ERROR! URL cannot be reached.…
+    6 https://viash.io//docs/reference… config file   OK                            
     Input 'Testfile.md' has been checked and a report named 'my_report.txt' has been generated.
-    1 out of 6 URLs could not be reached.
+    2 out of 6 URLs could not be reached.
 
 For more information on the run command, take a look at [the viash run
 command page](/docs/reference_commands/run/). Great! With that working,
@@ -662,11 +663,11 @@ viash test config.vsh.yaml
 
 The output will look like this:
 
-    Running tests in temporary directory: '/tmp/viash_test_md_url_checker_r4506116905465185825'
+    Running tests in temporary directory: '/tmp/viash_test_md_url_checker_r2419895536516547284'
     ====================================================================
-    +/tmp/viash_test_md_url_checker_r4506116905465185825/build_executable/md_url_checker_r ---setup
+    +/tmp/viash_test_md_url_checker_r2419895536516547284/build_executable/md_url_checker_r ---setup
     ====================================================================
-    +/tmp/viash_test_md_url_checker_r4506116905465185825/test_test.R/test.R
+    +/tmp/viash_test_md_url_checker_r2419895536516547284/test_test.R/test.R
     >>> Checking whether output is correct
     >>> Checking whether output file is correct
     >>> Test finished successfully!
@@ -691,3 +692,7 @@ some good starting points:
     file
 -   More details about [the docker
     platform](/docs/reference_config/platform-docker/)
+
+<!-- -->
+
+    rm: can't remove 'output.txt': No such file or directory
