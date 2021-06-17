@@ -59,7 +59,7 @@ create a new file named **script.py** in there and add this code as its
 content:
 
 ``` python
-# Dependancies:
+# Dependencies:
 # packages: python3-lxml
 # pip: markdown, lxml, requests
 
