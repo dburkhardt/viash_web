@@ -33,7 +33,7 @@ detect_links <- function(x) {
     gsub("a[ \n]*viash[ \n]*config", "a [viash config](/docs/reference_config/config)", .) %>% 
     gsub("native[ \n]*platform", "[native platform](/docs/reference_config/platform-native)", ., ignore.case=T) %>% 
     gsub("Docker[ \n]*platform", "[Docker platform](/docs/reference_config/platform-docker)", ., ignore.case=T) %>% 
-    gsub("custom[ \n]*DSL", "[custom DSL](/docs/reference_config/config_mods)", .) %>% 
+    gsub("custom[ \n]*DSL", "[custom DSL](/docs/advanced/config_mods)", .) %>% 
     gsub("For[ \n]*more[ \n]*information,[ \n]*see[ \n]*the[ \n]*online[ \n]*documentation.", "", .) %>% # We're already in the online docs ;)
-    gsub("config[ \n]*mods", "[config mods](/docs/reference_config/config_mods/)", .)
+    gsub("config[ \n]*mods", "[config mods](/docs/advanced/config_mods/)", .)
 }

@@ -1,9 +1,9 @@
 ---
-title: "What is a viash component?"
-description: "We have provided a simple Hello World component as an introduction to viash. Follow the steps below to learn how to run a component and get a result back from it."
-lead: "We have provided a simple Hello World component as an introduction to viash. Follow the steps below to learn how to run a component and get a result back from it."
+title: "What is a Viash Component?"
+description: "We have provided a simple Hello World component as an introduction to Viash. Follow the steps below to learn how to run a component and get a result back from it."
+lead: "We have provided a simple Hello World component as an introduction to Viash. Follow the steps below to learn how to run a component and get a result back from it."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-11T12:13:22+00:00"
+lastmod: "2021-06-22T11:05:02+00:00"
 draft: false
 images: []
 menu:
@@ -20,7 +20,7 @@ toc: true
 To follow along with this tutorial, you need to have this software
 installed on your machine:
 
--   An [installation of viash](/docs/getting_started/installation).
+-   An [installation of Viash](/docs/getting_started/installation).
 -   A **Bash** Unix shell.
 
 ## Running the component
@@ -64,7 +64,7 @@ viash run $URL -- NAME. --greeter="Hello there,"
 
 ## How does the hello world component work?
 
-When you call ‘viash run’, viash parses the
+When you call ‘viash run’, Viash parses the
 [`config.vsh.yaml`](https://viash.io/examples/hello_world/config.vsh.yaml)
 file, which is a meta description of the component written in the yaml
 serialization language:
@@ -172,16 +172,16 @@ viash run -p native $URL -- NAME. --greeter="Hello there,"
 
     Hello there, NAME.
 
-The results should be exactly the same as viash automatically picks the
+The results should be exactly the same as Viash automatically picks the
 first platform when you don’t pass the platform option, in this case
 that’s `native`.
 
 ## Exporting a component as an executable
 
 Components can be exported to executables, making it easy to share
-scripted functionality without the need to have viash installed on the
+scripted functionality without the need to have Viash installed on the
 target system.  
-Run the following command to make viash parse the config file and export
+Run the following command to make Viash parse the config file and export
 the result to an executable called **hello\_world** in a (new) folder
 named **my\_hello\_world**:
 
@@ -199,7 +199,7 @@ my_hello_world/hello_world NAME. --greeter="Hello there,"
 
 ## What’s next?
 
-Now that you understand the basics of how viash works, take a look at
+Now that you understand the basics of how Viash works, take a look at
 how to write your own component:
 
 -   [Creating a Bash component](/docs/creating_components/bash)

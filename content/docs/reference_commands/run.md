@@ -3,7 +3,7 @@ title: "viash run"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-08T12:28:50+00:00"
+lastmod: "2021-06-22T08:46:37+00:00"
 draft: false
 images: []
 menu:
@@ -36,7 +36,7 @@ as a header.
 ### -c, –config\_mod <arg>…
 
 Modify a [viash config](/docs/reference_config/config) at runtime using
-a [custom DSL](/docs/reference_config/config_mods). (default = List())
+a [custom DSL](/docs/advanced/config_mods). (default = List())
 
 ### -k, –keep <arg>
 
@@ -63,7 +63,7 @@ Show help message
 
 ### Running without arguments
 
-Simply run a viash component with its default platform and no script
+Simply run a Viash component with its default platform and no script
 arguments:
 
 ``` bash
@@ -80,7 +80,7 @@ viash run config.vsh.yaml -- --input="Hello!" -o=my_file.txt
 
 ### Preserve temporary files
 
-Here’s how you run a viash component using the [Docker
+Here’s how you run a Viash component using the [Docker
 platform](/docs/reference_config/platform-docker) and keep the temporary
 files:
 
@@ -100,8 +100,8 @@ viash run config.vsh.yaml --platform native -- --input="Hello!" -o=my_file.txt
 
 ### Override a config with config mods
 
-Run a viash component using a [config
-mod](/docs/reference_config/config_mods) to override the [config
+Run a Viash component using a [config
+mod](/docs/advanced/config_mods) to override the [config
 file](/docs/reference_config/config). In this case, pull an image from a
 docker registry and specify a specific docker registry server URL.
 
@@ -114,6 +114,6 @@ viash run config.vsh.yaml -p docker \
 ## See also
 
 -   [Config file](/docs/reference_config/config)
--   [Dynamic Config Modding](/docs/reference_config/config_mods)
+-   [Dynamic Config Modding](/docs/advanced/config_mods)
 -   [Native platform](/docs/reference_config/platform-native)
 -   [Docker platform](/docs/reference_config/platform-docker)

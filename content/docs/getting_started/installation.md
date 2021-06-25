@@ -3,7 +3,7 @@ title: "Installation"
 description: "Installation requirements and instructions."
 lead: "Installation requirements and instructions."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-11T11:56:55+00:00"
+lastmod: "2021-06-22T11:28:53+00:00"
 draft: false
 images: []
 menu:
@@ -17,7 +17,7 @@ toc: true
 
 ## Supported Operating Systems
 
-You can run viash on the following operating systems:
+You can run Viash on the following operating systems:
 
 -   Linux
 -   macOS
@@ -26,16 +26,16 @@ You can run viash on the following operating systems:
 
 ## Prerequisites
 
--   viash is developed in [Scala 2.12](https://www.scala-lang.org/), so
+-   Viash is developed in [Scala 2.12](https://www.scala-lang.org/), so
     you’ll need an [Oracle Java SE Runtime Environment 8
     installation](https://www.oracle.com/java/technologies/javase-jre8-downloads.html)
     or OpenJDK in order to use it.
 -   You will need [Docker](https://docs.docker.com/get-docker/) to
-    install viash and use it to its full potential.
+    install Viash and use it to its full potential.
 
-## Installing viash
+## Installing Viash
 
-To install viash to a **bin** folder in your current directory, run the
+To install Viash to a **bin** folder in your current directory, run the
 following command to download and run the bootstrap tool:
 
 ``` bash
@@ -56,7 +56,7 @@ Additional options can be set immediately using the following syntax:
 wget -qO- get.viash.io | bash -s -- OPTIONS
 ```
 
-For example, this command installs a release candidate of viash in a
+For example, this command installs a release candidate of Viash in a
 directory named ‘applications’:
 
 ``` bash

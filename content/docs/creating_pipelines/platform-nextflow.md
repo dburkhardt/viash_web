@@ -1,9 +1,9 @@
 ---
 title: "Creating a Nextflow Pipeline"
-description: "Developing a pipeline in Nextflow with viash."
-lead: "Developing a Pipeline in Nextflow with viash."
+description: "Developing a pipeline in Nextflow with Viash."
+lead: "Developing a Pipeline in Nextflow with Viash."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-14T07:22:59+00:00"
+lastmod: "2021-06-22T08:41:57+00:00"
 draft: false
 images: []
 menu:
@@ -19,12 +19,12 @@ toc: true
 
 ### Pipelines / Workflows
 
-It’s possible to *convert* a viash component into a NextFlow module.
+It’s possible to *convert* a Viash component into a NextFlow module.
 Viash uses NextFlow’s DSL2 for this, effectively creating *modules* that
 can be imported in a `main.nf` pipeline definition that deals with the
 *logic* of the pipeline rather than the low-level machinery.
 
-When it comes to this low-level machinery and the way viash creates a
+When it comes to this low-level machinery and the way Viash creates a
 module, we refer to [the step-by-step introduction about
 DiFlow](https://www.data-intuitive.com/diflow).
 
@@ -233,7 +233,7 @@ If an argument is `required: true`, it can have
 -   a `default: ...` value: It will use this default value on the CLI
     unless you override it on the CLI
 -   no default value: In this case, one has to provide a value when
-    starting a NextFlow pipeline. Otherwise viash will give a warning
+    starting a NextFlow pipeline. Otherwise Viash will give a warning
     and NXF will throw an error.
 
 If an argument is `required: false`, it can have

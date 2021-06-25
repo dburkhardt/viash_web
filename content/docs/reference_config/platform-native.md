@@ -1,9 +1,9 @@
 ---
 title: "Native Platform"
-description: "Running a viash component on a native platform means that the script will be executed in your current environment."
-lead: "Running a viash component on a native platform means that the script will be executed in your current environment."
+description: "Running a Viash component on a native platform means that the script will be executed in your current environment."
+lead: "Running a Viash component on a native platform means that the script will be executed in your current environment."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-31T10:53:01+00:00"
+lastmod: "2021-06-22T08:47:10+00:00"
 draft: false
 images: []
 menu:
@@ -35,7 +35,7 @@ platforms:
 
 As with all platforms, you can give a platform a different name. By
 specifying `id: foo`, you can target this platform (only) by specifying
-`-p foo` in any of the viash commands.
+`-p foo` in any of the Viash commands.
 
 Example:
 

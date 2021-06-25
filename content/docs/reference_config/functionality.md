@@ -3,7 +3,7 @@ title: "Functionality"
 description: "The functionality-part of the config file describes the behaviour of the script in terms of arguments and resources."
 lead: "The functionality-part of the config file describes the behaviour of the script in terms of arguments and resources."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-31T10:53:01+00:00"
+lastmod: "2021-06-22T08:47:01+00:00"
 draft: false
 images: []
 menu:
@@ -16,7 +16,7 @@ toc: true
 
 
 By specifying a few restrictions (e.g. mandatory arguments) and adding
-some descriptions, viash will automatically generate a stylish
+some descriptions, Viash will automatically generate a stylish
 command-line interface for you.
 
 ## Example
@@ -27,6 +27,7 @@ which is explained in more depth in the following sections.
 ``` yaml
 functionality:
   name: exe
+  namespace: my_namespace
   version: "1.0.0"
   description: |
     This component performs function Y and Z.
@@ -82,6 +83,18 @@ Example:
 
 ``` yaml
 name: exe
+```
+
+## namespace \[string\]
+
+Namespace this component is a part of. This is required when grouping
+components together in a pipeline and building multiple components at
+once using `viash ns build`.
+
+Example:
+
+``` yaml
+namespace: fancy_components
 ```
 
 ## version \[string\]
@@ -147,7 +160,7 @@ in Python and a ‘logical’ in R. These properties cannot be altered:
 required is false, default is undefined, multiple is false. \*
 `type: file`, The resulting value is still an ‘str’ in Python and a
 ‘character’ in R. In order to correctly pass files in some platforms
-(e.g. Docker and Nextflow), viash needs to know which arguments are
+(e.g. Docker and Nextflow), Viash needs to know which arguments are
 input/output files. Additional property values: -
 `must_exist: true/false`, denotes whether the file or folder should
 exist at the start of the execution.
@@ -179,7 +192,7 @@ Common properties:
     the type of resource. The first resource cannot be of type `file`.
     When the type is not specified, the default type is simply `file`.
     For more information regarding how to write a script in Bash, R or
-    Python with viash, check out the guides for the respective languages
+    Python with Viash, check out the guides for the respective languages
     on the left.
 -   `name: filename`, the resulting name of the resource.
 -   `path: path/to/file`, the path of the input file. Can be a relative
@@ -221,7 +234,7 @@ tests:
 
 ## authors \[list\]
 
-A list of authors (introduced in viash 0.3.1). An author must at least
+A list of authors (introduced in Viash 0.3.1). An author must at least
 have a name, but can also have a list of roles, an e-mail address, and a
 map of custom properties.
 
@@ -255,7 +268,7 @@ authors:
 
 ## info \[list\]
 
-A map for storing custom annotation (introduced in viash 0.4.0).
+A map for storing custom annotation (introduced in Viash 0.4.0).
 
 Example:
 

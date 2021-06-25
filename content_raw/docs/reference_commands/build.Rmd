@@ -69,7 +69,7 @@ knitr::asis_output(arg)
 
 ### Building with no arguments
 
-Build a viash component with only the path to the [viash config file](/docs/reference_config/config) as an argument. 
+Build a Viash component with only the path to the [viash config file](/docs/reference_config/config) as an argument. 
 This will create an 'output' directory and generate an executable inside it with the first platform defined in in your config.
 If no platform is found, the [native platform](/docs/reference_config/platform-native) is used:
 
@@ -79,7 +79,7 @@ viash build config.vsh.yaml
 
 ### Specifying a platform and an output folder
 
-This builds a viash component based on your [viash config file](/docs/reference_config/config) in a 'bin' folder that will use Docker to run:
+This builds a Viash component based on your [viash config file](/docs/reference_config/config) in a 'bin' folder that will use Docker to run:
 
 ```bash
 viash build config.vsh.yaml --platform docker --output "bin"
@@ -95,7 +95,7 @@ viash build config.vsh.yaml -p docker --setup alwaysbuild
 
 ### Print out meta information
 
-Build a viash component for the native platform and output information about the build in the terminal:
+Build a Viash component for the native platform and output information about the build in the terminal:
 
 ```bash
 viash build config.vsh.yaml -p native --meta
@@ -114,7 +114,7 @@ remote git repo:    <NA>
 
 ### Generate a meta file 
 
-This builds a viash component and puts a **viash.yaml** file next to the executable containing the full configuration information of the component for later reference:
+This builds a Viash component and puts a **viash.yaml** file next to the executable containing the full configuration information of the component for later reference:
 
 ```bash
 viash build config.vsh.yaml --write_meta
@@ -122,7 +122,7 @@ viash build config.vsh.yaml --write_meta
 
 ### Override a config with config mods
 
-Build a viash component and use a [config mod](/docs/reference_config/config_mods) to override the [config file](/docs/reference_config/config).
+Build a Viash component and use a [config mod](/docs/advanced/config_mods) to override the [config file](/docs/reference_config/config).
 In this case, pull an image from a docker registry and specify a specific docker registry server URL.
 
 ```bash
@@ -137,4 +137,4 @@ viash build config.vsh.yaml -p docker \
 - [Native platform](/docs/reference_config/platform-native)
 - [Docker platform](/docs/reference_config/platform-docker)
 - [Executables with a Docker backend](/docs/running/executables-docker)
-- [Dynamic Config Modding](/docs/reference_config/config_mods)
+- [Dynamic Config Modding](/docs/advanced/config_mods)

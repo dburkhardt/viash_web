@@ -1,10 +1,10 @@
 ---
-title: "Viash design choices"
+title: "Viash Design Choices"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-11T13:10:28+00:00"
-draft: false
+lastmod: "2021-06-22T11:22:49+00:00"
+draft: true
 images: []
 menu:
   docs:

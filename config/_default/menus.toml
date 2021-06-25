@@ -4,51 +4,63 @@
   identifier = "getting_started"
   url = "/docs/getting_started/"
 
-[[docs]]
-  name = "Showcases"
-  weight = 20
-  identifier = "showcases"
-  url = "/docs/showcases/"
+#[[docs]]
+#  name = "Showcases"
+#  weight = 20
+#  identifier = "showcases"
+#  url = "/docs/showcases/"
 
 [[docs]]
-  name = "Creating viash Components"
+  name = "Creating Viash Components"
   weight = 30
   identifier = "creating_components"
   url = "/docs/creating_components/"
   
 [[docs]]
-  name = "Creating Pipelines"
+  name = "Managing Viash Projects"
   weight = 40
+  identifier = "projects"
+  url = "/docs/projects/"
+
+[[docs]]
+  name = "Creating Pipelines"
+  weight = 50
   identifier = "creating_pipelines"
   url = "/docs/creating_pipelines/"
   
 [[docs]]
   name = "Running Components"
-  weight = 50
+  weight = 60
   identifier = "running"
   url = "/docs/running/"
 
 [[docs]]
   name = "Reference: Commands"
-  weight = 60
+  weight = 70
   identifier = "reference_commands"
   url = "/docs/reference_commands/"
   
 [[docs]]
   name = "Reference: Config"
-  weight = 70
+  weight = 80
   identifier = "reference_config"
   url = "/docs/reference_config/"
+
+ [[docs]]
+  name = "Advanced Topics"
+  weight = 90
+  identifier = "advanced"
+  url = "/docs/advanced/"
   
 [[docs]]
   name = "Help"
-  weight = 80
+  weight = 100
   identifier = "help"
   url = "/docs/help/"
   
 [[docs]]
   name = "Contributing"
-  weight = 90
+  weight = 110
   identifier = "contributing"
   url = "/docs/contributing/"
 

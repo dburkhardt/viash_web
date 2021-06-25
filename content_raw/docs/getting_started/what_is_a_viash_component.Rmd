@@ -1,7 +1,7 @@
 ---
-title: "What is a viash component?"
-description: "We have provided a simple Hello World component as an introduction to viash. Follow the steps below to learn how to run a component and get a result back from it."
-lead: "We have provided a simple Hello World component as an introduction to viash. Follow the steps below to learn how to run a component and get a result back from it."
+title: "What is a Viash Component?"
+description: "We have provided a simple Hello World component as an introduction to Viash. Follow the steps below to learn how to run a component and get a result back from it."
+lead: "We have provided a simple Hello World component as an introduction to Viash. Follow the steps below to learn how to run a component and get a result back from it."
 date: 2021-05-28T14:00:00+00:00
 lastmod: "`r format(Sys.time(), '%Y-%Om-%dT%H:%M:%S+00:00')`"
 draft: false
@@ -28,7 +28,7 @@ knitr::opts_chunk$set(comment = NA)
 
 To follow along with this tutorial, you need to have this software installed on your machine:
 
-- An [installation of viash](/docs/getting_started/installation).
+- An [installation of Viash](/docs/getting_started/installation).
 - A **Bash** Unix shell.
 
 ## Running the component
@@ -59,7 +59,7 @@ viash run $URL -- NAME. --greeter="Hello there,"
 
 ## How does the hello world component work?
 
-When you call 'viash run', viash parses the [`config.vsh.yaml`](https://viash.io/examples/hello_world/config.vsh.yaml) file, which is a meta description of the component written in the yaml serialization language:
+When you call 'viash run', Viash parses the [`config.vsh.yaml`](https://viash.io/examples/hello_world/config.vsh.yaml) file, which is a meta description of the component written in the yaml serialization language:
 
 ```{r, echo = FALSE}
 print_file("config.vsh.yaml", format = "yaml", show_filename = FALSE)
@@ -113,12 +113,12 @@ viash run -p native $URL -- NAME. --greeter="Hello there,"
 URL=https://viash.io/examples/hello_world/config.vsh.yaml
 viash run -p native $URL -- NAME. --greeter="Hello there,"
 ```
-The results should be exactly the same as viash automatically picks the first platform when you don't pass the platform option, in this case that's `native`.
+The results should be exactly the same as Viash automatically picks the first platform when you don't pass the platform option, in this case that's `native`.
 
 ## Exporting a component as an executable
 
-Components can be exported to executables, making it easy to share scripted functionality without the need to have viash installed on the target system.  
-Run the following command to make viash parse the config file and export the result to an executable called **hello_world** in a (new) folder named **my_hello_world**:
+Components can be exported to executables, making it easy to share scripted functionality without the need to have Viash installed on the target system.  
+Run the following command to make Viash parse the config file and export the result to an executable called **hello_world** in a (new) folder named **my_hello_world**:
 
 ```{bash, eval=FALSE}
 viash build $URL -o my_hello_world
@@ -139,7 +139,7 @@ my_hello_world/hello_world NAME. --greeter="Hello there,"
 
 ## What's next?
 
-Now that you understand the basics of how viash works, take a look at how to write your own component:
+Now that you understand the basics of how Viash works, take a look at how to write your own component:
 
 - [Creating a Bash component](/docs/creating_components/bash)
 - [Creating a Python component](/docs/creating_components/python)

@@ -1,9 +1,9 @@
 ---
 title: "Nextflow Platform"
-description: "Run a viash component as a Nextflow module."
-lead: "Run a viash component as a Nextflow module."
+description: "Run a Viash component as a Nextflow module."
+lead: "Run a Viash component as a Nextflow module."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-09T07:19:11+00:00"
+lastmod: "2021-06-22T08:47:15+00:00"
 draft: false
 images: []
 menu:
@@ -32,11 +32,11 @@ platforms:
 ## id \[string\]
 
 Every platform can be given a specific `id` that can later be referred
-to explicitly when running or building the viash component.
+to explicitly when running or building the Viash component.
 
 ## image \[string\], tag/version \[string\] and registry \[string\]
 
-If no image attributes are configured, viash will use the auto-generated
+If no image attributes are configured, Viash will use the auto-generated
 image name from the Docker platform:
 
     [<namespace>/]<name>:<version>
@@ -59,10 +59,10 @@ tag: 0.4.0      # or alternatively: version: 0.4.0
 Specifying the attribute(s) like this will use the container
 `dataintuitive/viash:0.4.0` from Docker hub (registry).
 
-If no tag/version is specified viash will use `functionality.version` as
+If no tag/version is specified Viash will use `functionality.version` as
 the version/tag.
 
-If no registry is specified, viash (and NextFlow) will assume the image
+If no registry is specified, Viash (and NextFlow) will assume the image
 is available locally or on Docker Hub. In other words, the
 `registry: ...` attribute above is superfluous. No other registry is
 checked automatically due to a limitation from Docker itself.

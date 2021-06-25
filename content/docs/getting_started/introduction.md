@@ -1,9 +1,9 @@
 ---
 title: "Introduction"
-description: "viash helps you turn a script (Bash/R/Python/Scala/JavaScript) into a reusable component."
-lead: "viash helps you turn a script (Bash/R/Python/Scala/JavaScript) into a reusable component."
+description: "Viash helps you turn a script (Bash/R/Python/Scala/JavaScript) into a reusable component."
+lead: "Viash helps you turn a script (Bash/R/Python/Scala/JavaScript) into a reusable component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-11T11:56:55+00:00"
+lastmod: "2021-06-22T08:50:36+00:00"
 draft: false
 images: []
 menu:
@@ -15,11 +15,11 @@ toc: true
 
 
 
-<!-- TODO: What is viash if you would describe it in one or two sentences?
-viash is a ... -->
+<!-- TODO: What is Viash if you would describe it in one or two sentences?
+Viash is a ... -->
 
 By providing some meta-data regarding its functionality and the platform
-on which you want to run the software, viash can help you:
+on which you want to run the software, Viash can help you:
 
 -   Wrap your script in an executable with a CLI and `--help`
     functionality.
@@ -30,9 +30,9 @@ on which you want to run the software, viash can help you:
 
 ## Example use cases
 
-Here are a few use cases which serve as motivation for viash:
+Here are a few use cases which serve as motivation for Viash:
 
-<!-- TODO: Rewrite use cases, the reason why viash helps in those situations should be crystal clear to someone that has never seen viash before, this part of the docs is presented before the installation after all. Ideally each of these should have "viash can help here by../In this case, viash can.../etc." -->
+<!-- TODO: Rewrite use cases, the reason why Viash helps in those situations should be crystal clear to someone that has never seen Viash before, this part of the docs is presented before the installation after all. Ideally each of these should have "Viash can help here by../In this case, Viash can.../etc." -->
 
 -   You want to combine several tools in a pipeline and every tool has
     specific requirements on how they should be run. Even worse: some
@@ -44,7 +44,7 @@ Here are a few use cases which serve as motivation for viash:
 -   You want to look back at a data analysis you performed two years
     ago. Unfortunately, the software you used back then is not supported
     anymore, or the newest version produces totally different results.
-    With viash you can package the older version together with its
+    With Viash you can package the older version together with its
     dependencies in an executable so you don’t have to worry about
     conflicts or deprecated versions
 -   You developed a [Jupyter](https://jupyter.org/) notebook report for
@@ -54,23 +54,17 @@ Here are a few use cases which serve as motivation for viash:
 
 ## Getting started
 
-Here are some links to get you started with viash:
+Here are some links to get you started with Viash:
 
--   [Installing viash](/docs/getting_started/installation): This guide walks
-    you through the steps to install viash on your machine.
--   [Running your first component
-    (Bash)](/docs/getting_started/what_is_a_viash_component): Get a feel for viash with
-    a classic **Hello World** tutorial, written in Bash.
--   [Running your first component
-    (Python)](/docs/getting_started/what_is_a_viash_component): Get a feel for viash
-    with a classic **Hello World** tutorial, written in Python.
--   [Running your first component (R)](/docs/getting_started/what_is_a_viash_component):
-    Get a feel for viash with a classic **Hello World** tutorial,
-    written in R.
+-   [Installing Viash](/docs/getting_started/installation): This guide
+    walks you through the steps to install Viash on your machine.
+-   [Running your first
+    component](/docs/getting_started/what_is_a_viash_component): Get a
+    feel for Viash with a classic **Hello World** tutorial.
 
 ## Documentation
 
-Once you understand how viash works and what it could do for you, take a
+Once you understand how Viash works and what it could do for you, take a
 look at our docs:
 
 -   [viash run command](/docs/reference_commands/run/)

@@ -1,10 +1,10 @@
 ---
-title: "Workflow for Prototyping Components"
+title: "Workflow For Prototyping Components"
 description: ""
 lead: ""
 date: 2021-06-07T14:00:00+00:00
-lastmod: "2021-06-14T07:20:17+00:00"
-draft: false
+lastmod: "2021-06-25T13:13:03+00:00"
+draft: true
 images: []
 menu:
   docs:
@@ -17,5 +17,5 @@ toc: true
 
 ## TODO
 
-Concepts for creating new viash components (e.g. config first vs. script
+Concepts for creating new Viash components (e.g. config first vs. script
 first)

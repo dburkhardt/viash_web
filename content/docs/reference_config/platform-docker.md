@@ -1,9 +1,9 @@
 ---
 title: "Docker Platform"
-description: "Run a viash component on a Docker backend platform."
-lead: "Run a viash component on a Docker backend platform."
+description: "Run a Viash component on a Docker backend platform."
+lead: "Run a Viash component on a Docker backend platform."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-31T10:53:01+00:00"
+lastmod: "2021-06-22T08:47:07+00:00"
 draft: false
 images: []
 menu:
@@ -53,7 +53,7 @@ which is explained in more depth in the following sections.
 
 As with all platforms, you can give a platform a different name. By
 specifying `id: foo`, you can target this platform (only) by specifying
-`-p foo` in any of the viash commands.
+`-p foo` in any of the Viash commands.
 
 Example:
 
@@ -98,9 +98,9 @@ target_image: myfoo
 ## chown \[boolean\]
 
 In Linux, files created by a Docker container will be owned by `root`.
-With `chown: true`, viash will automatically change the ownership of
+With `chown: true`, Viash will automatically change the ownership of
 output files (arguments with `type: file` and `direction: output`) to
-the user running the viash command after execution of the component.
+the user running the Viash command after execution of the component.
 Default value: `true`.
 
 Example:

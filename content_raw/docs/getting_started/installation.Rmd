@@ -8,7 +8,7 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "prologue"
+    parent: "getting_started"
 weight: 110
 toc: true
 ---
@@ -24,7 +24,7 @@ knitr::opts_chunk$set(comment = NA)
 
 ## Supported Operating Systems
 
-You can run viash on the following operating systems:
+You can run Viash on the following operating systems:
 
 - Linux
 - macOS
@@ -32,12 +32,12 @@ You can run viash on the following operating systems:
 
 ## Prerequisites
 
-- viash is developed in [Scala 2.12](https://www.scala-lang.org/), so you'll need an [Oracle Java SE Runtime Environment 8 installation](https://www.oracle.com/java/technologies/javase-jre8-downloads.html) or OpenJDK in order to use it.
-- You will need [Docker](https://docs.docker.com/get-docker/) to install viash and use it to its full potential.
+- Viash is developed in [Scala 2.12](https://www.scala-lang.org/), so you'll need an [Oracle Java SE Runtime Environment 8 installation](https://www.oracle.com/java/technologies/javase-jre8-downloads.html) or OpenJDK in order to use it.
+- You will need [Docker](https://docs.docker.com/get-docker/) to install Viash and use it to its full potential.
 
-## Installing viash
+## Installing Viash
 
-To install viash to a **bin** folder in your current directory, run the following command to download and run the bootstrap tool:
+To install Viash to a **bin** folder in your current directory, run the following command to download and run the bootstrap tool:
 
 ```bash
 wget -qO- get.viash.io | bash
@@ -58,7 +58,7 @@ Additional options can be set immediately using the following syntax:
 wget -qO- get.viash.io | bash -s -- OPTIONS
 ```
 
-For example, this command installs a release candidate of viash in a directory named 'applications':
+For example, this command installs a release candidate of Viash in a directory named 'applications':
 
 ```bash
 wget -qO- get.viash.io | bash -s -- -bin applications -tag 0.5.0-rc3

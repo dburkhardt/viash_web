@@ -1,9 +1,9 @@
 ---
-title: "Regarding file formats"
+title: "Regarding File Formats"
 description: ""
 lead: ""
 date: 2021-06-07T14:00:00+00:00
-lastmod: "2021-06-14T07:22:04+00:00"
+lastmod: "2021-06-22T11:02:22+00:00"
 draft: false
 images: []
 menu:

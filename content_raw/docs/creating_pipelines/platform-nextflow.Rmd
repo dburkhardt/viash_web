@@ -1,7 +1,7 @@
 ---
 title: "Creating a Nextflow Pipeline"
-description: "Developing a pipeline in Nextflow with viash."
-lead: "Developing a Pipeline in Nextflow with viash."
+description: "Developing a pipeline in Nextflow with Viash."
+lead: "Developing a Pipeline in Nextflow with Viash."
 date: 2021-05-28T14:00:00+00:00
 lastmod: "`r format(Sys.time(), '%Y-%Om-%dT%H:%M:%S+00:00')`"
 draft: false
@@ -18,9 +18,9 @@ toc: true
 
 ### Pipelines / Workflows
 
-It's possible to _convert_ a viash component into a NextFlow module. Viash uses NextFlow's DSL2 for this, effectively creating _modules_ that can be imported in a `main.nf` pipeline definition that deals with the _logic_ of the pipeline rather than the low-level machinery.
+It's possible to _convert_ a Viash component into a NextFlow module.  Viash uses NextFlow's DSL2 for this, effectively creating _modules_ that can be imported in a `main.nf` pipeline definition that deals with the _logic_ of the pipeline rather than the low-level machinery.
 
-When it comes to this low-level machinery and the way viash creates a module, we refer to [the step-by-step introduction about DiFlow](https://www.data-intuitive.com/diflow).
+When it comes to this low-level machinery and the way Viash creates a module, we refer to [the step-by-step introduction about DiFlow](https://www.data-intuitive.com/diflow).
 
 ### Parallelization
 
@@ -183,7 +183,7 @@ default: ...
 If an argument is `required: true`, it can have
 
 - a `default: ...` value: It will use this default value on the CLI unless you override it on the CLI
-- no default value: In this case, one has to provide a value when starting a NextFlow pipeline. Otherwise viash will give a warning and NXF will throw an error.
+- no default value: In this case, one has to provide a value when starting a NextFlow pipeline. Otherwise Viash will give a warning and NXF will throw an error.
 
 If an argument is `required: false`, it can have
 

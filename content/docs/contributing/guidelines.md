@@ -1,9 +1,9 @@
 ---
 title: "Contributing Guidelines"
-description: "Guidelines for contributing to viash"
-lead: "Before opening a pull request, review these guidelines for contributing to viash."
+description: "Guidelines for contributing to Viash"
+lead: "Before opening a pull request, review these guidelines for contributing to Viash."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-15T08:46:00+00:00"
+lastmod: "2021-06-25T12:54:48+00:00"
 draft: false
 images: []
 menu:
@@ -21,13 +21,61 @@ they fit the scope of our project.
 By participating in this project, you agree to abide by our [code of
 conduct](/docs/contributing/conduct/).
 
-## Contributing code changes to viash
+## Contributing to Viash
+
+### Help others
+
+A great way of contributing is helping others by providing answers and
+suggestions on [their issues](https://github.com/viash-io/viash/issues).
+
+### Test new releases
+
+We release new versions of Viash periodically that introduce
+improvements, features and bug fixes. Before releasing a production
+release, we have beta and release candidates available.  
+You can contribute by using one of the aforementioned releases and
+reporting (and fixing) any bugs you encounter.
+
+### Report bugs
+
+Ideally, bug reports are accompanied by a proposed code change to fix
+the bug. This isn’t always possible, as those who discover a bug may not
+have the experience to fix it.  
+Bug reports are only useful however if they include enough information
+to understand, isolate and ideally reproduce the bug.
+
+When submitting a bug report, add the following:
+
+-   A clear description of the bug.
+-   The exact steps needed to reproduce the bug.
+-   Include a file or an example if needed.
+
+### Review changes
+
+Changes proposed via pull requests are public, so anyone can see and
+comment on the changes.  
+You can make suggestions here and point out problems, as small as typos
+or issues of style.
+
+### Report documentation issues and suggestions
+
+The documentation you are reading now is hosted on our [Viash web
+repository](https://github.com/viash-io/viash_web). If you encounter any
+gaps in our documentation or you have spotted a mistake, you can help us
+out by [creating an
+issue](https://github.com/viash-io/viash_web/issues/).
+
+## Contributing code changes to Viash
+
+If you’re familiar with Scala and have learned how Viash works, you can
+help with the development of Viash by improving its code.
 
 ### Getting started
 
 -   Make sure you have a [GitHub
     account](https://github.com/signup/free). If you are not familar
-    with git and GitHub, take a look at <http://happygitwithr.com/> to
+    with git and GitHub, take a look at [the Git
+    Handbook](https://guides.github.com/introduction/git-handbook/) to
     get started.
 -   [Submit an issue](https://github.com/viash-io/viash/issues) for your
     problem or suggestion, assuming one does not already exist.
@@ -41,9 +89,9 @@ conduct](/docs/contributing/conduct/).
 
 Here are some helpful tips to make the development cycle easier:
 
--   viash is written primarily in [Scala](https://www.scala-lang.org/).
-    We recommend using [IntelliJ Idea](https://www.jetbrains.com/idea/)
-    as your IDE, but you’re free to use alternatives.
+-   Viash is written primarily in [Scala](https://www.scala-lang.org/).
+    You’re free to choose what IDE to use for development. [IntelliJ
+    Idea](https://www.jetbrains.com/idea/) is a good choice.
 -   While editing the files, save often and make commits of logical
     units where every commits indicates a single concept.
 -   Make sure to [write good commit
@@ -74,47 +122,3 @@ request](https://github.com/viash-io/viash/pulls).
 From this point on, you are waiting for us to review and comment on your
 pull request. We try to do this within a few days and may suggest
 improvements or ask for clarification.
-
-## Contributing to viash in other ways
-
-### Help others
-
-A great way of contributing is helping others by providing answers and
-suggestions on [their issues](https://github.com/viash-io/viash/issues).
-
-### Test new releases
-
-We release new versions of viash periodically that introduce
-improvements, features and bug fixes. Before releasing a production
-release, we have beta and release candidates available.  
-You can contribute by using one of the aforementioned releases and
-reporting (and fixing) any bugs you encounter.
-
-### Report bugs
-
-Ideally, bug reports are accompanied by a proposed code change to fix
-the bug. This isn’t always possible, as those who discover a bug may not
-have the experience to fix it.  
-Bug reports are only useful however if they include enough information
-to understand, isolate and ideally reproduce the bug.
-
-When submitting a bug report, add the following:
-
--   A clear description of the bug.
--   The exact steps needed to reproduce the bug.
--   Include a file or an example if needed.
-
-### Review changes
-
-Changes proposed via pull requests are public, so anyone can see and
-comment on the changes.  
-You can make suggestions here and point out problems, as small as typos
-or issues of style.
-
-### Report documentation issues and suggestions
-
-The documentation you are reading now is hosted on our [viash web
-repository](https://github.com/viash-io/viash_web). If you encounter any
-gaps in our documentation or you have spotted a mistake, you can help us
-out by [creating an
-issue](https://github.com/viash-io/viash_web/issues/).

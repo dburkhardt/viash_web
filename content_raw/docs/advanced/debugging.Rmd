@@ -1,15 +1,15 @@
 ---
-title: "Debugging components"
+title: "Debugging Components"
 description: ""
 lead: ""
 date: 2021-06-07T14:00:00+00:00
 lastmod: "`r format(Sys.time(), '%Y-%Om-%dT%H:%M:%S+00:00')`"
-draft: false
+draft: true
 images: []
 menu:
   docs:
-    parent: "creating_components"
-weight: 305
+    parent: "advanced"
+weight: 101
 toc: true
 ---
 

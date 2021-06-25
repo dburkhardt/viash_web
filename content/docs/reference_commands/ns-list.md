@@ -3,7 +3,7 @@ title: "viash ns list"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-08T12:28:39+00:00"
+lastmod: "2021-06-22T08:46:30+00:00"
 draft: false
 images: []
 menu:
@@ -25,16 +25,10 @@ viash ns list [-n nmspc] [-s src] [-p docker] [--tsv file.tsv]
 
 ## Arguments
 
-### –config
-
-A [viash config file](/docs/reference_config/config) (example:
-`config.vsh.yaml`). This argument can also be a script with the config
-as a header.
-
 ### -c, –config\_mod <arg>…
 
 Modify a [viash config](/docs/reference_config/config) at runtime using
-a [custom DSL](/docs/reference_config/config_mods).
+a [custom DSL](/docs/advanced/config_mods).
 
 ### -k, –keep <arg>
 
@@ -86,9 +80,88 @@ Show help message
 
 ## Examples
 
+### List a namespace without arguments
+
+When no arguments are given, the `ns list` command prints a **parsed**
+version of all [config files](/docs/reference_config/config) in a
+subdirectory named **src** to the terminal. This includes all fields,
+even those that were not given values in the config file itself.  
+See [Workflow for creating modular
+pipelines](/docs/creating_pipelines/modular_pipelines/#building-a-namespace)
+for an overview of how you should structure your components for this to
+work correctly.
+
+``` bash
+viash ns list
+```
+
+After running this command, you’ll see a list similar to this:
+
+``` bash
+- functionality:
+    name: "download_files"
+    namespace: "my_namespace"
+    authors: []
+    arguments:
+    - type: "string"
+      name: "url"
+      alternatives: []
+      required: false
+      direction: "Input"
+      multiple: true
+      multiple_sep: " "
+    - type: "string"
+      name: "--filter"
+      alternatives: []
+      required: false
+      direction: "Input"
+      multiple: false
+      multiple_sep: ":"
+    resources:
+    - type: "bash_script"
+      path: "script.sh"
+      is_executable: true
+...
+```
+
+### Specifying a source folder and a namespace
+
+In order for namespace querying to work, make sure your config files
+include a [namespace
+field](/docs/reference_config/functionality/#namespace-string). The
+command below searches the **my\_components\_dir** directory for all
+Viash components in the **my\_namespace** namespace and prints out the
+config information to the terminal.
+
+``` bash
+viash ns list --src 'my_components_dir' -n 'my_namespace'
+```
+
+### Filter a specific component to list
+
+This lists any Viash components where the name contains “parse”:
+
+``` bash
+viash ns list --query_name  "parse"
+```
+
+### Override a namespace with config mods
+
+List a Viash namespace and use a [config
+mod](/docs/advanced/config_mods) to override the [config
+files](/docs/reference_config/config).
+
+``` bash
+viash ns list -p docker \
+  -c '.platforms[.type == "docker"].setup_strategy := "pull"' \
+  -c '.platforms[.type == "docker"].image := "bash:latest"'
+```
+
 ## See also
 
 -   [Config file](/docs/reference_config/config)
--   [Dynamic Config Modding](/docs/reference_config/config_mods)
+-   [Dynamic Config Modding](/docs/advanced/config_mods)
 -   [Native platform](/docs/reference_config/platform-native)
 -   [Docker platform](/docs/reference_config/platform-docker)
+-   [Workflow for creating modular
+    pipelines](/docs/creating_pipelines/modular_pipelines/#building-a-namespace)

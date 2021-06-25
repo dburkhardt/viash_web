@@ -50,7 +50,7 @@ knitr::asis_output(usage)
 
 ### --config  
   
-A [viash config file](/docs/reference_config/config) (example: `config.vsh.yaml`). This argument can also be a script with the config as a header.
+A [Viash config file](/docs/reference_config/config) (example: `config.vsh.yaml`). This argument can also be a script with the config as a header.
 
 ```{r arg}
 trail <- grep("^ trailing arguments:", txt)
@@ -68,7 +68,7 @@ knitr::asis_output(arg)
 
 ## Examples
 
-### Print a viash config to the terminal
+### Print a Viash config to the terminal
 
 The `config view` command prints a **parsed** version of a [config file](/docs/reference_config/config) to the terminal. This includes all fields, even those that were not given values in the config file itself:
 
@@ -141,7 +141,7 @@ platforms:
 
 ### Override a config with config mods
 
-Prints out what a **parsed** viash component config would look like while using a [config mod](/docs/reference_config/config_mods) to override the [config file](/docs/reference_config/config).
+Prints out what a **parsed** Viash component config would look like while using a [config mod](/docs/advanced/config_mods) to override the [config file](/docs/reference_config/config).
 
 ```bash
 viash config view config.vsh.yaml \
@@ -153,6 +153,6 @@ viash config view config.vsh.yaml \
 ## See also
 
 - [Config file](/docs/reference_config/config)
-- [Dynamic Config Modding](/docs/reference_config/config_mods)
+- [Dynamic Config Modding](/docs/advanced/config_mods)
 - [Native platform](/docs/reference_config/platform-native)
 - [Docker platform](/docs/reference_config/platform-docker)
