@@ -3,7 +3,7 @@ title: "viash ns build"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-22T08:46:26+00:00"
+lastmod: "2021-06-28T06:55:11+00:00"
 draft: false
 images: []
 menu:
@@ -95,10 +95,8 @@ Show help message
 
 When no arguments are given. All components in a subdirectory named
 **src** are built with all available platforms to a directory named
-**target**. See [Workflow for creating modular
-pipelines](/docs/creating_pipelines/modular_pipelines/#building-a-namespace)
-for an overview of how you should structure your components for this to
-work correctly.
+**target**. See [Namespaces](/docs/projects/namespaces) for an overview
+of how you should structure your components for this to work correctly.
 
 ``` bash
 viash ns build
@@ -243,5 +241,4 @@ viash ns build -p docker \
 -   [Dynamic Config Modding](/docs/advanced/config_mods)
 -   [Native platform](/docs/reference_config/platform-native)
 -   [Docker platform](/docs/reference_config/platform-docker)
--   [Workflow for creating modular
-    pipelines](/docs/creating_pipelines/modular_pipelines/#building-a-namespace)
+-   [Namespaces](/docs/projects/namespaces)

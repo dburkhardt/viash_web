@@ -3,7 +3,7 @@ title: "viash ns list"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-22T08:46:30+00:00"
+lastmod: "2021-06-28T06:55:13+00:00"
 draft: false
 images: []
 menu:
@@ -86,10 +86,8 @@ When no arguments are given, the `ns list` command prints a **parsed**
 version of all [config files](/docs/reference_config/config) in a
 subdirectory named **src** to the terminal. This includes all fields,
 even those that were not given values in the config file itself.  
-See [Workflow for creating modular
-pipelines](/docs/creating_pipelines/modular_pipelines/#building-a-namespace)
-for an overview of how you should structure your components for this to
-work correctly.
+See [Namespaces](/docs/projects/namespaces) for an overview of how you
+should structure your components for this to work correctly.
 
 ``` bash
 viash ns list
@@ -163,5 +161,4 @@ viash ns list -p docker \
 -   [Dynamic Config Modding](/docs/advanced/config_mods)
 -   [Native platform](/docs/reference_config/platform-native)
 -   [Docker platform](/docs/reference_config/platform-docker)
--   [Workflow for creating modular
-    pipelines](/docs/creating_pipelines/modular_pipelines/#building-a-namespace)
+-   [Namespaces](/docs/projects/namespaces)

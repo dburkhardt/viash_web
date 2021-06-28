@@ -3,7 +3,7 @@ title: "viash run"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-22T08:46:37+00:00"
+lastmod: "2021-06-28T06:54:50+00:00"
 draft: false
 images: []
 menu:
@@ -100,10 +100,10 @@ viash run config.vsh.yaml --platform native -- --input="Hello!" -o=my_file.txt
 
 ### Override a config with config mods
 
-Run a Viash component using a [config
-mod](/docs/advanced/config_mods) to override the [config
-file](/docs/reference_config/config). In this case, pull an image from a
-docker registry and specify a specific docker registry server URL.
+Run a Viash component using a [config mod](/docs/advanced/config_mods)
+to override the [config file](/docs/reference_config/config). In this
+case, pull an image from a docker registry and specify a specific docker
+registry server URL.
 
 ``` bash
 viash run config.vsh.yaml -p docker \

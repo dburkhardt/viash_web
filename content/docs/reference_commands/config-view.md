@@ -3,7 +3,7 @@ title: "viash config view"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-22T08:51:18+00:00"
+lastmod: "2021-06-28T06:54:50+00:00"
 draft: false
 images: []
 menu:
@@ -130,8 +130,8 @@ platforms:
 ### Override a config with config mods
 
 Prints out what a **parsed** Viash component config would look like
-while using a [config mod](/docs/advanced/config_mods) to
-override the [config file](/docs/reference_config/config).
+while using a [config mod](/docs/advanced/config_mods) to override the
+[config file](/docs/reference_config/config).
 
 ``` bash
 viash config view config.vsh.yaml \

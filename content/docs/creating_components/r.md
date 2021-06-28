@@ -3,7 +3,7 @@ title: "Creating an R Component"
 description: "Developing a new Viash component."
 lead: "Developing a new Viash component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-22T11:03:45+00:00"
+lastmod: "2021-06-28T06:54:20+00:00"
 draft: false
 images: []
 menu:
@@ -663,11 +663,11 @@ viash test config.vsh.yaml
 
 The output will look like this:
 
-    Running tests in temporary directory: '/tmp/viash_test_md_url_checker_r741202497337049816'
+    Running tests in temporary directory: '/tmp/viash_test_md_url_checker_r652043861673572437'
     ====================================================================
-    +/tmp/viash_test_md_url_checker_r741202497337049816/build_executable/md_url_checker_r ---setup
+    +/tmp/viash_test_md_url_checker_r652043861673572437/build_executable/md_url_checker_r ---setup
     ====================================================================
-    +/tmp/viash_test_md_url_checker_r741202497337049816/test_test.R/test.R
+    +/tmp/viash_test_md_url_checker_r652043861673572437/test_test.R/test.R
     >>> Checking whether output is correct
     >>> Checking whether output file is correct
     >>> Test finished successfully!
@@ -692,8 +692,3 @@ some good starting points:
     file
 -   More details about [the docker
     platform](/docs/reference_config/platform-docker/)
-
-<!-- -->
-
-    rm: can't remove 'output.txt': No such file or directory
-    rm: can't remove 'my_report.txt': No such file or directory

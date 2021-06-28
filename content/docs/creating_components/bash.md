@@ -3,7 +3,7 @@ title: "Creating a Bash Component"
 description: "Developing a new Viash component."
 lead: "Developing a new Viash component."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-22T11:02:15+00:00"
+lastmod: "2021-06-28T06:54:05+00:00"
 draft: false
 images: []
 menu:
@@ -557,9 +557,9 @@ it’s the same as the previous build command:
 viash build -p docker -o docker_output config.vsh.yaml 
 ```
 
-You’ll now have a **docker\_output** folder alongside the **output** one.
-This folder also contains a file named **md\_url\_checker**, but its
-inner workings are slightly different than before. Run
+You’ll now have a **docker\_output** folder alongside the **output**
+one. This folder also contains a file named **md\_url\_checker**, but
+its inner workings are slightly different than before. Run
 **md\_url\_checker** with the full arguments list to test what happens:
 
 ``` bash
@@ -660,19 +660,19 @@ viash test config.vsh.yaml
 
 The output will look like this:
 
-    Running tests in temporary directory: '/tmp/viash_test_md_url_checker3659070076436594579'
+    Running tests in temporary directory: '/tmp/viash_test_md_url_checker5828773777380597444'
     ====================================================================
-    +/tmp/viash_test_md_url_checker3659070076436594579/build_executable/md_url_checker ---setup
+    +/tmp/viash_test_md_url_checker5828773777380597444/build_executable/md_url_checker ---setup
     ====================================================================
-    +/tmp/viash_test_md_url_checker3659070076436594579/test_test.sh/test.sh
-    + echo '>>> Checking whether output is correct'
+    +/tmp/viash_test_md_url_checker5828773777380597444/test_test.sh/test.sh
     >>> Checking whether output is correct
+    + echo '>>> Checking whether output is correct'
     + ./md_url_checker --inputfile Testfile.md
     + [[ ! -f test-output.txt ]]
     + grep -q '1: https://www.google.com' test-output.txt
     + grep -q 'HTTP/2 404' test-output.txt
-    + echo '>>> Checking whether an output file was created correctly'
     >>> Checking whether an output file was created correctly
+    + echo '>>> Checking whether an output file was created correctly'
     + [[ ! -f output.txt ]]
     + grep -q 'URL: https://www.google.com' output.txt
     + grep -q 'Status: ERROR! URL cannot be reached. Status code: HTTP/2 404' output.txt
@@ -701,8 +701,3 @@ some good starting points:
     file
 -   More details about [the docker
     platform](/docs/reference_config/platform-docker/)
-
-<!-- -->
-
-    rm: can't remove 'output.txt': No such file or directory
-    rm: can't remove 'my_report.txt': No such file or directory
