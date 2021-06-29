@@ -1,4 +1,4 @@
-# Dependancies:
+# Dependencies:
 # packages: python3-lxml
 # pip: markdown, lxml, requests
 

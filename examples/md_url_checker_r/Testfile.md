@@ -9,5 +9,5 @@ Some links to websites:
 
 Links that are relative to [viash.io](http://www.viash.io):
 
-- You can [install viash here](/docs/prologue/installation).
+- You can [install viash here](/docs/getting_started/installation).
 - It all starts with a script and a [config file](/docs/reference_config/config) for your components.

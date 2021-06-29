@@ -3,7 +3,7 @@ set -ex # exit the script when one of the checks fail and output all commands.
 # check 1
 echo ">>> Checking whether output is correct"
 
-# run compononent with required input(s)
+# run component with required input(s)
 ./md_url_checker --inputfile Testfile.md > test-output.txt
 
 [[ ! -f test-output.txt ]] && echo "Test output file could not be found!" && exit 1
