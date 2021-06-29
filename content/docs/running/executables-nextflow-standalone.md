@@ -1,10 +1,10 @@
 ---
-title: "Running a standalone Nextflow module"
+title: "Running a Standalone Nextflow Module"
 description: ""
 lead: ""
 date: 2021-06-07T14:00:00+00:00
-lastmod: "2021-06-08T07:52:21+00:00"
-draft: false
+lastmod: "2021-06-22T11:26:26+00:00"
+draft: true
 images: []
 menu:
   docs:

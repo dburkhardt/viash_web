@@ -1,5 +1,5 @@
 ---
-title: "Config file"
+title: "Config File"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
@@ -25,9 +25,9 @@ knitr::opts_knit$set(root.dir = "../../../static/examples/addrowlines/")
 knitr::opts_chunk$set(comment = NA)
 ```
 
-# The viash config file
+# The Viash config file
 
-A viash config file describes the behaviour of a script and the platform it runs on.
+A Viash config file describes the behaviour of a script and the platform it runs on.
 It consists of two main sections: `functionality` and `platforms`.
 
 The [functionality](/docs/reference_config/functionality/) section describes the core functionality of the component, such as 
@@ -43,7 +43,7 @@ system requirements is assumed.
 Usually, the config file is accompanied by a script which contains the actual code for the
 component.
 
-Only a small example of a viash config file is shown below, but check out the more detailed 
+Only a small example of a Viash config file is shown below, but check out the more detailed 
 documentation regarding the [functionality](/docs/reference_config/functionality/), the [Native platform](/docs/reference_config/platform-native/), 
 the [Docker platform](/docs/reference_config/platform-docker/), and the [Nextflow platform](/docs/reference_config/platform-nextflow/) for 
 the full specifications for each of these subsections.

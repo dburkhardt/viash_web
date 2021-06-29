@@ -1,9 +1,9 @@
 ---
-title: "Config file"
+title: "Config File"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-31T10:52:56+00:00"
+lastmod: "2021-06-22T11:09:14+00:00"
 draft: false
 images: []
 menu:
@@ -15,9 +15,9 @@ toc: true
 
 
 
-# The viash config file
+# The Viash config file
 
-A viash config file describes the behaviour of a script and the platform
+A Viash config file describes the behaviour of a script and the platform
 it runs on. It consists of two main sections: `functionality` and
 `platforms`.
 
@@ -38,7 +38,7 @@ are specified, a native platform with no system requirements is assumed.
 Usually, the config file is accompanied by a script which contains the
 actual code for the component.
 
-Only a small example of a viash config file is shown below, but check
+Only a small example of a Viash config file is shown below, but check
 out the more detailed documentation regarding the
 [functionality](/docs/reference_config/functionality/), the [Native
 platform](/docs/reference_config/platform-native/), the [Docker

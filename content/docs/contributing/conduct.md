@@ -3,7 +3,7 @@ title: "Code of Conduct"
 description: "Contributor Covenant Code of Conduct"
 lead: "Contributor Covenant Code of Conduct"
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-05-31T10:52:17+00:00"
+lastmod: "2021-06-25T12:15:47+00:00"
 draft: false
 images: []
 menu:
@@ -76,8 +76,8 @@ or acting as an appointed representative at an online or offline event.
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may
 be reported to the community leaders responsible for enforcement at
-\[<admin@data-intuitive.com>\]. All complaints will be reviewed and
-investigated promptly and fairly.
+\[<info@viash.io>\]. All complaints will be reviewed and investigated
+promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security
 of the reporter of any incident.

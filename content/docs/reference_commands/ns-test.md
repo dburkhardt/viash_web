@@ -3,7 +3,7 @@ title: "viash ns test"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-08T12:28:43+00:00"
+lastmod: "2021-06-28T06:55:14+00:00"
 draft: false
 images: []
 menu:
@@ -25,12 +25,6 @@ viash ns test [-n nmspc] [-s src] [-p docker] [--parallel] [--tsv file.tsv] [--a
 
 ## Arguments
 
-### –config
-
-A [viash config file](/docs/reference_config/config) (example:
-`config.vsh.yaml`). This argument can also be a script with the config
-as a header.
-
 ### -a, –append
 
 Append to tsv instead of overwrite
@@ -38,7 +32,7 @@ Append to tsv instead of overwrite
 ### -c, –config\_mod <arg>…
 
 Modify a [viash config](/docs/reference_config/config) at runtime using
-a [custom DSL](/docs/reference_config/config_mods).
+a [custom DSL](/docs/advanced/config_mods).
 
 ### -k, –keep <arg>
 
@@ -90,9 +84,75 @@ Show help message
 
 ## Examples
 
+### Testing with no arguments
+
+When no arguments are given. All components in a subdirectory named
+**src** are tested. This includes testing if a component can be built
+and any tests defined in its [config
+file](/docs/reference_config/config). See
+[Namespaces](/docs/projects/namespaces) for an overview of how you
+should structure your components for this to work correctly.
+
+``` bash
+viash ns test
+```
+
+After running this command, a test report is printed to the terminal
+with the results.
+
+### Specifying a source folder and a namespace
+
+In order for namespace querying to work, make sure your config files
+include a [namespace
+field](/docs/reference_config/functionality/#namespace-string). The
+command below searches the **my\_components\_dir** directory for all
+Viash components in the **my\_namespace** namespace and tests them.
+
+``` bash
+viash ns test --src 'my_components_dir' --query_namespace 'my_namespace'
+```
+
+### Filter a specific component to test
+
+This tests any Viash components where the name contains “parse”:
+
+``` bash
+viash ns test --query_name  "parse"
+```
+
+### Test a specific platform
+
+This runs a test on all components that utilises the Docker backend:
+
+``` bash
+viash ns test --platform docker
+```
+
+### Run the tests in parallel
+
+By default, the testing of namespaces is a serial process, meaning every
+components gets tested one by one. With the `--parallel` option, you can
+run the process in parallel, allowing you to test all of the components
+at the same time, potentially saving you a lot of time:
+
+``` bash
+viash ns test --parallel
+```
+
+### Save the test results in a file
+
+You can export the test results to a tab-seperated values (TSV) file
+with the `--tsv` option. In the example below, a file named
+**report.tsv** gets generated.
+
+``` bash
+viash ns test --tsv "report.tsv"
+```
+
 ## See also
 
 -   [Config file](/docs/reference_config/config)
--   [Dynamic Config Modding](/docs/reference_config/config_mods)
+-   [Dynamic Config Modding](/docs/advanced/config_mods)
 -   [Native platform](/docs/reference_config/platform-native)
 -   [Docker platform](/docs/reference_config/platform-docker)
+-   [Namespaces](/docs/projects/namespaces)

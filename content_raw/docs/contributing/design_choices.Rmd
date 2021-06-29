@@ -1,0 +1,18 @@
+---
+title: "Viash Design Choices"
+description: ""
+lead: ""
+date: 2021-05-28T14:00:00+00:00
+lastmod: "`r format(Sys.time(), '%Y-%Om-%dT%H:%M:%S+00:00')`"
+draft: true
+images: []
+menu:
+  docs:
+    parent: "contributing"
+weight: 710
+toc: true
+---
+
+## to do.
+
+Documenting development design choices for potential contributors

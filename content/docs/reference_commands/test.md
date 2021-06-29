@@ -3,7 +3,7 @@ title: "viash test"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-08T12:28:54+00:00"
+lastmod: "2021-06-22T08:46:41+00:00"
 draft: false
 images: []
 menu:
@@ -34,7 +34,7 @@ as a header.
 ### -c, –config\_mod <arg>…
 
 Modify a [viash config](/docs/reference_config/config) at runtime using
-a [custom DSL](/docs/reference_config/config_mods). (default = List())
+a [custom DSL](/docs/advanced/config_mods). (default = List())
 
 ### -k, –keep <arg>
 
@@ -61,16 +61,16 @@ Show help message
 
 ### Running a test with no arguments
 
-Test a viash component with only the path to the [viash config
+Test a Viash component with only the path to the [viash config
 file](/docs/reference_config/config) as an argument. This will create a
 temporary directory in the VIASH\_TEMP directory (`/tmp/` by default)
 and copy over any test files that are specified in the [viash config
 file](/docs/reference_config/config).  
-Next, viash generates an executable inside that directory with the first
+Next, Viash generates an executable inside that directory with the first
 platform defined in in your config. If no platform is found, the [native
 platform](/docs/reference_config/platform-native) is used.
 
-Finally, viash will run the test script to do a unit test, with the
+Finally, Viash will run the test script to do a unit test, with the
 results being printed out to the terminal.
 
 ``` bash
@@ -98,8 +98,8 @@ viash test config.vsh.yaml -p native --keep true
 
 ### Override a config with config mods
 
-Test a viash component while using a [config
-mod](/docs/reference_config/config_mods) to override the [config
+Test a Viash component while using a [config
+mod](/docs/advanced/config_mods) to override the [config
 file](/docs/reference_config/config). In this case, pull an image from a
 docker registry and specify a specific docker registry server URL.
 
@@ -112,6 +112,6 @@ viash test config.vsh.yaml -p docker \
 ## See also
 
 -   [Config file](/docs/reference_config/config)
--   [Dynamic Config Modding](/docs/reference_config/config_mods)
+-   [Dynamic Config Modding](/docs/advanced/config_mods)
 -   [Native platform](/docs/reference_config/platform-native)
 -   [Docker platform](/docs/reference_config/platform-docker)
