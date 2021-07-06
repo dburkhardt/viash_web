@@ -16,3 +16,8 @@ toc: true
 ## TODO
 
 Concepts for creating new Viash components (e.g. config first vs. script first)
+You can start writing Viash components by either starting from a config file or by starting with a script.
+
+## Config first
+
+## Script first

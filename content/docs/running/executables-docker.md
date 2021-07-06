@@ -1,9 +1,9 @@
 ---
 title: "Executables With a Docker Backend"
 description: ""
-lead: ""
+lead: "The Docker backend allows you to create executables that use a Docker container to run your script in, along with any dependencies it might need."
 date: 2021-06-07T14:00:00+00:00
-lastmod: "2021-06-22T11:35:57+00:00"
+lastmod: "2021-07-06T14:36:35+00:00"
 draft: false
 images: []
 menu:
@@ -15,59 +15,146 @@ toc: true
 
 
 
+## Running Docker executables
+
+### Running a component
+
+Use the [viash run command](/docs/reference_commands/run/) to run a
+component with a [Docker
+backend](/docs/reference_config/platform-docker/) directly:
+
+``` bash
+viash run -p docker config.vsh.yaml --setup ifneedbecachedbuild -- --input "Hello!"
+```
+
+**Note**: If you make changes to the platform section of your config
+file, you will need to run `--setup` again.
+
+### Building and running an executable
+
+To build an executable, use the [viash build
+command](/docs/reference_commands/build/):
+
+``` bash
+viash build config.vsh.yaml -p docker --setup alwayscachedbuild
+```
+
+You can then simply run the generated executable:
+
+``` bash
+output/my_executable --input "Hello!"
+```
+
+Doing this will perform checks and actions according to the selected
+setup strategy after which the script is run inside the Docker image.
+
+### Print Docker configuration to terminal
+
+Pass the hidden `---dockerfile` argument to a component or executable
+with a Docker backend to get an overview of the Docker configuration.
+For example:
+
+``` bash
+viash run -p docker config.vsh.yaml -- ---dockerfile
+```
+
+Another example:
+
+``` bash
+./my_docker_executable ---dockerfile
+```
+
+Both of these output something similar to this to the terminal:
+
+``` bash
+FROM bash:latest
+
+RUN apk add --no-cache curl
+```
+
+### Automatic Docker volume creation
+
+Viash automatically creates a [Docker
+volume](https://docs.docker.com/storage/volumes/) for components and
+executables with a Docker backend if an argument of the type **file**
+exists in the [config file](/docs/reference_config/config/).  
+This allows your script to read and write files as if it were working
+with them natively.  
+The full mount name is
+`/viash_automount/ABSOLUTE_PATH_TO_FILE_DIRECTORY`.
+
+You can see this in action by following along any of the component
+creation guides in the **CREATING VIASH COMPONENTS** category on the
+left. The **md\_url\_checker** component prints the paths to the input
+and output files to the console.  
+When executing this command on the final Docker executable:
+
+``` bash
+output/md_url_checker --inputfile Testfile.md
+```
+
+These lines will be printed to the terminal along with the other output:
+
+``` bash
+...
+/viash_automount/home/user/md_url_checker/Testfile.md has been checked and a report named /viash_automount/home/user/md_url_checker/output.txt has been generated.
+...
+```
+
+As you can see, `/viash_automount/` is added before the path to the
+files so Docker can read and write to both files.
+
+By default, files created and modified by a Docker container are owned
+by **root**. Viash automatically changes the owner of any files defined
+in the config file to the user running the component or executable by
+default.
+
+**Note**: Any other files your script generates will still be owned by
+root as Viash won’t have any knowledge of them.
+
 ## Docker setup strategies
 
-### alwaysbuild / build
+Viash supports the use of several different Docker setup strategies. You
+can choose what strategy to run or build a component with when using a
+Docker backend by passing the `--setup` option followed by one of the
+strategies below.
 
-build the image from the dockerfile (DEFAULT)
+### Build
 
-### alwayscachedbuild / cachedbuild
+-   `alwaysbuild` / `build` / `b`: Always build the image from the
+    dockerfile. This is the default setup strategy.
+-   `alwayscachedbuild` / `cachedbuild` / `cb`: Always build the image
+    from the dockerfile, with caching enabled.
+-   `ifneedbebuild`: Build the image if it does not exist locally.
+-   `ifneedbecachedbuild`: Build the image with caching enabled if it
+    does not exist locally.
 
-build the image from the dockerfile, with caching
+### Pull
 
-### alwayspull / pull
+-   `alwayspull` / `pull` / `p`: Try to pull the container from [Docker
+    Hub](https://hub.docker.com) or the [specified docker
+    registry](/docs/reference_config/platform-docker).
+-   `alwayspullelsebuild` / `pullelsebuild`: Try to pull the image from
+    a registry and build it if it doesn’t exist.
+-   `alwayspullelsecachedbuild` / `pullelsecachedbuild`: Try to pull the
+    image from a registry and build it with caching if it doesn’t exist.
+-   `ifneedbepull`: If the image does not exist locally, pull the image.
+-   `ifneedbepullelsebuild` If the image does not exist locally, pull
+    the image. If the image does exist, build it.
+-   `ifneedbepullelsecachedbuild`: If the image does not exist locally,
+    pull the image. If the image does exist, build it with caching
+    enabled.
 
-pull the image from a registry
+### Push
 
-### alwayspullelsebuild / pullelsebuild
+-   `push`: Push the container to [Docker Hub](https://hub.docker.com)
+    or the [specified docker
+    registry](/docs/reference_config/platform-docker).
+-   `pushifnotpresent` Push the container to [Docker
+    Hub](https://hub.docker.com) or the [specified docker
+    registry](/docs/reference_config/platform-docker) if the [specified
+    tag](/docs/reference_config/platform-docker)) does not exist yet.
 
-try to pull the image from a registry, else build it
+### Do nothing
 
-### alwayspullelsecachedbuild / pullelsecachedbuild
-
-try to pull the image from a registry, else build it with caching
-
-### ifneedbebuild
-
-if the image does not exist locally, build the image
-
-### ifneedbecachedbuild:
-
-if the image does not exist locally, build the image with caching
-
-### ifneedbepull
-
-if the image does not exist locally, pull the image
-
-### ifneedbepullelsebuild
-
-if the image does not exist locally, pull the image else build it
-
-### ifneedbepullelsecachedbuild
-
-if the image does not exist locally, pull the image else build it with
-caching
-
-### donothing / meh
-
-do not build or pull anything
-
-### build / b
-
-### cachedbuild / cb
-
-### pull / p
-
-### push
-
-### pushifnotpresent
+-   `donothing` / `meh`: Do not build or pull anything.
