@@ -1,9 +1,15 @@
-<!-- both plausible and google analytics, for now -->
-<script async defer data-domain="viash.io" src="https://plausible.io/js/plausible.js"></script>
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDS2XT0DDG"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+
+  // Disable cookies
+  gtag('config', 'GA_MEASUREMENT_ID', {
+       client_storage: 'none',
+       client_id: CLIENT_ID,
+  });
+  
   gtag('js', new Date());
 
   gtag('config', 'G-GDS2XT0DDG');

@@ -1,10 +1,10 @@
 ---
 title: "Running Native Executables"
 description: ""
-lead: ""
+lead: "Viash lets you turn your component into a native executable."
 date: 2021-06-07T14:00:00+00:00
-lastmod: "2021-06-22T11:26:23+00:00"
-draft: true
+lastmod: "2021-07-09T14:12:12+00:00"
+draft: false
 images: []
 menu:
   docs:
@@ -15,4 +15,114 @@ toc: true
 
 
 
-## TODO
+Native components are a good way to get started with Viash and are ideal
+to test out your components before using the more sophisticated
+platforms like [Docker](/docs/reference_config/platform-docker/) and
+[Nextflow](/docs/reference_config/platform-nextflow/).
+
+## Running native executables
+
+### Running a native component
+
+Use the [viash run command](/docs/reference_commands/run/) to run a
+[native component](/docs/reference_config/platform-native) directly:
+
+``` bash
+viash run -p native config.vsh.yaml -- --input "Hello!"
+```
+
+### Building and running a native executable
+
+To build an executable, use the [viash build
+command](/docs/reference_commands/build/):
+
+``` bash
+viash build config.vsh.yaml -p native
+```
+
+You can then simply run the generated executable:
+
+``` bash
+output/my_executable --input "Hello!"
+```
+
+## Migrating from native to Docker
+
+Once you’re content with your native executable, you might want to take
+it a step further and use it with a Docker backend instead. This has a
+few strong advantages over running native components:
+
+-   Executables with a Docker backend are portable. All they require are
+    an install of Docker on the target system, nothing more.
+-   Dependencies are automatically resolved by Viash if you provide some
+    information in the config file.
+-   You can use specific versions of software packages without having to
+    worry about conflicts with a target system’s setup.
+
+Let’s say you have a bash script that uses [curl](https://curl.se/) to
+download some data, process it using and then post it to a web server.
+When you create a native component for this script, everything will work
+fine as long as you have curl installed locally on your machine.  
+In order to get everything working with a Docker backend, you need to
+follow a few simple steps:
+
+If you’re only using the native platform, the platforms section of your
+your [config file](/docs/reference_config/config/) will probably look
+like this:
+
+``` yaml
+platforms:
+  - type: native
+```
+
+Start off by adding the **docker** platform and a suitable image to the
+platforms dictionary. In this case, since you’re using a bash script,
+you might want to use the [official bash
+image](https://hub.docker.com/_/bash). Replace your existing platforms
+section with the following:
+
+``` yaml
+platforms:
+  - type: native
+  - type: docker
+    image: bash:latest
+```
+
+At this point you can [build and execute the component with a Docker
+backend](/docs/running/executables-docker/) already! Viash will do all
+the rest. However, if you have *any* dependencies outside of bash, your
+script will fail to execute correctly inside of the container.  
+To remedy this, [Viash allows you to provide the dependencies inside of
+the config file](/docs/reference_config/platform-docker/#setup-list) and
+they will automatically be resolved at runtime. To add curl as a
+dependency, expand your platforms definition like so:
+
+``` yaml
+platforms:
+  - type: native
+  - type: docker
+    image: bash:latest
+    setup:
+      - type: apk
+        packages: [ curl ]
+```
+
+In this case, curl is available via the **Alpine Package Keeper** (APK
+for short). There are many [more ways of adding
+dependencies](/docs/reference_config/platform-docker/#setup-list) for
+every language Viash supports and more are being added periodically.  
+Now build your component using this command:
+
+``` bash
+viash build config.vsh.yaml -p docker
+```
+
+Finally, run the built executable with:
+
+``` bash
+output/name_of_your_component
+```
+
+That’s it! In just a few steps you’ve made your script ready to be used
+on any system that has Docker installed. That includes linux, macOS and
+Windows via WSL2.

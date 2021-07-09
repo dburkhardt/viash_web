@@ -3,7 +3,7 @@ title: "Executables With a Docker Backend"
 description: ""
 lead: "The Docker backend allows you to create executables that use a Docker container to run your script in, along with any dependencies it might need."
 date: 2021-06-07T14:00:00+00:00
-lastmod: "2021-07-06T14:36:35+00:00"
+lastmod: "2021-07-09T12:08:46+00:00"
 draft: false
 images: []
 menu:
@@ -14,6 +14,10 @@ toc: true
 ---
 
 
+
+Executables with a Docker backend make it easy to adhere to strict
+version requirements as well as simplifying the management of
+dependencies.
 
 ## Running Docker executables
 
@@ -110,7 +114,8 @@ in the config file to the user running the component or executable by
 default.
 
 **Note**: Any other files your script generates will still be owned by
-root as Viash won’t have any knowledge of them.
+root as Viash won’t have any knowledge of them.Executables With a Docker
+Backend"
 
 ## Docker setup strategies
 
