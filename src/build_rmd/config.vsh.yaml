@@ -29,7 +29,7 @@ platforms:
       # viash
       - type: docker
         run:
-          - wget https://github.com/viash-io/viash/releases/download/0.4.0/viash && chmod +x viash && mv viash /usr/local/bin
+          - wget https://github.com/viash-io/viash/releases/latest/download/viash && chmod +x viash && mv viash /usr/local/bin
       # r dependencies
       - type: docker
         run:

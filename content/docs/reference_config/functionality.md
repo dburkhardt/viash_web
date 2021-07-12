@@ -3,7 +3,7 @@ title: "Functionality"
 description: "The functionality-part of the config file describes the behaviour of the script in terms of arguments and resources."
 lead: "The functionality-part of the config file describes the behaviour of the script in terms of arguments and resources."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-22T08:47:01+00:00"
+lastmod: "2021-07-12T12:42:03+00:00"
 draft: false
 images: []
 menu:
@@ -219,7 +219,7 @@ One or more Bash/R/Python scripts to be used to test the component
 behaviour when `viash test` is invoked. Additional files of type `file`
 will be made available only during testing. Each test script should
 expect no command-line inputs, be platform-independent, and return an
-exit code &gt;0 when unexpected behaviour occurs during testing.
+exit code \>0 when unexpected behaviour occurs during testing.
 
 Example:
 

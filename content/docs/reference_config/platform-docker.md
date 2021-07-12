@@ -3,7 +3,7 @@ title: "Docker Platform"
 description: "Run a Viash component on a Docker backend platform."
 lead: "Run a Viash component on a Docker backend platform."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-07-06T10:55:49+00:00"
+lastmod: "2021-07-12T12:42:03+00:00"
 draft: false
 images: []
 menu:
@@ -88,7 +88,7 @@ Example:
 image: "bash:4.0"
 ```
 
-## target\_image \[string\]
+## target_image \[string\]
 
 If anything is specified in the `setup` section, running the `---setup`
 will result in an image with the name of `<target_image>:<version>`. If
@@ -101,7 +101,7 @@ Example:
 target_image: myfoo
 ```
 
-## target\_registry \[string\]
+## target_registry \[string\]
 
 The URL where the resulting image will be pushed to.
 
@@ -111,7 +111,7 @@ Example:
 target_registry: https://my-docker-registry.org
 ```
 
-## target\_tag \[string\]
+## target_tag \[string\]
 
 The tag the resulting image gets.
 

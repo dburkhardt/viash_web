@@ -3,7 +3,7 @@ title: "viash ns test"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-28T06:55:14+00:00"
+lastmod: "2021-07-12T12:41:50+00:00"
 draft: false
 images: []
 menu:
@@ -29,7 +29,7 @@ viash ns test [-n nmspc] [-s src] [-p docker] [--parallel] [--tsv file.tsv] [--a
 
 Append to tsv instead of overwrite
 
-### -c, –config\_mod <arg>…
+### -c, –config_mod <arg>…
 
 Modify a [viash config](/docs/reference_config/config) at runtime using
 a [custom DSL](/docs/advanced/config_mods).
@@ -40,7 +40,7 @@ Whether or not to keep temporary files. By default, files will be
 deleted if all goes well but remain when an error occurs. By specifying
 –keep true, the temporary files will always be retained, whereas –keep
 false will always delete them. The temporary directory can be
-overwritten by setting defining a VIASH\_TEMP directory.
+overwritten by setting defining a VIASH_TEMP directory.
 
 ### -l, –parallel
 
@@ -59,12 +59,12 @@ addition, the path to a platform yaml file can also be specified.
 Filter which components get selected by name and namespace. Can be a
 regex. Example: “^mynamespace/component1$”.
 
-### –query\_name <arg>
+### –query_name <arg>
 
 Filter which components get selected by name. Can be a regex. Example:
 “^component1”.
 
-### -n, –query\_namespace <arg>
+### -n, –query_namespace <arg>
 
 Filter which namespaces get selected by namespace. Can be a regex.
 Example: “^mynamespace$”.
@@ -105,8 +105,8 @@ with the results.
 In order for namespace querying to work, make sure your config files
 include a [namespace
 field](/docs/reference_config/functionality/#namespace-string). The
-command below searches the **my\_components\_dir** directory for all
-Viash components in the **my\_namespace** namespace and tests them.
+command below searches the **my_components_dir** directory for all Viash
+components in the **my_namespace** namespace and tests them.
 
 ``` bash
 viash ns test --src 'my_components_dir' --query_namespace 'my_namespace'

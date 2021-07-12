@@ -3,7 +3,7 @@ title: "Nextflow Platform"
 description: "Run a Viash component as a Nextflow module."
 lead: "Run a Viash component as a Nextflow module."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-22T08:47:15+00:00"
+lastmod: "2021-07-12T12:42:03+00:00"
 draft: false
 images: []
 menu:
@@ -84,7 +84,7 @@ launch by means of the option `--publishDir ...` or as
 
     params.publishDir = "..."
 
-## per\_id \[boolean\]
+## per_id \[boolean\]
 
 By default, a subdirectory is created corresponding to the unique ID
 that is passed in the triplet. Let us illustrate this with an example.

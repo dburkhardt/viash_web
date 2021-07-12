@@ -3,7 +3,7 @@ title: "viash build"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-22T08:42:05+00:00"
+lastmod: "2021-07-12T12:41:47+00:00"
 draft: false
 images: []
 menu:
@@ -31,7 +31,7 @@ A [viash config file](/docs/reference_config/config) (example:
 `config.vsh.yaml`). This argument can also be a script with the config
 as a header.
 
-### -c, –config\_mod <arg>…
+### -c, –config_mod <arg>…
 
 Modify a [viash config](/docs/reference_config/config) at runtime using
 a [custom DSL](/docs/advanced/config_mods). (default = List())
@@ -59,14 +59,14 @@ addition, the path to a platform yaml file can also be specified.
 Whether or not to push the container to a Docker registry \[[Docker
 platform](/docs/reference_config/platform-docker) only\].
 
-### -s, –setup
+### -s, –setup <arg>
 
-Whether or not to set up the platform environment after building the
-executable.
+Which setup strategy for creating the container to use \[[Docker
+platform](/docs/reference_config/platform-docker) only\].
 
-### -w, –write\_meta
+### -w, –write_meta
 
-Write out some meta information to RESOURCES\_DIR/viash.yaml at the end.
+Write out some meta information to RESOURCES_DIR/viash.yaml at the end.
 
 ### -h, –help
 
