@@ -35,6 +35,6 @@ The documentation for this language is still in progress.
 
 The documentation for this language is still in progress.
 
-## C\#
+## C\# script
 
 The documentation for this language is still in progress.

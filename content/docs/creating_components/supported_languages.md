@@ -3,7 +3,7 @@ title: "Supported Languages"
 description: "You can use several programming languages with Viash to write your own components."
 lead: "You can use several programming languages with Viash to write your own components."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-22T11:03:50+00:00"
+lastmod: "2021-07-19T09:52:06+00:00"
 draft: false
 images: []
 menu:
@@ -44,6 +44,6 @@ The documentation for this language is still in progress.
 
 The documentation for this language is still in progress.
 
-## C\#
+## C# script
 
 The documentation for this language is still in progress.
