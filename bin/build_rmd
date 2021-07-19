@@ -624,7 +624,7 @@ for (i in seq_along(rmds)) {
       output_file = basename(md),
       output_dir = dirname(md),
       output_format = rmarkdown::md_document(
-        variant = "gfm",
+        variant = "commonmark",
         preserve_yaml = TRUE
       )
     )

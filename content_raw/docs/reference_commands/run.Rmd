@@ -12,7 +12,6 @@ menu:
 weight: 400
 toc: true
 ---
-
 ```{r setup, include=FALSE}
 library(tidyverse)
 source("../../../src/helper/md_helpers.R")
@@ -47,7 +46,7 @@ knitr::asis_output(usage)
 
 ## Arguments 
 
-### --config  
+### \-\-config  
   
 A [viash config file](/docs/reference_config/config) (example: `config.vsh.yaml`). This argument can also be a script with the config as a header.
 
@@ -59,7 +58,8 @@ arg <- txt[seq(
   trail-1
 )] %>% 
   gsub("\\s\\s(-[^A-Z]*)\\s\\s", "\n### \\1 \n\n", .) %>% 
-  gsub(" *$", "", .) %>% 
+  gsub(" *$", "", .) %>%
+  gsub("--", "\\-\\-", .) %>%  
   paste(., collapse = "\n") %>% 
   detect_links
 knitr::asis_output(arg)
