@@ -1,0 +1,45 @@
+---
+title: "Viash 0.4.0"
+description: "Changelog of Viash 0.4.0"
+date: 2021-04-08T09:00:00+02:00
+lastmod: 2021-04-08T09:00:00+02:00
+draft: false
+images: []
+contributors: ["Viash Team"]
+---
+
+### Full changelog:
+
+#### BREAKING CHANGES
+
+* `viash ns`: Argument `--namespace` has been renamed to `--query_namespace`. 
+
+* `viash ns`: Argument `--namespace` does not implicitly change the namespace of the functionality anymore.
+  You can use the command DSL to reproduce this effect; for example: `-c '.functionality.namespace := "foo"'`.
+
+#### NEW FEATURES
+
+* Commands: A custom viash DSL allows overriding viash config properties at runtime. For example:
+
+```
+ viash ns test \
+  -p docker \
+  -c '.functionality.version := "1.0.0"' \
+  -c '.platforms[.type == "docker"].target_registry := "my.docker-registry.com"' \
+  -c '.platforms[.type == "docker"].setup_strategy := "pull"' \
+  -l
+```
+
+* `viash build`: The image can be pushed with `--push`. The same can be done by passing `---push` 
+  a viash executable.
+
+* `viash ns` can query the name, namespace, or both, with the following arguments:
+  - `--query_namespace` or `-n`: filter the namespace with a regex.
+  - `--query_name`: filter the name with a regex.
+  - `--query` or `-q`: filter the namespace/name with a regex.
+
+* Added the `project_build`, `project_clean`, `project_push` and `project_test` components to this repository.
+
+#### BUG FIXES
+
+* Allow quotes in functionality descriptions.
