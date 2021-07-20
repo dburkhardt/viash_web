@@ -6,5 +6,5 @@ date: 2021-05-25T10:00:00+00:00
 lastmod: 2021-05-25T10:00:00+00:00
 draft: false
 images: ["say-hello-to-viash.png"]
-contributors: ["Robrecht Cannoodt", "Toni Verbeiren"]
+contributors: ["Viash Team"]
 ---

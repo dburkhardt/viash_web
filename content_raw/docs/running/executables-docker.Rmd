@@ -91,7 +91,7 @@ As you can see, `/viash_automount/` is added before the path to the files so Doc
   
 By default, files created and modified by a Docker container are owned by **root**. Viash automatically changes the owner of any files defined in the config file to the user running the component or executable by default. 
   
-**Note**: Any other files your script generates will still be owned by root as Viash won't have any knowledge of them.Executables With a Docker Backend"
+**Note**: Any other files your script generates will still be owned by root as Viash won't have any knowledge of them.
 
 ## Docker setup strategies
 

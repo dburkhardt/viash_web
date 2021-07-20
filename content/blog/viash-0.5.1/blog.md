@@ -5,7 +5,7 @@ date: 2021-07-19T09:08:00+02:00
 lastmod: 2021-07-19T09:08:00+02:00
 draft: false
 images: []
-contributors: ["Eric Van de Kerckhove"]
+contributors: ["Viash Team"]
 ---
 
 Viash 0.5.1 adds support for C# scripts and fixes a few bugs.

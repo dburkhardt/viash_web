@@ -3,7 +3,7 @@ title: "Executables With a Docker Backend"
 description: ""
 lead: "The Docker backend allows you to create executables that use a Docker container to run your script in, along with any dependencies it might need."
 date: 2021-06-07T14:00:00+00:00
-lastmod: "2021-07-09T12:08:46+00:00"
+lastmod: "2021-07-20T10:29:45+00:00"
 draft: false
 images: []
 menu:
@@ -89,8 +89,8 @@ The full mount name is
 
 You can see this in action by following along any of the component
 creation guides in the **CREATING VIASH COMPONENTS** category on the
-left. The **md\_url\_checker** component prints the paths to the input
-and output files to the console.  
+left. The **md_url_checker** component prints the paths to the input and
+output files to the console.  
 When executing this command on the final Docker executable:
 
 ``` bash
@@ -114,8 +114,7 @@ in the config file to the user running the component or executable by
 default.
 
 **Note**: Any other files your script generates will still be owned by
-root as Viash won’t have any knowledge of them.Executables With a Docker
-Backend"
+root as Viash won’t have any knowledge of them.
 
 ## Docker setup strategies
 
