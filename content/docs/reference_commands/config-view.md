@@ -3,7 +3,7 @@ title: "viash config view"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-28T06:54:50+00:00"
+lastmod: "2021-07-12T12:41:48+00:00"
 draft: false
 images: []
 menu:
@@ -32,7 +32,7 @@ A [Viash config file](/docs/reference_config/config) (example:
 `config.vsh.yaml`). This argument can also be a script with the config
 as a header.
 
-### -c, –config\_mod <arg>…
+### -c, –config_mod <arg>…
 
 Modify a [viash config](/docs/reference_config/config) at runtime using
 a [custom DSL](/docs/advanced/config_mods).
@@ -62,7 +62,7 @@ fields, even those that were not given values in the config file itself:
 viash config view config.vsh.yaml
 ```
 
-For the [hello\_world example config
+For the [hello_world example config
 file](/examples/hello_world/config.vsh.yaml), this prints out the
 following:
 

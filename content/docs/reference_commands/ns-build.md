@@ -3,7 +3,7 @@ title: "viash ns build"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-28T06:55:11+00:00"
+lastmod: "2021-07-12T12:41:49+00:00"
 draft: false
 images: []
 menu:
@@ -11,6 +11,18 @@ menu:
     parent: "reference_commands"
 weight: 440
 toc: true
+---
+
+---
+date: "2021-05-28T14:00:00+00:00"
+draft: false
+lastmod: "2021-07-12T12:41:49+00:00"
+menu:
+  docs:
+    parent: reference_commands
+title: viash ns build
+toc: true
+weight: 440
 ---
 
 
@@ -25,7 +37,7 @@ viash ns build [-n nmspc] [-s src] [-t target] [-p docker] [--setup] [---push] [
 
 ## Arguments
 
-### -c, –config\_mod <arg>…
+### -c, –config_mod <arg>…
 
 Modify a [viash config](/docs/reference_config/config) at runtime using
 a [custom DSL](/docs/advanced/config_mods).
@@ -57,20 +69,20 @@ platform](/docs/reference_config/platform-docker) only\].
 Filter which components get selected by name and namespace. Can be a
 regex. Example: “^mynamespace/component1$”.
 
-### –query\_name <arg>
+### –query_name <arg>
 
 Filter which components get selected by name. Can be a regex. Example:
 “^component1”.
 
-### -n, –query\_namespace <arg>
+### -n, –query_namespace <arg>
 
 Filter which namespaces get selected by namespace. Can be a regex.
 Example: “^mynamespace$”.
 
-### –setup
+### –setup <arg>
 
-Whether or not to set up the platform environment after building the
-executable.
+Which setup strategy for creating the container to use \[[Docker
+platform](/docs/reference_config/platform-docker) only\].
 
 ### -s, –src <arg>
 
@@ -81,9 +93,9 @@ a hierarchical folder structure. Default: src/.
 
 A target directory to build the executables into. Default: target/.
 
-### -w, –write\_meta
+### -w, –write_meta
 
-Write out some meta information to RESOURCES\_DIR/viash.yaml at the end.
+Write out some meta information to RESOURCES_DIR/viash.yaml at the end.
 
 ### -h, –help
 
@@ -142,8 +154,8 @@ target
 In order for namespace querying to work, make sure your config files
 include a [namespace
 field](/docs/reference_config/functionality/#namespace-string). The
-command below searches the **my\_components\_dir** directory for all
-Viash components in the **my\_namespace** namespace and builds them into
+command below searches the **my_components_dir** directory for all Viash
+components in the **my_namespace** namespace and builds them into
 executables.
 
 ``` bash
@@ -162,7 +174,7 @@ viash ns build --query_name  "parse"
 
 This builds a Viash namespace for just the [Docker
 platform](/docs/reference_config/platform-docker) to a directory named
-**built\_namespace**:
+**built_namespace**:
 
 ``` bash
 viash ns build --platform docker --target "built_namespace"

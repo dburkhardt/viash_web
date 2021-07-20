@@ -3,7 +3,7 @@ title: "viash ns list"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-28T06:55:13+00:00"
+lastmod: "2021-07-12T12:41:49+00:00"
 draft: false
 images: []
 menu:
@@ -20,23 +20,15 @@ List a namespace containing many viash config files.
 Usage:
 
 ``` bash
-viash ns list [-n nmspc] [-s src] [-p docker] [--tsv file.tsv]
+viash ns list [-n nmspc] [-s src] [-p docker]
 ```
 
 ## Arguments
 
-### -c, –config\_mod <arg>…
+### -c, –config_mod <arg>…
 
 Modify a [viash config](/docs/reference_config/config) at runtime using
 a [custom DSL](/docs/advanced/config_mods).
-
-### -k, –keep <arg>
-
-Whether or not to keep temporary files. By default, files will be
-deleted if all goes well but remain when an error occurs. By specifying
-–keep true, the temporary files will always be retained, whereas –keep
-false will always delete them. The temporary directory can be
-overwritten by setting defining a VIASH\_TEMP directory.
 
 ### -l, –parallel
 
@@ -55,12 +47,12 @@ addition, the path to a platform yaml file can also be specified.
 Filter which components get selected by name and namespace. Can be a
 regex. Example: “^mynamespace/component1$”.
 
-### –query\_name <arg>
+### –query_name <arg>
 
 Filter which components get selected by name. Can be a regex. Example:
 “^component1”.
 
-### -n, –query\_namespace <arg>
+### -n, –query_namespace <arg>
 
 Filter which namespaces get selected by namespace. Can be a regex.
 Example: “^mynamespace$”.
@@ -69,10 +61,6 @@ Example: “^mynamespace$”.
 
 A source directory containing viash config files, possibly structured in
 a hierarchical folder structure. Default: src/.
-
-### -t, –tsv <arg>
-
-Path to write a summary of the list results to.
 
 ### -h, –help
 
@@ -127,9 +115,9 @@ After running this command, you’ll see a list similar to this:
 In order for namespace querying to work, make sure your config files
 include a [namespace
 field](/docs/reference_config/functionality/#namespace-string). The
-command below searches the **my\_components\_dir** directory for all
-Viash components in the **my\_namespace** namespace and prints out the
-config information to the terminal.
+command below searches the **my_components_dir** directory for all Viash
+components in the **my_namespace** namespace and prints out the config
+information to the terminal.
 
 ``` bash
 viash ns list --src 'my_components_dir' -n 'my_namespace'

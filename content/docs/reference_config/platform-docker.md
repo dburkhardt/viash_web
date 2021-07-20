@@ -3,7 +3,7 @@ title: "Docker Platform"
 description: "Run a Viash component on a Docker backend platform."
 lead: "Run a Viash component on a Docker backend platform."
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-22T08:47:07+00:00"
+lastmod: "2021-07-12T12:42:03+00:00"
 draft: false
 images: []
 menu:
@@ -30,8 +30,13 @@ which is explained in more depth in the following sections.
   image: bash:4.0
   version: "0.1.0"
   target_image: myorganisation/example_docker
+  target_registry: path-to-target
+  target_tag: latest
   chown: true
   port: [80, 8080]
+  registry: url-to-registry
+  tag: 4.0
+
   workdir: /app
   setup:
     - type: docker
@@ -74,7 +79,8 @@ version: "0.1.0"
 
 ## image \[string\]
 
-The base container to start from.
+The base container to start from. You can also add the tag here if you
+wish.
 
 Example:
 
@@ -82,17 +88,37 @@ Example:
 image: "bash:4.0"
 ```
 
-## target\_image \[string\]
+## target_image \[string\]
 
 If anything is specified in the `setup` section, running the `---setup`
-will result in a container with the name of `<target_image>:<version>`.
-If nothing is specified in the `setup` section, simply `image` will be
+will result in an image with the name of `<target_image>:<version>`. If
+nothing is specified in the `setup` section, simply `image` will be
 used.
 
 Example:
 
 ``` yaml
 target_image: myfoo
+```
+
+## target_registry \[string\]
+
+The URL where the resulting image will be pushed to.
+
+Example:
+
+``` yaml
+target_registry: https://my-docker-registry.org
+```
+
+## target_tag \[string\]
+
+The tag the resulting image gets.
+
+Example:
+
+``` yaml
+target_tag: 0.5.0
 ```
 
 ## chown \[boolean\]
@@ -120,6 +146,27 @@ Example:
 port:
   - 80
   - 8080
+```
+
+## registry \[string\]
+
+The URL to the a [custom Docker
+registry](https://docs.docker.com/registry/).
+
+Example:
+
+``` yaml
+registry: https://my-docker-registry.org
+```
+
+## tag \[string\]
+
+Specify a Docker image based on its tag.
+
+Example:
+
+``` yaml
+tag: 4.0
 ```
 
 ## workdir \[string\]

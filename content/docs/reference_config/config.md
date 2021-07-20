@@ -3,7 +3,7 @@ title: "Config File"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-22T11:09:14+00:00"
+lastmod: "2021-07-12T12:41:52+00:00"
 draft: false
 images: []
 menu:
@@ -89,17 +89,20 @@ Would you rather use Docker as a backend? Easy as pie!
 viash run -P docker config.vsh.yaml -- config.vsh.yaml | head -5
 ```
 
-    Unable to find image 'addrowlines:latest' locally
-    docker: Error response from daemon: pull access denied for addrowlines, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
-    See 'docker run --help'.
+    [notice] Running 'docker pull addrowlines:latest'
+    Error response from daemon: pull access denied for addrowlines, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
+    [notice] Running 'docker build -t addrowlines:latest /tmp/viashsetupdocker-addrowlines-epCiIe'
+         1  functionality:
+         2    name: addrowlines
 
 ``` bash
 viash run config.vsh.yaml -- --help
 ```
 
+    addrowlines <not versioned>
     Add rowlines to a text file.
 
     Options:
-        file
+       input
             type: file
             The input file.

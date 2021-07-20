@@ -1,16 +1,17 @@
 ---
-title: "Supported Languages"
-description: "You can use several programming languages with Viash to write your own components."
-lead: "You can use several programming languages with Viash to write your own components."
-date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-06-22T11:03:50+00:00"
+date: "2021-05-28T14:00:00+00:00"
+description: You can use several programming languages with Viash to
+  write your own components.
 draft: false
-images: []
+lastmod: "2021-07-19T11:26:50+00:00"
+lead: You can use several programming languages with Viash to write your
+  own components.
 menu:
   docs:
-    parent: "creating_components"
-weight: 306
+    parent: creating_components
+title: Supported Languages
 toc: true
+weight: 306
 ---
 
 
@@ -44,6 +45,6 @@ The documentation for this language is still in progress.
 
 The documentation for this language is still in progress.
 
-## C\#
+## C# script
 
 The documentation for this language is still in progress.
