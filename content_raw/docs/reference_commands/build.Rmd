@@ -19,30 +19,16 @@ source("../../../src/helper/md_helpers.R")
 
 knitr::opts_chunk$set(echo = FALSE)
 
-# get info from help page
-out <- processx::run("viash", c("build", "-h"))
-txt <- out$stdout %>% strsplit("\n") %>% first()
+txt <- extract_help_from_command("build")
 ```
 
 ```{r desc}
-desc <- txt[seq(
-  2,
-  grep("^Usage:", txt)-2
-)] %>% gsub("^viash ", "# viash ", .) %>% 
-  paste(., collapse = "\n") %>% 
-  detect_links
-knitr::asis_output(desc)
+knitr::asis_output(extract_description_from_help(txt))
 ```
 
 Usage: 
 ```{r usage}
-usage <- txt[seq(
-  grep("^Usage:", txt)+1,
-  grep("^Arguments:", txt)-2
-)] %>% 
-  {paste0("```bash\n", paste(str_trim(.),collapse = "\n"),"\n```\n")} %>% 
-  detect_links
-knitr::asis_output(usage)
+knitr::asis_output(extract_usage_from_help(txt))
 ```
 
 ## Arguments 
@@ -52,17 +38,7 @@ knitr::asis_output(usage)
 A [viash config file](/docs/reference_config/config) (example: `config.vsh.yaml`). This argument can also be a script with the config as a header.
 
 ```{r arg}
-trail <- grep("^ trailing arguments:", txt)
-if (length(trail) == 0) trail <- length(txt)+1
-arg <- txt[seq(
-  grep("^Arguments:", txt)+1,
-  trail-1
-)] %>% 
-  gsub("\\s\\s(-[^A-Z]*)\\s\\s", "\n### \\1 \n\n", .) %>% 
-  gsub(" *$", "", .) %>% 
-  paste(., collapse = "\n") %>% 
-  detect_links
-knitr::asis_output(arg)
+knitr::asis_output(extract_arguments_from_help(txt))
 ```
 
 ## Examples

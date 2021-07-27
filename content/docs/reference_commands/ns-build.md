@@ -3,26 +3,14 @@ title: "viash ns build"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-07-12T12:41:49+00:00"
+lastmod: "2021-07-27T09:01:13+00:00"
 draft: false
 images: []
 menu:
   docs:
     parent: "reference_commands"
 weight: 440
-toc: true
----
-
----
-date: "2021-05-28T14:00:00+00:00"
-draft: false
-lastmod: "2021-07-12T12:41:49+00:00"
-menu:
-  docs:
-    parent: reference_commands
-title: viash ns build
-toc: true
-weight: 440
+toc: true 
 ---
 
 

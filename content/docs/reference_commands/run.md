@@ -3,7 +3,7 @@ title: "viash run"
 description: ""
 lead: ""
 date: 2021-05-28T14:00:00+00:00
-lastmod: "2021-07-19T11:44:36+00:00"
+lastmod: "2021-07-26T12:01:03+00:00"
 draft: false
 images: []
 menu:
@@ -32,6 +32,30 @@ viash run config.vsh.yaml [-p docker] [-k true/false]  -- [arguments for script]
 A [viash config file](/docs/reference_config/config) (example:
 `config.vsh.yaml`). This argument can also be a script with the config
 as a header.
+
+### --verbosity
+
+Executables have 8 levels of verbosity:
+
+-   emergency
+-   alert
+-   critical
+-   error
+-   warning
+-   notice
+-   info
+-   debug
+
+The default verbosity level is **notice**. You can manually set the
+verbosity by using the `--verbosity <int_level>` option. For example, if
+you wanted to only show errors or worse:
+
+viash run config.vsh.yaml – –verbosity 3
+
+### -v, --verbose
+
+Bump up the verbosity by one level. By passing -vv the verbosity goes up
+by two levels.
 
 ### -c, –config_mod <arg>…
 

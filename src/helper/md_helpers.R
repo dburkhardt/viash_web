@@ -37,3 +37,47 @@ detect_links <- function(x) {
     gsub("For[ \n]*more[ \n]*information,[ \n]*see[ \n]*the[ \n]*online[ \n]*documentation.", "", .) %>% # We're already in the online docs ;)
     gsub("config[ \n]*mods", "[config mods](/docs/advanced/config_mods/)", .)
 }
+
+extract_help_from_command <- function(command) {
+  out <- processx::run("viash", c(command, "-h"))
+  txt <- out$stdout %>% strsplit("\n") %>% first()
+
+  return(txt)
+}
+
+extract_description_from_help <- function(txt) {
+out <- txt[seq(
+  2,
+  grep("^Usage:", txt)-2
+)] %>% gsub("^viash ", "# viash ", .) %>% 
+  detect_links 
+
+return(out)
+}
+
+extract_usage_from_help <- function(txt) {
+  out <- txt[seq(
+  grep("^Usage:", txt)+1,
+  grep("^Arguments:", txt)-2
+)] %>% 
+  {paste0("```bash\n", paste(str_trim(.),collapse = "\n"),"\n```\n")} %>% 
+  detect_links
+
+  return(out)
+}
+
+extract_arguments_from_help <- function(txt) {
+  trail <- grep("^ trailing arguments:", txt)
+  if (length(trail) == 0) trail <- length(txt)+1
+  out <- txt[seq(
+    grep("^Arguments:", txt)+1,
+    trail-1
+  )] %>% 
+    gsub("\\s\\s(-[^A-Z]*)\\s\\s", "\n### \\1 \n\n", .) %>% 
+    gsub(" *$", "", .) %>%
+    gsub("--", "\\-\\-", .) %>%  
+    paste(., collapse = "\n") %>% 
+    detect_links
+
+  return(out)
+}
